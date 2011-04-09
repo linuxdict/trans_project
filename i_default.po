@@ -1,0 +1,4348 @@
+# Opsview Core language translations
+# Copyright (C) 2003-2011 Opsera Limited. All rights reserved
+# This file is distributed under the same license as the Opsview package.
+# Ton Voon <ton.voon@opsera.com>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Opsview 3\n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2009-06-09 14:10+0000\n"
+"Last-Translator: Ton Voon <ton.voon@opsera.com>\n"
+"Language-Team: English <en@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Error running report"
+msgstr "生成报告出错"
+
+msgid "Generating report...."
+msgstr "正在生成报告......"
+
+msgid "messages.access.noAuthToChangeService"
+msgstr "你无权修改此服务的状态"
+
+msgid "messages.access.noAuthToStatusApi"
+msgstr "你无权调用状态API"
+
+#. ($hostname)
+msgid "messages.accessDeniedToHost %1"
+msgstr "你无权访问 %1 "
+
+#. ($hostname, $servicename)
+msgid "messages.accessDeniedToHostService %1 %2"
+msgstr "You do not have permission to see host %1, service %2"
+msgstr "你无权查看主机 %1, 服务 %2"
+
+msgid "messages.api.badParameters"
+msgstr "参数错误"
+
+msgid "messages.auditlog.accessDeniedNoAdmin"
+msgstr "拒绝访问 - 权限不足"
+
+#. ($c->req->uri, $c->req->address)
+msgid "messages.auditlog.accessDeniedToFrom %1 %2"
+msgstr "拒绝从 %2 到 %1"
+
+#. ($o->class_title, $o->identity_string, $attributes_dump)
+#. ($o->class_title, $o->identity_string, $audit_lines)
+msgid "messages.auditlog.admin.creatingObject %1 %2 %3"
+msgstr "创建 %1 %2: %3"
+
+#. ($o->class_title, $o->identity_string)
+msgid "messages.auditlog.admin.deletingObject %1 %2"
+msgstr "删除 %1 %2"
+
+#. ($host->identity_string, $old_monitoringserver_name, $new_monitoringserver_name,)
+msgid "messages.auditlog.admin.monitoringserver.movingHostToNewMonitoringserver %1 %2 %3"
+msgstr "Moving host %1 from monitoring server %2 to %3"
+msgstr "把主机%1从%2移动到%3上"
+
+#. ($o->class_title, $o->identity_string, $audit_lines)
+#. ($o->class_title, $o->identity_string, $attributes_dump)
+msgid "messages.auditlog.admin.updatingObject %1 %2 %3"
+msgstr "更新 %1 %2: %3"
+
+#. ($backup_time, $logfile)
+msgid "messages.auditlog.backup.failed %1 %2"
+msgstr "备份失败 %1: %2"
+
+#. ($backup_time)
+msgid "messages.auditlog.backup.restored %1"
+msgstr "恢复备份到 %1"
+
+#. ($backup_time)
+msgid "messages.auditlog.backup.starting %1"
+msgstr "开始 %1 的备份"
+
+#. ($hostname, scalar @traps)
+msgid "messages.auditlog.collectingTrapsForHost %1 %2"
+msgstr "从 %1 收集信息. 收集到: %2"
+
+#. ($group->identity_string)
+msgid "messages.auditlog.hostgroup.deleteHostgroup %1"
+msgstr "删除主机组 %1"
+
+#. ($name, $hierarchy_group->name)
+msgid "messages.auditlog.hostgroup.insertNewHostgroupIntoParent %1 %2"
+msgstr "添加新的主机组 %1 到主机组 %2"
+
+#. ($group->name, $parent->name)
+msgid "messages.auditlog.hostgroup.movingHostgroup %1 %2"
+msgstr "移动主机组 %1 到 %2"
+
+#. ($group->identity_string, $name)
+msgid "messages.auditlog.hostgroup.renameHostgroup %1 %2"
+msgstr "更改主机组名 %1: 新的组名=%2"
+
+#. ($host->identity_string, $old_hg->name, $hg->name)
+msgid "messages.auditlog.hostgroup.updatingHost %1 %2 %3"
+msgstr "更新主机组 %1: 旧的主机组=%2, 新的主机组=%3"
+
+#. ($c->req->address)
+msgid "messages.auditlog.invalidTicketFromIp %1"
+msgstr "%1 中发现无效登陆凭证"
+
+#. ($info->{uid})
+msgid "messages.auditlog.loggedIn %1"
+msgstr "用户 '%1' 通过auth_tkt登录"
+
+#. ($info->{uid}, $authtkt_default_username)
+msgid "messages.auditlog.loggedInAs %1 %2"
+msgstr "用户 '%1' 通过auth_tkt作为 '%2' 登录"
+
+#. ($c->user->username, $c->req->address)
+msgid "messages.auditlog.loggedOutFrom %1 %2"
+msgstr "用户 %1 从 %2 登出"
+
+#. ($comment, $notify, $persistent, $hosts_count, $services_count,)
+msgid "messages.auditlog.massAcknowledgement %1 %2 %3 %4 %5"
+msgstr "批量确认: 备注='%1', 通知='%2', 自动恢复='%3', 主机=%4, 服务=%5"
+
+#. ($hosts_count, $services_count,)
+msgid "messages.auditlog.massRecheck %1 %2"
+msgstr "批量重新检查: 主机=%1, 服务=%2"
+
+#. ("downtime")
+msgid "messages.auditlog.noAdminAccessDeniedTo %1"
+msgstr "无权访问 %1 - 权限不足"
+
+#. ($c->req->address)
+msgid "messages.auditlog.noUsernameFromIp %1"
+msgstr "未指定用户名 %1"
+
+#. ($c->stash->{object}->name, $start_date)
+msgid "messages.auditlog.regeneratingReportWithStartDate %1 %2"
+msgstr "生成报告 %1 从 %2 开始"
+
+#. ($error_messages)
+msgid "messages.auditlog.reload.cannotReload %1"
+msgstr "无法重载: %1"
+
+#. ($c->req->address)
+msgid "messages.auditlog.reload.invokedFromIp %1"
+msgstr "从 %1 进行第二次重载尝试"
+
+msgid "messages.auditlog.reload.restartingWebServer"
+msgstr "重启Web服务器"
+
+msgid "messages.auditlog.reload.runningAsynchronous"
+msgstr "执行异步重载"
+
+msgid "messages.auditlog.reload.runningSynchronous"
+msgstr "执行同步重载"
+
+#. ($type)
+msgid "messages.auditlog.reorder.newOrderFor %1"
+msgstr "重新排序 %1"
+
+#. ($service->identity_string, $service->servicegroup->name, $sg->name)
+msgid "messages.auditlog.servicegroup.movingServicecheck %1 %2 %3"
+msgstr "将服务器检查 %1 从服务组 %2 移动到 %3"
+
+#. ($o->identity_string)
+msgid "messages.auditlog.snmptrapexception.deleteSimilar %1"
+msgstr "删除snmptrapexecption %1 和类似的"
+
+msgid "messages.auditlog.snmptrapexception.reprocessingAll"
+msgstr "重新执行SNMP Traps"
+
+#. ($oid)
+msgid "messages.auditlog.snmptrapexception.runningPromoteMibForOid %1"
+msgstr "为OID %1 运行 promote mib"
+
+#. ($error)
+msgid "messages.auditlog.submitCheckResult.failed %1"
+msgstr "尝试提交检查结果失败: %1"
+
+#. (join( "; ", @$errors)
+msgid "messages.auditlog.submitServiceCheck.failed %1"
+msgstr "提交检查结果失败: %1"
+
+#. ($c->stash->{object}->name, $c->stash->{object}->host_object_id->name, $states_by_id->{$state}, $comment,)
+msgid "messages.auditlog.submittingServiceCheckResultOnAs %1 %2 %3 %4"
+msgstr "提交服务检查结果: %1 on %2 as %3: %4"
+
+#. ($username, $c->req->address)
+msgid "messages.auditlog.successfulLoginFrom %1 %2"
+msgstr "用户: %1 成功从 %2 登录"
+
+#. ($username, $c->req->address)
+msgid "messages.auditlog.successfulLoginViaOneTimeToken %1 %2"
+msgstr "用户: %1 使用一次性验证成功从 %2 登录" 
+
+#. ($username, $c->req->address)
+msgid "messages.auditlog.unsuccessfulLoginFrom %1 %2"
+msgstr "用户: %1 从 %2 登录失败"
+
+#. ($info->{uid})
+msgid "messages.auditlog.userNotFoundInDB %1"
+msgstr "Username '%1' via auth_tkt not found in credential DB"
+msgstr "用户名 '%1' 通过 auth_tkt 未找到"
+
+#. ($info->{uid}, $authtkt_default_username)
+msgid "messages.auditlog.userNotFoundInDBAndAuthtktDefault %1 %2"
+msgstr "用户名 '%1' 通过 auth_tkt 有效,但是未在authtkt_default_username中找到 %2" 
+
+msgid "messages.authentication.exceptionError"
+msgstr "认证错误: 联系管理员"
+
+msgid "messages.authentication.expiredTicket"
+msgstr "认证已失效"
+
+msgid "messages.authentication.invalid"
+msgstr "用户名或者密码不匹配"
+
+msgid "messages.authentication.invalidTicket"
+msgstr "无效的认证"
+
+#. ($c->req->param("app")
+msgid "messages.authentication.invalidTicketFromOtherApp %1"
+msgstr "Authentication to Opsview succeeds, but ticket is invalid for %1"
+
+msgid "messages.authentication.userDoesNotExist"
+msgstr "认证找到,但是用户不存在"
+
+msgid "messages.contact.notExist"
+msgstr "联系人不存在"
+
+#. ($ascontactname)
+msgid "messages.contact.notFound %1"
+msgstr "无法找到联系人 %1 "
+
+#. ($metrics_dir)
+msgid "messages.error.cannotReadDirectory %1"
+msgstr "无法读取目录 %1"
+
+msgid "messages.error.cannotRunCommand"
+msgstr "无法执行命令"
+
+msgid "messages.error.invalidReportId"
+msgstr "无效的报告序号"
+
+msgid "messages.error.noOutput"
+msgstr "没有输出"
+
+msgid "messages.error.noSelection"
+msgstr "没有选中"
+
+#. ($reportid)
+msgid "messages.error.reportIdAlreadyRunning %1"
+msgstr "报告 %1 已在运行中"
+
+#. (RRDs::error)
+msgid "messages.error.rrdInfoError %1"
+msgstr "RRDs::info 错误: %1"
+
+#. ("collect_traps")
+msgid "messages.generic.cannotExecute %1"
+msgstr "无法执行 %1"
+
+msgid "messages.generic.error"
+msgstr "错误"
+
+#. ("snmptrap2nagios")
+#. ("collect_traps")
+msgid "messages.generic.errorRunning %1"
+msgstr "运行 %1 时出错"
+
+msgid "messages.graph.noDatasets"
+msgstr "未找到数据集"
+
+#. ($style)
+msgid "messages.graph.styleNotExist %1"
+msgstr "%1 图表类型不存在"
+
+#. ($hostname)
+#. ($arg)
+msgid "messages.host.notFound %1"
+msgstr "主机 %1 未找到"
+
+#. ($hid)
+msgid "messages.host.notFoundById %1"
+msgstr "以 %1 为序号的主机未找到"
+
+#. ($arg)
+msgid "messages.hostgroup.nameNotFound %1"
+msgstr "主机组 %1 未找到"
+
+#. ($hgid)
+#. ($arg)
+msgid "messages.hostgroup.notFound %1"
+msgstr "以 %1 为序号的主机组未找到"
+
+#. ($name)
+msgid "messages.keyword.notFound %1"
+msgstr "关键字 %1 未找到"
+
+#. ($name)
+msgid "messages.keyword.viewportNotEnabled %1"
+msgstr "Keyword %1 does not have viewport enabled"
+
+msgid "messages.noHostname"
+msgstr "No host name specified"
+
+msgid "messages.noSnmpCommunity"
+msgstr "No SNMP community specified"
+
+msgid "messages.noSnmpVersion"
+msgstr "No SNMP version specified"
+
+msgid "messages.queryHost.emptyOutput"
+msgstr "query_host output is empty"
+
+#. ($err)
+msgid "messages.queryHost.error: %1"
+msgstr "Cannot query host: %1"
+
+msgid "messages.queryHost.incorrectOutput"
+msgstr "Incorrect output"
+
+#. ($reply->{output})
+msgid "messages.queryHost.invalidXMLData: %1"
+msgstr "query_host returned invalid XML: %1"
+
+#. ($c->stash->{object}->name)
+msgid "messages.report.runningAdhocFor %1"
+msgstr "Running adhoc report for name %1"
+
+msgid "messages.servicecheck.notExist"
+msgstr "Service check does not exist"
+
+#. ($arg)
+msgid "messages.servicecheck.notFound %1"
+msgstr "Service check %1 not found"
+
+#. ($servicecheck->name)
+msgid "messages.servicecheck.notSnmpTrapType %1"
+msgstr "Service check '%1' is not of type SNMP Trap"
+
+#. (join( ", ", @try_versions)
+msgid "messages.snmp.agentNotResponding %1"
+msgstr "SNMP agent not responding, tried versions: %1"
+
+msgid "messages.snmp.agentNotRespondingToVersion3"
+msgstr "SNMP agent not responding to version 3"
+
+msgid "messages.snmp.connectionTerminated"
+msgstr "Connection terminated by remote host"
+
+msgid "messages.snmp.errorRunningSnmpwalk"
+msgstr "Error running snmpwalk"
+
+msgid "messages.snmp.noOutputSnmpwalk"
+msgstr "No output - problem with snmpwalk"
+
+msgid "messages.snmp.unableToRunSnmpget"
+msgstr "Unable to run snmpget to test connection"
+
+msgid "messages.state.noState"
+msgstr "No new state defined"
+
+#. ($c->user->name)
+msgid "messages.submitServiceCheck.submittedBy %1"
+msgstr "State changed by %1"
+
+#. ($style)
+msgid "messages.viewportStyle.notFound %1"
+msgstr "Viewport style %1 does not exist"
+
+#. ($style)
+msgid "messages.viewportSummaryStyle.notFound %1"
+msgstr "Viewport summary style %1 does not exist"
+
+msgid "opsera"
+msgstr "Opsera"
+
+msgid "opsview"
+msgstr "Opsview"
+
+msgid "ui.about.contactInformationEmail"
+msgstr "Email"
+
+msgid "ui.about.contactInformationWeb"
+msgstr "Web"
+
+msgid "ui.about.heading.contactInformation"
+msgstr "联系人信息"
+
+msgid "ui.about.heading.licence"
+msgstr "Licence"
+
+msgid "ui.about.heading.technicalSupport"
+msgstr "技术支持"
+
+msgid "ui.about.heading.thirdpartycomponents"
+msgstr "第三方组件"
+
+#. (opsera_link)
+msgid "ui.about.opsviewDevelopedBy %1"
+msgstr "Opsview is developed by %1"
+
+msgid "ui.about.system.hosts"
+msgstr "主机数"
+
+msgid "ui.about.system.services"
+msgstr "服务数"
+
+msgid "ui.about.system.slaves"
+msgstr "从监控服务器数"
+
+msgid "ui.about.system.title"
+msgstr "关于你的系统"
+
+msgid "ui.about.system.uuid"
+msgstr "System UUID"
+
+msgid "ui.about.technicalSupportCommercialServices"
+msgstr "Commercial Services"
+
+msgid "ui.about.technicalSupportCommunityResources"
+msgstr "Community Resources"
+
+msgid "ui.about.text.copying"
+msgstr "Read the 'COPYING' file under 'docs' in the Opsview distribution or read the online version of the licence for more details."
+
+msgid "ui.about.text.licence"
+msgstr "Opsview is licenced under the terms of the GNU General Public License Version 2 as published by the Free Software Foundation. This gives you legal permission to copy, distribute and/or modify Opsview under certain conditions."
+
+msgid "ui.about.text.subversion"
+msgstr "Code that is distributed with Opsview is available from links at:"
+
+msgid "ui.about.text.thirdpartycomponents"
+msgstr "Opsview software uses components or libraries from the following software vendors and open source projects:"
+
+msgid "ui.about.text.warranty"
+msgstr "Opsview is distributed as is with no warranty of any kind, including the warranty of design, merchantability, and fitness for a particular purpose. See the GNU General Public License for more details."
+
+msgid "ui.about.title"
+msgstr "关于"
+
+msgid "ui.acknowledgements.help.sendNotification"
+msgstr "If set, a notification will be sent to all appropriate contacts"
+
+msgid "ui.acknowledgements.help.stickyAcknowledgement"
+msgstr "If set, this acknowledgement remains for all problem states. Otherwise, this acknowledgement is removed on every state change"
+
+msgid "ui.acknowledgements.label.comment"
+msgstr "备注"
+
+msgid "ui.acknowledgements.label.sendNotification"
+msgstr "发送确认通知"
+
+msgid "ui.acknowledgements.label.stickyAcknowledgement"
+msgstr "Sticky"
+
+msgid "ui.acknowledgements.label.toggleCheckboxes"
+msgstr "全选"
+
+msgid "ui.acknowledgements.message.delay"
+msgstr "可能需要稍等片刻才能生效"
+
+msgid "ui.acknowledgements.message.missingComments"
+msgstr "你必须添加备注"
+
+msgid "ui.acknowledgements.message.noItemsSelected"
+msgstr "未选中 - 确认未被发送"
+
+#. ($hosts_count, $services_count)
+msgid "ui.acknowledgements.message.submittedForHostsAndServices %1 %2"
+msgstr "已经为主机 %1 的服务 %2 提交确认信息"
+
+msgid "ui.acknowledgements.pageInformation"
+msgstr "This view only shows items for this filter in an unhandled state that you have permission to acknowledge."
+
+msgid "ui.acknowledgements.submit"
+msgstr "提交"
+
+msgid "ui.acknowledgements.table.title.host"
+msgstr "主机"
+
+msgid "ui.acknowledgements.table.title.service"
+msgstr "服务"
+
+msgid "ui.acknowledgements.table.title.status"
+msgstr "状态"
+
+msgid "ui.acknowledgements.table.title.statusInformation"
+msgstr "状态信息"
+
+msgid "ui.acknowledgements.title"
+msgstr "确认"
+
+msgid "ui.admin.adnmptrapexception.help.reprocessingAllTraps"
+msgstr "Re-processing all traps. Click OK to reload"
+
+#. (i)
+msgid "ui.admin.attribute.edit.label.attributeLabel %1"
+msgstr "Label %1"
+
+#. (i)
+msgid "ui.admin.attribute.edit.label.defaultArg %1"
+msgstr "Default Arg%1"
+
+msgid "ui.admin.attribute.edit.label.defaultValue"
+msgstr "Default Value"
+
+msgid "ui.admin.attribute.edit.label.name"
+msgstr "名字"
+
+msgid "ui.admin.attribute.list.help.internallyGeneratedAttribute"
+msgstr "This attribute is internally generated"
+
+msgid "ui.admin.attribute.message.cannotDeleteAsInternallyUsed"
+msgstr "Cannot delete this as this attribute is internally used"
+
+msgid "ui.admin.attribute.message.cannotDeleteAsServicechecksReferencing"
+msgstr "Cannot delete this as this attribute is referenced in some service checks"
+
+msgid "ui.admin.attribute.table.title.attribute"
+msgstr "属性"
+
+msgid "ui.admin.attribute.table.title.hosts"
+msgstr "主机"
+
+msgid "ui.admin.attribute.table.title.servicechecks"
+msgstr "Service Checks"
+
+msgid "ui.admin.auditlog.button.restore"
+msgstr "恢复"
+
+msgid "ui.admin.auditlog.help.confirmRestoreDatabase"
+msgstr "Are you sure you want to restore the configuration database? You must reload Opsview when the restore has completed"
+
+msgid "ui.admin.auditlog.help.filterByUsername"
+msgstr "Filter current list by this username"
+
+msgid "ui.admin.auditlog.help.seeAllRecordsAroundEntry"
+msgstr "See all records around this entry"
+
+msgid "ui.admin.auditlog.help.systemUsername"
+msgstr "系统"
+
+#. ($around_id)
+msgid "ui.admin.auditlog.label.filter.around %1"
+msgstr "around id=%1"
+
+#. ($search_string)
+msgid "ui.admin.auditlog.label.filter.searchString %1"
+msgstr "search for %1"
+
+#. ($username)
+msgid "ui.admin.auditlog.label.filter.username %1"
+msgstr "username is %1"
+
+msgid "ui.admin.auditlog.label.removeFilters"
+msgstr "Remove Filters"
+
+msgid "ui.admin.auditlog.list.title"
+msgstr "审计日志"
+
+msgid "ui.admin.auditlog.table.title.datetime"
+msgstr "日期 / 时间"
+
+msgid "ui.admin.auditlog.table.title.text"
+msgstr "文本"
+
+msgid "ui.admin.auditlog.table.title.username"
+msgstr "用户名"
+
+msgid "ui.admin.button.down"
+msgstr "宕机"
+
+msgid "ui.admin.button.up"
+msgstr "运行"
+
+msgid "ui.admin.contact.edit.authorisedServicegroups"
+msgstr "Authorised for Service Groups"
+
+msgid "ui.admin.contact.edit.error.passwordNotMatch"
+msgstr "Passwords do not match - please re-enter"
+
+#. (vhash.notificationmethods.join(", ")
+msgid "ui.admin.contact.edit.heading.notificationmethodRequiredFor %1"
+msgstr "Required for: %1"
+
+msgid "ui.admin.contact.edit.help.immediatePasswords"
+msgstr "Password changes take effect immediately"
+
+msgid "ui.admin.contact.edit.help.notificationLevel"
+msgstr "Contact will receive notifications starting from this alert number"
+
+msgid "ui.admin.contact.edit.help.notificationPeriod"
+msgstr "When notifications will be sent to this contact"
+
+msgid "ui.admin.contact.edit.help.requireReload"
+msgstr "Changes to notifications require Opsview to be reloaded by an administrator."
+
+msgid "ui.admin.contact.edit.label.allHostgroups"
+msgstr "所有主机组"
+
+msgid "ui.admin.contact.edit.label.allKeywords"
+msgstr "所有关键字"
+
+msgid "ui.admin.contact.edit.label.allServicegroups"
+msgstr "所有服务组"
+
+msgid "ui.admin.contact.edit.label.authenticationRealm"
+msgstr "Authentication Realm"
+
+msgid "ui.admin.contact.edit.label.authorisedHostgroups"
+msgstr "Authorised for Host Groups"
+
+msgid "ui.admin.contact.edit.label.authorisedKeywords"
+msgstr "Authorised for Keywords"
+
+msgid "ui.admin.contact.edit.label.comments"
+msgstr "注释"
+
+msgid "ui.admin.contact.edit.label.confirmPassword"
+msgstr "确认密码"
+
+msgid "ui.admin.contact.edit.label.hostNotificationOptions"
+msgstr "在主机状态中通知:"
+
+msgid "ui.admin.contact.edit.label.initialPassword"
+msgstr "设置初始密码"
+
+msgid "ui.admin.contact.edit.label.language"
+msgstr "语言"
+
+msgid "ui.admin.contact.edit.label.name"
+msgstr "名称"
+
+msgid "ui.admin.contact.edit.label.notificationLevel"
+msgstr "接收警告"
+
+msgid "ui.admin.contact.edit.label.notificationPeriod"
+msgstr "通知时间段"
+
+msgid "ui.admin.contact.edit.label.resetPassword"
+msgstr "重设密码"
+
+msgid "ui.admin.contact.edit.label.role"
+msgstr "角色"
+
+msgid "ui.admin.contact.edit.label.serviceNotificationOptions"
+msgstr "Notify for Service On"
+
+msgid "ui.admin.contact.edit.label.username"
+msgstr "用户名"
+
+msgid "ui.admin.contact.edit.message.submitAndEditNotificationProfiles"
+msgstr "Submit and Edit Notification Profiles"
+
+msgid "ui.admin.contact.label.cannotDeleteAuthtktUser"
+msgstr "Cannot delete as contact is used as the default authtkt username"
+
+msgid "ui.admin.contact.label.cannotDeleteCurrentUser"
+msgstr "Cannot delete as this is the current user"
+
+msgid "ui.admin.contact.list.title"
+msgstr "联系人"
+
+msgid "ui.admin.contact.menu.createNewNotificationProfile"
+msgstr "Create new notification profile"
+
+msgid "ui.admin.contact.menu.listNotificationProfiles"
+msgstr "List notification profiles"
+
+msgid "ui.admin.contact.notifications.needToCreateNotificationProfile"
+msgstr "Enter common contact information here. Create a notification profile to choose which objects you will get alerted for."
+
+msgid "ui.admin.contact.table.title.fullname"
+msgstr "全名"
+
+msgid "ui.admin.contact.table.title.notificationProfiles"
+msgstr "配置文件"
+
+msgid "ui.admin.contact.table.title.realm"
+msgstr "认证"
+
+msgid "ui.admin.contact.table.title.role"
+msgstr "角色"
+
+msgid "ui.admin.contact.table.title.username"
+msgstr "用户名"
+
+#. ($c->stash->{title_description}, $c->stash->{object}->name)
+msgid "ui.admin.description.clone %1 %2"
+msgstr "从 %2 中新克隆 %1 "
+
+msgid "ui.admin.description.edit"
+msgstr "编辑"
+
+#. ($c->stash->{title_description})
+msgid "ui.admin.description.new %1"
+msgstr "新建 %1"
+
+msgid "ui.admin.edit.action.hideMacros"
+msgstr "隐藏宏"
+
+msgid "ui.admin.edit.action.showMacros"
+msgstr "显示宏帮助"
+
+msgid "ui.admin.edit.button.applyNow"
+msgstr "应用"
+
+msgid "ui.admin.edit.button.next"
+msgstr "下一步"
+
+msgid "ui.admin.edit.button.submit"
+msgstr "提交"
+
+msgid "ui.admin.edit.button.submitChanges"
+msgstr "提交更改"
+
+msgid "ui.admin.edit.functions.label.toggleAll"
+msgstr "全选"
+
+msgid "ui.admin.edit.help.chooseFromList"
+msgstr "从列表中选取"
+
+msgid "ui.admin.edit.help.objectLockedFromEdit"
+msgstr "此目标不能被编辑"
+
+msgid "ui.admin.edit.label.critical"
+msgstr "严重"
+
+msgid "ui.admin.edit.label.down"
+msgstr "宕机"
+
+msgid "ui.admin.edit.label.exampleTrap"
+msgstr "Example Trap"
+
+msgid "ui.admin.edit.label.flapping"
+msgstr "反复"
+
+msgid "ui.admin.edit.label.recovery"
+msgstr "恢复"
+
+msgid "ui.admin.edit.label.unknown"
+msgstr "未知"
+
+msgid "ui.admin.edit.label.unreachable"
+msgstr "无法到达"
+
+msgid "ui.admin.edit.label.warning"
+msgstr "警告"
+
+msgid "ui.admin.edit.tab.help.more"
+msgstr "更多页面在下一屏"
+
+msgid "ui.admin.edit.tab.help.next"
+msgstr "这些页面在下一屏"
+
+msgid "ui.admin.edit.validation.durationSyntaxInvalid"
+msgstr "无效的时间段语法"
+
+msgid "ui.admin.edit.validation.generalFailure"
+msgstr "验证失败"
+
+msgid "ui.admin.edit.validation.invalidCharacters"
+msgstr "无效字符"
+
+msgid "ui.admin.edit.validation.invalidCharactersOnlyAlphanumericsDash"
+msgstr "只允许字母或者_"
+
+msgid "ui.admin.edit.validation.invalidCharactersOnlyAlphanumericsOrPeriodDash"
+msgstr "无效字符 - 只能用字母或者: .-"
+
+msgid "ui.admin.edit.validation.invalidCharactersOnlyAlphanumericsOrPeriodDashSpaceDollar"
+msgstr "只能用字母, 空格或者: $.-"
+
+msgid "ui.admin.edit.validation.invalidCharactersOnlyAlphanumericsOrPeriodPlusUnderscoreDash"
+msgstr "只允许用字母或者: .+_-"
+
+msgid "ui.admin.edit.validation.invalidCharactersOnlyAlphanumericsOrSpaceDashPeriodSlashPlus"
+msgstr "只允许用字母,空格或者: -./+"
+
+msgid "ui.admin.edit.validation.invalidCurlyBrackets"
+msgstr "不能使用 '{' 或 '}'"
+
+msgid "ui.admin.edit.validation.invalidDateTime"
+msgstr "无效的时间格式"
+
+msgid "ui.admin.edit.validation.invalidEmail"
+msgstr "无效的邮箱格式"
+
+msgid "ui.admin.edit.validation.invalidURL"
+msgstr "必须全URL, 例如 http://server.domain/path?key=value"
+
+msgid "ui.admin.edit.validation.nonUniqueName"
+msgstr "名字不唯一"
+
+msgid "ui.admin.edit.validation.nonUniqueUsername"
+msgstr "用户名不唯一"
+
+msgid "ui.admin.edit.validation.requireCommand"
+msgstr "必须指定命令"
+
+msgid "ui.admin.edit.validation.requireEightCharacters"
+msgstr "必须8字符长"
+
+msgid "ui.admin.edit.validation.requireNumberNoLeadingZeros"
+msgstr "Must be 1 or more (no leading 0s)"
+
+msgid "ui.admin.edit.validation.requireProtocol"
+msgstr "Must start with a protocol, eg 'http://'"
+
+msgid "ui.admin.edit.validation.required"
+msgstr "This field is required"
+
+msgid "ui.admin.exceptions.label.arguments"
+msgstr "Arguments"
+
+msgid "ui.admin.exceptions.label.hostException"
+msgstr "Host Exception"
+
+msgid "ui.admin.exceptions.label.hostExcludedServiceCheck"
+msgstr "Host Excluded Service Check"
+
+msgid "ui.admin.exceptions.label.hostTemplateException"
+msgstr "Host Template Exception"
+
+msgid "ui.admin.exceptions.label.hostTemplateTimedOverride"
+msgstr "Host Template Timed Override"
+
+msgid "ui.admin.exceptions.label.hostTimedOverride"
+msgstr "Host Timed Override"
+
+msgid "ui.admin.exceptions.label.name"
+msgstr "名字"
+
+msgid "ui.admin.exceptions.label.notApplicable"
+msgstr "未知"
+
+msgid "ui.admin.exceptions.label.timeperiod"
+msgstr "时间段"
+
+msgid "ui.admin.exceptions.label.type"
+msgstr "类型"
+
+msgid "ui.admin.graph.title"
+msgstr "ODW Service Graph"
+
+msgid "ui.admin.help.examples"
+msgstr "示例"
+
+msgid "ui.admin.help.minutes"
+msgstr "分"
+
+msgid "ui.admin.help.noItems"
+msgstr "没有此项"
+
+msgid "ui.admin.help.seconds"
+msgstr "秒"
+
+msgid "ui.admin.host.edit.action.queryHost"
+msgstr "查询主机"
+
+msgid "ui.admin.host.edit.action.rescan"
+msgstr "重新扫描"
+
+msgid "ui.admin.host.edit.action.snmpWalk"
+msgstr "SNMP Walk"
+
+msgid "ui.admin.host.edit.action.testSNMP"
+msgstr "Test SNMP connection"
+
+msgid "ui.admin.host.edit.help.blankHost"
+msgstr "空表示假设主机永久处在运行状态"
+
+msgid "ui.admin.host.edit.help.checkOnDemand"
+msgstr "0 means to only check host on demand"
+msgstr "0 表示按需检查"
+
+msgid "ui.admin.host.edit.help.chooseHosttemplatesFromList"
+msgstr "Choose host templates from list"
+msgstr "从列表中选择主机模板"
+
+msgid "ui.admin.host.edit.help.flapDetection"
+msgstr "Will disable notifications if service is changing frequently between states"
+msgstr "如果服务状态改变太频繁将禁用通知"
+
+msgid "ui.admin.host.edit.help.notificationPeriod"
+msgstr "When notifications will be sent"
+
+msgid "ui.admin.host.edit.help.renotificationInterval"
+msgstr "Interval before re-notifying when host is down or unreachable. 0 disables this feature"
+
+msgid "ui.admin.host.edit.helpline.chooseParentsFromList"
+msgstr "从列表中选择父节点"
+
+msgid "ui.admin.host.edit.helpline.filterByMonitoringserver"
+msgstr "以监控服务器为过滤条件"
+
+msgid "ui.admin.host.edit.helpline.filterByParents"
+msgstr "通过父节点过滤"
+
+msgid "ui.admin.host.edit.helpline.isMasterMonitoringServer"
+msgstr "这是一个主监控服务器"
+
+msgid "ui.admin.host.edit.helpline.isSlaveMonitoringServer"
+msgstr "这是一个从监控服务器"
+
+msgid "ui.admin.host.edit.helpline.name"
+msgstr "Unique identifier used by Nagios (required)"
+
+msgid "ui.admin.host.edit.helpline.orEnterNew"
+msgstr "或者添加新的"
+
+msgid "ui.admin.host.edit.helpline.otherAddresses"
+msgstr "Other network addresses for this host, comma separated"
+
+msgid "ui.admin.host.edit.helpline.primaryHostname"
+msgstr "网络地址 (必需)"
+
+msgid "ui.admin.host.edit.hostattributes.label.addNewAttribute"
+msgstr "添加新的属性"
+
+msgid "ui.admin.host.edit.hostattributes.label.name"
+msgstr "标签"
+
+msgid "ui.admin.host.edit.hostattributes.label.value"
+msgstr "值"
+
+msgid "ui.admin.host.edit.interfaces.critical.duplicateNames"
+msgstr "There are duplicate names in the interface SNMP table which has some limitations."
+
+msgid "ui.admin.host.edit.interfaces.heading.criticalThreshold"
+msgstr "严重"
+
+msgid "ui.admin.host.edit.interfaces.heading.discards"
+msgstr "放弃修改"
+
+msgid "ui.admin.host.edit.interfaces.heading.errors"
+msgstr "错误"
+
+msgid "ui.admin.host.edit.interfaces.heading.help.discards"
+msgstr "> # per minute in one polling cycle"
+
+msgid "ui.admin.host.edit.interfaces.heading.help.errors"
+msgstr "> # per minute in one polling cycle"
+
+msgid "ui.admin.host.edit.interfaces.heading.help.throughput"
+msgstr "> % or bits per second"
+
+msgid "ui.admin.host.edit.interfaces.heading.throughput"
+msgstr "吞吐量"
+
+msgid "ui.admin.host.edit.interfaces.heading.toPoll"
+msgstr "Interfaces to poll"
+
+msgid "ui.admin.host.edit.interfaces.heading.warningThreshold"
+msgstr "警告"
+
+msgid "ui.admin.host.edit.interfaces.help.successfulTestConnection"
+msgstr "成功通过SNMP连接!"
+
+msgid "ui.admin.host.edit.interfaces.help.systemDescription"
+msgstr "系统描述"
+
+msgid "ui.admin.host.edit.interfaces.noInterfacesFound"
+msgstr "No interfaces found - click Query Host to start scanning for interfaces"
+
+msgid "ui.admin.host.edit.label.alias"
+msgstr "描述"
+
+msgid "ui.admin.host.edit.label.checkInterval"
+msgstr "检查时间间隔"
+
+msgid "ui.admin.host.edit.label.checkPeriod"
+msgstr "检查时间段"
+
+msgid "ui.admin.host.edit.label.enableSNMP"
+msgstr "启用SNMP"
+
+msgid "ui.admin.host.edit.label.flapDetection"
+msgstr "反复检测"
+
+msgid "ui.admin.host.edit.label.hostAttributes"
+msgstr "主机属性"
+
+msgid "ui.admin.host.edit.label.hostCheckCommand"
+msgstr "检查主机命令"
+
+msgid "ui.admin.host.edit.label.hostgroup"
+msgstr "主机组"
+
+msgid "ui.admin.host.edit.label.hosttemplates"
+msgstr "主机模板"
+
+msgid "ui.admin.host.edit.label.icon"
+msgstr "图标"
+
+msgid "ui.admin.host.edit.label.keywords"
+msgstr "关键字"
+
+msgid "ui.admin.host.edit.label.maxCheckAttempts"
+msgstr "最大尝试次数"
+
+msgid "ui.admin.host.edit.label.monitoringServers"
+msgstr "监控服务器"
+
+msgid "ui.admin.host.edit.label.name"
+msgstr "主机标题"
+
+msgid "ui.admin.host.edit.label.nmisHostType"
+msgstr "主机类型"
+
+msgid "ui.admin.host.edit.label.nmisRouter"
+msgstr "路由器 / 防火墙"
+
+msgid "ui.admin.host.edit.label.nmisServer"
+msgstr "服务器"
+
+msgid "ui.admin.host.edit.label.nmisSwitch"
+msgstr "交换机"
+
+msgid "ui.admin.host.edit.label.notificationPeriod"
+msgstr "通知时间段"
+
+msgid "ui.admin.host.edit.label.notifyOn"
+msgstr "Notify On"
+
+msgid "ui.admin.host.edit.label.otherAddresses"
+msgstr "Other Hostnames/IPs"
+
+msgid "ui.admin.host.edit.label.parents"
+msgstr "Parents"
+
+msgid "ui.admin.host.edit.label.primaryHostname"
+msgstr "Primary Hostname/IP"
+
+msgid "ui.admin.host.edit.label.renotificationInterval"
+msgstr "重新通知间隔"
+
+msgid "ui.admin.host.edit.label.retryInterval"
+msgstr "重试间隔"
+
+msgid "ui.admin.host.edit.label.snmpAuthenticationPassword"
+msgstr "认证密码"
+
+msgid "ui.admin.host.edit.label.snmpAuthenticationProtocol"
+msgstr "认证协议"
+
+msgid "ui.admin.host.edit.label.snmpCommunity"
+msgstr "SNMP Community"
+
+msgid "ui.admin.host.edit.label.snmpPort"
+msgstr "SNMP 端口"
+
+msgid "ui.admin.host.edit.label.snmpPrivacyPassword"
+msgstr "隐私密码"
+
+msgid "ui.admin.host.edit.label.snmpPrivacyProtocol"
+msgstr "隐私协议"
+
+msgid "ui.admin.host.edit.label.snmpUser"
+msgstr "用户名"
+
+msgid "ui.admin.host.edit.label.snmpVersion"
+msgstr "SNMP 版本"
+
+msgid "ui.admin.host.edit.label.useMRTG"
+msgstr "对接口使用MRTG"
+
+msgid "ui.admin.host.edit.label.useNMIS"
+msgstr "对接口使用NMIS"
+
+msgid "ui.admin.host.edit.message.noHostAttributes"
+msgstr "没有主机属性"
+
+msgid "ui.admin.host.edit.message.submitAndEditHostInterfaces"
+msgstr "编辑提交主机接口"
+
+msgid "ui.admin.host.help.exception"
+msgstr "例外"
+
+msgid "ui.admin.host.help.excluded"
+msgstr "排除"
+
+msgid "ui.admin.host.help.noManagementUrls"
+msgstr "没定义管理URL"
+
+msgid "ui.admin.host.help.notInAnyTemplates"
+msgstr "没在其他的模板中"
+
+msgid "ui.admin.host.help.removedFrom"
+msgstr "从中移除"
+
+msgid "ui.admin.host.help.selectTemplate"
+msgstr "必须选中模板查看"
+
+msgid "ui.admin.host.help.templateDetails"
+msgstr "模板详情"
+
+msgid "ui.admin.host.help.timedOverride"
+msgstr "Timed Override"
+
+msgid "ui.admin.host.interfaces.defaultThresholds"
+msgstr "默认阀值"
+
+msgid "ui.admin.host.interfaces.overview"
+msgstr "This page configures the interfaces on a host which are queried via SNMP. You can select which interfaces are monitored, the alert levels for throughput, errors and discards, either using the default levels or custom levels per interface. For the interfaces to be regularly checked, you have to associate the Interface, Errors and Discards service checks with each host. Interfaces configured here can be referenced from the INTERFACE host attribute."
+
+msgid "ui.admin.host.interfaces.validation.error.discards"
+msgstr "仅数字"
+
+msgid "ui.admin.host.interfaces.validation.error.throughput"
+msgstr "仅数字和百分比"
+
+msgid "ui.admin.host.label.excludedServiceCheck"
+msgstr "已排除的服务检"
+
+msgid "ui.admin.host.label.serviceCheckExcludedFromHostTemplates"
+msgstr "从主机模板中排除的服务检查"
+
+msgid "ui.admin.host.list.title"
+msgstr "主机列表"
+
+msgid "ui.admin.host.menu.editHostInterfaces"
+msgstr "编辑主机接口"
+
+msgid "ui.admin.host.menu.help.noStatus"
+msgstr "目前没有状态 - 需要重载"
+
+msgid "ui.admin.host.menu.resolveServiceChecks"
+msgstr "Resolve service checks"
+
+msgid "ui.admin.host.menu.status"
+msgstr "查看状态"
+
+msgid "ui.admin.host.message.cannotDeleteAsMonitoringServer"
+msgstr "You cannot delete this host as it is a monitoring server"
+
+msgid "ui.admin.host.queryhost.title.editHostInterfaces"
+msgstr "编辑主机接口"
+
+msgid "ui.admin.host.table.title.host"
+msgstr "主机"
+
+msgid "ui.admin.host.table.title.hostgroup"
+msgstr "主机组"
+
+msgid "ui.admin.host.table.title.hostip"
+msgstr "网络地址"
+
+msgid "ui.admin.host.table.title.hosttemplates"
+msgstr "主机模板"
+
+#. ($o->name)
+msgid "ui.admin.host.title.resolvedServices %1"
+msgstr "Resolved services for %1"
+
+msgid "ui.admin.hostcheckcommand.edit.label.arguments"
+msgstr "参数"
+
+msgid "ui.admin.hostcheckcommand.edit.label.name"
+msgstr "名字"
+
+msgid "ui.admin.hostcheckcommand.edit.label.plugin"
+msgstr "插件"
+
+msgid "ui.admin.hostcheckcommand.help.listHosts"
+msgstr "列出主机"
+
+msgid "ui.admin.hostcheckcommand.list.title"
+msgstr "主机检查命令"
+
+msgid "ui.admin.hostcheckcommand.table.title.hostcheckcommand"
+msgstr "主机检查命令"
+
+msgid "ui.admin.hostcheckcommand.table.title.hosts"
+msgstr "主机"
+
+msgid "ui.admin.hostcheckcommand.table.title.summary"
+msgstr "概况"
+
+msgid "ui.admin.hostgroup.edit.label.name"
+msgstr "名字"
+
+#. ($name)
+msgid "ui.admin.hostgroup.error.leafNameAlreadyUsed %1"
+msgstr "名字已经被叶子主机组 %1 使用"
+
+msgid "ui.admin.hostgroup.graph.addChild"
+msgstr "添加子组"
+
+msgid "ui.admin.hostgroup.graph.button.add"
+msgstr "添加"
+
+msgid "ui.admin.hostgroup.graph.button.rename"
+msgstr "重命名"
+
+#. (object.name)
+msgid "ui.admin.hostgroup.graph.deleteHostgroupWithInheritance %1"
+msgstr "你确认要删除主机组 '%1'? (子节点也将被删除)"
+
+msgid "ui.admin.hostgroup.graph.help.addInto"
+msgstr "添加到"
+
+msgid "ui.admin.hostgroup.graph.help.rename"
+msgstr "重命名"
+
+msgid "ui.admin.hostgroup.graph.removeHostgroup"
+msgstr "删除组"
+
+#. (object.name)
+msgid "ui.admin.hostgroup.graph.rename %1"
+msgstr "重命名 '%1'"
+
+msgid "ui.admin.hostgroup.graph.title"
+msgstr "Host Groups Hierarchy"
+
+msgid "ui.admin.hostgroup.list.help.cannotDeleteHostsStillUsing"
+msgstr "Cannot delete as there are hosts using this host group"
+
+msgid "ui.admin.hostgroup.list.table.title.hostgroup"
+msgstr "主机组"
+
+msgid "ui.admin.hostgroup.list.table.title.hosts"
+msgstr "主机"
+
+msgid "ui.admin.hostgroup.list.title"
+msgstr "主机组"
+
+msgid "ui.admin.hosttemplate.alert.duplicateURLNames"
+msgstr "There are duplicate URL names - please ensure they are unique"
+
+msgid "ui.admin.hosttemplate.edit.help.availabileMacros"
+msgstr "Available macros are"
+
+msgid "ui.admin.hosttemplate.edit.help.hideMacroHelp"
+msgstr "Hide Macro Help"
+
+msgid "ui.admin.hosttemplate.edit.help.managementurlName"
+msgstr "Webadmin"
+
+msgid "ui.admin.hosttemplate.edit.help.showMacroHelp"
+msgstr "Show URL macro help"
+
+msgid "ui.admin.hosttemplate.edit.help.warningMacrosNotPrivate1"
+msgstr "WARNING - These macros will be seen by all contacts assigned to these hosts."
+
+msgid "ui.admin.hosttemplate.edit.help.warningMacrosNotPrivate2"
+msgstr "Be careful assigning private data"
+
+msgid "ui.admin.hosttemplate.edit.label.addNewManagementURL"
+msgstr "Add new management URL"
+
+msgid "ui.admin.hosttemplate.edit.label.description"
+msgstr "Description"
+
+msgid "ui.admin.hosttemplate.edit.label.hosts"
+msgstr "主机"
+
+msgid "ui.admin.hosttemplate.edit.label.managementurl"
+msgstr "Management URLs"
+
+msgid "ui.admin.hosttemplate.edit.label.name"
+msgstr "名字"
+
+msgid "ui.admin.hosttemplate.edit.managementurl.label.name"
+msgstr "名字"
+
+msgid "ui.admin.hosttemplate.edit.managementurl.label.url"
+msgstr "URL"
+
+msgid "ui.admin.hosttemplate.edit.message.noManagementUrls"
+msgstr "No management URLs"
+
+msgid "ui.admin.hosttemplate.list.title"
+msgstr "Host Templates"
+
+msgid "ui.admin.hosttemplate.table.help.servicechecks"
+msgstr "Service checks"
+
+msgid "ui.admin.hosttemplate.table.title.description"
+msgstr "Description"
+
+msgid "ui.admin.hosttemplate.table.title.hosts"
+msgstr "主机"
+
+msgid "ui.admin.hosttemplate.table.title.servicechecks"
+msgstr "SCs"
+
+msgid "ui.admin.hosttemplate.table.title.template"
+msgstr "Template"
+
+msgid "ui.admin.hosttemplate.table.title.urls"
+msgstr "URLs"
+
+msgid "ui.admin.hypergraph.title.networkMap"
+msgstr "Network Map"
+
+msgid "ui.admin.hypergraph.title.parentTree"
+msgstr "Parent Tree"
+
+msgid "ui.admin.keyword.edit.help.allHosts"
+msgstr "All hosts with these service checks will be tagged with this keyword"
+
+msgid "ui.admin.keyword.edit.help.allServiceChecks"
+msgstr "All service checks on these hosts will be tagged with this keyword"
+
+msgid "ui.admin.keyword.edit.help.filterBySelectedHosts"
+msgstr "Filter by selected hosts"
+
+msgid "ui.admin.keyword.edit.label.allHosts"
+msgstr "All Hosts"
+
+msgid "ui.admin.keyword.edit.label.allServicechecks"
+msgstr "All Service Checks"
+
+msgid "ui.admin.keyword.edit.label.hosts"
+msgstr "主机"
+
+msgid "ui.admin.keyword.edit.label.roles"
+msgstr "角色"
+
+msgid "ui.admin.keyword.edit.label.servicechecks"
+msgstr "Service Checks"
+
+msgid "ui.admin.keyword.label.description"
+msgstr "Description"
+
+msgid "ui.admin.keyword.label.disable"
+msgstr "Disable"
+
+msgid "ui.admin.keyword.label.enable"
+msgstr "Enable"
+
+msgid "ui.admin.keyword.label.name"
+msgstr "名字"
+
+msgid "ui.admin.keyword.label.style"
+msgstr "Style"
+
+msgid "ui.admin.keyword.label.viewport"
+msgstr "Viewport"
+
+msgid "ui.admin.keyword.list.label.all"
+msgstr "All"
+
+msgid "ui.admin.keyword.list.label.delete"
+msgstr "Deleting this keyword will also remove its association with its hosts and service checks. Are you sure?"
+
+msgid "ui.admin.keyword.list.title"
+msgstr "关键字"
+
+msgid "ui.admin.keyword.table.title.description"
+msgstr "Description"
+
+msgid "ui.admin.keyword.table.title.hosts"
+msgstr "主机"
+
+msgid "ui.admin.keyword.table.title.keyword"
+msgstr "Keyword"
+
+msgid "ui.admin.keyword.table.title.roles"
+msgstr "角色"
+
+msgid "ui.admin.keyword.table.title.servicechecks"
+msgstr "Service Checks"
+
+msgid "ui.admin.keyword.table.title.totalservices"
+msgstr "Total Services"
+
+msgid "ui.admin.keyword.table.title.viewportStyle"
+msgstr "Viewport Style"
+
+msgid "ui.admin.label.delete"
+msgstr "Delete"
+
+msgid "ui.admin.label.indicator"
+msgstr "Indicator"
+
+#. ($c->stash->{title_description})
+msgid "ui.admin.list.createNew %1"
+msgstr "Create new %1"
+
+#. (object_name)
+msgid "ui.admin.list.label.clone %1"
+msgstr "Clone %1"
+
+#. (object_name)
+msgid "ui.admin.list.label.delete %1"
+msgstr "Delete %1"
+
+#. ((new_name || object_name)
+msgid "ui.admin.list.label.delete.confirm %1"
+msgstr "Are you sure you want to delete `%1`?"
+
+#. ($c->stash->{object}->name)
+#. ($o->name)
+#. (object_name)
+msgid "ui.admin.list.label.edit %1"
+msgstr "Edit %1"
+
+msgid "ui.admin.list.label.unnamedObject"
+msgstr "Unnamed"
+
+msgid "ui.admin.list.pages"
+msgstr "Pages"
+
+msgid "ui.admin.list.pagesAll"
+msgstr "all"
+
+msgid "ui.admin.list.reorder"
+msgstr "Reorder"
+
+msgid "ui.admin.module.edit.label.access"
+msgstr "Access"
+
+msgid "ui.admin.module.edit.label.description"
+msgstr "Description"
+
+msgid "ui.admin.module.edit.label.enabled"
+msgstr "Enabled"
+
+msgid "ui.admin.module.edit.label.name"
+msgstr "名字"
+
+msgid "ui.admin.module.edit.label.namespace"
+msgstr "Namespace"
+
+msgid "ui.admin.module.edit.label.url"
+msgstr "URL"
+
+msgid "ui.admin.module.table.title.description"
+msgstr "Description"
+
+msgid "ui.admin.module.table.title.enabled"
+msgstr "Enabled"
+
+msgid "ui.admin.module.table.title.module"
+msgstr "Module"
+
+msgid "ui.admin.monitoringserver.edit.help.clusterNodes"
+msgstr "Use CNTRL to select multiple nodes"
+
+msgid "ui.admin.monitoringserver.edit.label.activated"
+msgstr "Activated"
+
+msgid "ui.admin.monitoringserver.edit.label.clusterNodes"
+msgstr "Cluster Nodes"
+
+msgid "ui.admin.monitoringserver.edit.label.host"
+msgstr "主机"
+
+msgid "ui.admin.monitoringserver.edit.label.name"
+msgstr "名字"
+
+msgid "ui.admin.monitoringserver.edit.label.passive"
+msgstr "Passive"
+
+msgid "ui.admin.monitoringserver.edit.message.isMasterMonitoringServer"
+msgstr "This is the master monitoring server"
+
+msgid "ui.admin.monitoringserver.edit.message.isSlave"
+msgstr "This is a slave"
+
+msgid "ui.admin.monitoringserver.edit.message.isSlaveCluster"
+msgstr "This is a slave cluster"
+
+msgid "ui.admin.monitoringserver.edit.message.willBeMasterMonitoringServer"
+msgstr "This will be a master monitoring server"
+
+msgid "ui.admin.monitoringserver.edit.message.willBeSlave"
+msgstr "This will be a slave"
+
+msgid "ui.admin.monitoringserver.error.atLeastOneNode"
+msgstr "Must choose at least 1 node"
+
+msgid "ui.admin.monitoringserver.list.title"
+msgstr "Monitoring Servers"
+
+msgid "ui.admin.monitoringserver.message.alwaysActivated"
+msgstr "Always"
+
+msgid "ui.admin.monitoringserver.message.cannotDeleteAsMasterMonitoringServer"
+msgstr "Cannot delete as this is the master monitoring server"
+
+msgid "ui.admin.monitoringserver.message.cannotDeleteRoleLinked"
+msgstr "Cannot delete this monitoring server as a role is linked to it"
+
+msgid "ui.admin.monitoringserver.message.showSlaveStatus"
+msgstr "Slave Status"
+
+#. (node.slave_port)
+msgid "ui.admin.monitoringserver.message.slavePort %1"
+msgstr "Slave port %1"
+
+msgid "ui.admin.monitoringserver.table.title.activated"
+msgstr "Activated"
+
+msgid "ui.admin.monitoringserver.table.title.monitoringserver"
+msgstr "Monitoring Server"
+
+msgid "ui.admin.monitoringserver.table.title.monitors"
+msgstr "Monitors"
+
+msgid "ui.admin.monitoringserver.table.title.nodes"
+msgstr "Nodes"
+
+msgid "ui.admin.monitors.eventHandler"
+msgstr "Event handler"
+
+msgid "ui.admin.monitors.eventHandler.label.eventHandler"
+msgstr "Event Handler"
+
+msgid "ui.admin.monitors.exception"
+msgstr "Exception"
+
+msgid "ui.admin.monitors.exception.label.args"
+msgstr "Args"
+
+msgid "ui.admin.monitors.excludedServicecheck"
+msgstr "Service check excluded from subsequent host templates"
+
+msgid "ui.admin.monitors.pluginHelp"
+msgstr "Plugin help"
+
+msgid "ui.admin.monitors.timedException"
+msgstr "Timed exception"
+
+msgid "ui.admin.monitors.timedException.label.timedArgs"
+msgstr "Timed args"
+
+msgid "ui.admin.notificationmethod.table.title.active"
+msgstr "Active"
+
+msgid "ui.admin.notificationmethod.table.title.command"
+msgstr "Command"
+
+msgid "ui.admin.notificationmethod.table.title.name"
+msgstr "名字"
+
+msgid "ui.admin.notificationmethod.table.title.runOn"
+msgstr "Run On"
+
+msgid "ui.admin.notificationmethod.variable.email"
+msgstr "Email"
+
+msgid "ui.admin.notificationmethod.variable.pager"
+msgstr "Mobile"
+
+msgid "ui.admin.notificationmethod.variable.rss_collapsed"
+msgstr "Collapsed Feed"
+
+msgid "ui.admin.notificationmethod.variable.rss_maximum_age"
+msgstr "Maximum Age"
+
+msgid "ui.admin.notificationmethod.variable.rss_maximum_items"
+msgstr "Maximum Items"
+
+msgid "ui.admin.notificationmethods.edit.contactsStillUsingMethod"
+msgstr "Contacts still using this method:"
+
+msgid "ui.admin.notificationmethods.edit.help.smsgatewayName"
+msgstr "SMS Messaging"
+
+msgid "ui.admin.notificationmethods.edit.help.smsgatewayUpgradeNow"
+msgstr "Upgrade now!"
+
+#. ("http://www.aql.com/partners/opsera.php", "opsera-1234")
+msgid "ui.admin.notificationmethods.edit.html.aqlSignUp %1 %2"
+msgstr "AQL provide a simple way of transmitting SMS alerts from Opsview. This service works from most countries - all you need is an AQL account. Sign up <a href='%1'>here</a> with the code <em>%2</em> to receive discounted rates and free credits"
+
+#. (smsgateway_info_link)
+msgid "ui.admin.notificationmethods.edit.html.smsgateway %1"
+msgstr "%1 module is available with an Opsview Enterprise Subscription and provides a resilient SMS notification gateway for use with directly attached GSM modems."
+
+msgid "ui.admin.notificationmethods.edit.label.active"
+msgstr "Active"
+
+msgid "ui.admin.notificationmethods.edit.label.command"
+msgstr "Command"
+
+msgid "ui.admin.notificationmethods.edit.label.contactVariables"
+msgstr "Contact Variables"
+
+msgid "ui.admin.notificationmethods.edit.label.name"
+msgstr "名字"
+
+msgid "ui.admin.notificationmethods.edit.label.runOn"
+msgstr "Run On"
+
+#. (number_of_profiles)
+msgid "ui.admin.notificationmethods.edit.profilesUsingMethod %1"
+msgstr "Notification profiles using this method: %1"
+
+msgid "ui.admin.notificationmethods.edit.variables.aqlPassword"
+msgstr "AQL Password"
+
+msgid "ui.admin.notificationmethods.edit.variables.aqlProxyServer"
+msgstr "HTTP Proxy"
+
+msgid "ui.admin.notificationmethods.edit.variables.aqlUsername"
+msgstr "AQL Username"
+
+msgid "ui.admin.notificationmethods.helpNote.smsgateway"
+msgstr "Want even better SMS functionality?"
+
+msgid "ui.admin.notificationmethods.label.runOnMaster"
+msgstr "Master"
+
+msgid "ui.admin.notificationmethods.label.runOnMonitoringServer"
+msgstr "Slave"
+
+msgid "ui.admin.notificationmethods.list.title"
+msgstr "Notification Methods"
+
+msgid "ui.admin.notificationprofile.edit.label.notifyBy"
+msgstr "Notify by"
+
+msgid "ui.admin.notificationprofile.edit.label.notifyHostgroups"
+msgstr "Notify for Host Groups"
+
+msgid "ui.admin.notificationprofile.edit.label.notifyKeywords"
+msgstr "Notify for Keywords"
+
+msgid "ui.admin.notificationprofile.edit.label.notifyServicegroups"
+msgstr "Notify for Service Groups"
+
+msgid "ui.admin.notificationprofile.help.allObjects"
+msgstr "All"
+
+msgid "ui.admin.notificationprofile.help.hostgroups"
+msgstr "Host groups"
+
+msgid "ui.admin.notificationprofile.help.keywords"
+msgstr "关键字"
+
+msgid "ui.admin.notificationprofile.help.servicegroups"
+msgstr "Service groups"
+
+msgid "ui.admin.notificationprofile.table.title.methods"
+msgstr "Methods"
+
+msgid "ui.admin.notificationprofile.table.title.name"
+msgstr "名字"
+
+msgid "ui.admin.notificationprofile.table.title.objects"
+msgstr "Objects"
+
+msgid "ui.admin.notificationprofile.table.title.options"
+msgstr "Options"
+
+#. ($contact->name)
+msgid "ui.admin.notificationprofile.title.createNewProfileForContact %1"
+msgstr "Create new notification profile for %1"
+
+msgid "ui.admin.notificationprofile.title.editContactNotificationVariables"
+msgstr "Edit Contact Variables"
+
+msgid "ui.admin.reload.button.reloadConfiguration"
+msgstr "Reload Configuration"
+
+msgid "ui.admin.reload.button.restartOpsview"
+msgstr "Restart Opsview"
+
+msgid "ui.admin.reload.heading.configurationErrors"
+msgstr "Configuration errors detected during last reload"
+
+msgid "ui.admin.reload.heading.configurationOutput"
+msgstr "Configuration Output"
+
+msgid "ui.admin.reload.heading.opsviewNotRunning"
+msgstr "Opsview 已停止"
+
+msgid "ui.admin.reload.heading.opsviewReloading"
+msgstr "Opsview 正在重新加载配置...."
+
+msgid "ui.admin.reload.heading.opsviewRunning"
+msgstr "Opsview 正在运行"
+
+msgid "ui.admin.reload.help.indicationReloadTime"
+msgstr "These times are meant as an indication of how long a reload will take. Server load and number of changes can affect time taken"
+
+#. (rrd_link)
+msgid "ui.admin.reload.help.rrdMigration %1"
+msgstr "WARNING: RRD migration is in progress. See %1 for more details"
+
+#. (duration_string)
+msgid "ui.admin.reload.label.approximateReloadTime %1"
+msgstr "A reload will take approximately %1"
+
+msgid "ui.admin.reload.label.browserTimeNow"
+msgstr "Browser time now"
+
+msgid "ui.admin.reload.label.expectedEnd"
+msgstr "Expected end time"
+
+msgid "ui.admin.reload.label.lastUpdated"
+msgstr "Configuration last updated"
+
+#. (number_of_auditlog_entries)
+msgid "ui.admin.reload.label.numberOfChanges %1"
+msgstr "Number of changes since last reload: %1"
+
+msgid "ui.admin.reload.label.reloadStartedAt"
+msgstr "Reload started at"
+
+msgid "ui.admin.reload.label.reloading"
+msgstr "重载"
+
+msgid "ui.admin.reload.message.contactAdministrator"
+msgstr "Please contact your system administrator"
+
+msgid "ui.admin.reload.message.reloadProcess"
+msgstr "Reload process"
+
+msgid "ui.admin.reload.message.unknownStatus"
+msgstr "Unknown status for Opsview"
+
+msgid "ui.admin.reload.table.title.message"
+msgstr "Message"
+
+msgid "ui.admin.reload.table.title.severity"
+msgstr "Severity"
+
+msgid "ui.admin.reload.table.title.time"
+msgstr "Time"
+
+msgid "ui.admin.reload.title"
+msgstr "Status and Reload"
+
+msgid "ui.admin.reorder.finish"
+msgstr "Finish"
+
+msgid "ui.admin.role.edit.help.monitoringservers"
+msgstr "Blank selection means no restrictions"
+
+msgid "ui.admin.role.edit.label.access"
+msgstr "Access"
+
+msgid "ui.admin.role.edit.label.description"
+msgstr "Description"
+
+msgid "ui.admin.role.edit.label.hostgroups"
+msgstr "Host Groups"
+
+msgid "ui.admin.role.edit.label.monitoringservers"
+msgstr "Monitoring Servers"
+
+msgid "ui.admin.role.edit.label.name"
+msgstr "名字"
+
+msgid "ui.admin.role.list.help.cannotDeleteRolesStillUsed"
+msgstr "Cannot delete roles which contacts are still using"
+
+msgid "ui.admin.role.list.help.cannotDeleteSystemRoles"
+msgstr "Cannot delete system roles"
+
+msgid "ui.admin.role.list.title"
+msgstr "角色"
+
+msgid "ui.admin.role.table.title.access"
+msgstr "Access"
+
+msgid "ui.admin.role.table.title.contacts"
+msgstr "联系人"
+
+msgid "ui.admin.role.table.title.role"
+msgstr "Role"
+
+msgid "ui.admin.servicecheck.edit.help.agent"
+msgstr "If blank, will run from Opsview server"
+
+msgid "ui.admin.servicecheck.edit.help.checkFreshness"
+msgstr "Check if a service has not had a result within a certain time"
+
+msgid "ui.admin.servicecheck.edit.help.dependenciesOptions"
+msgstr "Choose servicechecks from list"
+
+msgid "ui.admin.servicecheck.edit.help.flapDetection"
+msgstr "Will disable notifications if service is changing frequently between states"
+
+msgid "ui.admin.servicecheck.edit.help.markdownFilter"
+msgstr "Filter service output information using Markdown"
+
+msgid "ui.admin.servicecheck.edit.help.multipleServices"
+msgstr "If set, each host attribute will create another service"
+
+msgid "ui.admin.servicecheck.edit.help.notificationInterval"
+msgstr "If blank, will inherit from host"
+
+msgid "ui.admin.servicecheck.edit.help.notificationPeriod"
+msgstr "If blank, will inherit from host"
+
+msgid "ui.admin.servicecheck.edit.help.volatile"
+msgstr "Raise a notification on every failure, not just the first one"
+
+msgid "ui.admin.servicecheck.edit.helpline.orEnterNew"
+msgstr "or enter new"
+
+msgid "ui.admin.servicecheck.edit.label.agent"
+msgstr "Agent"
+
+msgid "ui.admin.servicecheck.edit.label.arguments"
+msgstr "Arguments"
+
+msgid "ui.admin.servicecheck.edit.label.calculateRate"
+msgstr "Calculate Rate"
+
+msgid "ui.admin.servicecheck.edit.label.checkAttempts"
+msgstr "Maximum Check Attempts"
+
+msgid "ui.admin.servicecheck.edit.label.checkFreshness"
+msgstr "Check Freshness"
+
+msgid "ui.admin.servicecheck.edit.label.checkInterval"
+msgstr "Check Interval"
+
+msgid "ui.admin.servicecheck.edit.label.checkPeriod"
+msgstr "Check Period"
+
+msgid "ui.admin.servicecheck.edit.label.checktype"
+msgstr "Type of Check"
+
+msgid "ui.admin.servicecheck.edit.label.checktypeActive"
+msgstr "Active Plugin"
+
+msgid "ui.admin.servicecheck.edit.label.checktypePassive"
+msgstr "Passive"
+
+msgid "ui.admin.servicecheck.edit.label.checktypeSnmpPolling"
+msgstr "SNMP Polling"
+
+msgid "ui.admin.servicecheck.edit.label.checktypeSnmpTrap"
+msgstr "SNMP Trap"
+
+msgid "ui.admin.servicecheck.edit.label.comparison"
+msgstr "Comparison"
+
+msgid "ui.admin.servicecheck.edit.label.dependencies"
+msgstr "Dependencies"
+
+msgid "ui.admin.servicecheck.edit.label.description"
+msgstr "Description"
+
+msgid "ui.admin.servicecheck.edit.label.equals"
+msgstr "equals"
+
+msgid "ui.admin.servicecheck.edit.label.eventhandler"
+msgstr "Event Handler"
+
+msgid "ui.admin.servicecheck.edit.label.exampleHost"
+msgstr "Example Host"
+
+msgid "ui.admin.servicecheck.edit.label.flapDetection"
+msgstr "Flap Detection"
+
+msgid "ui.admin.servicecheck.edit.label.freshnessType"
+msgstr "Action"
+
+msgid "ui.admin.servicecheck.edit.label.invertResults"
+msgstr "Invert Plugin Results"
+
+msgid "ui.admin.servicecheck.edit.label.keywords"
+msgstr "关键字"
+
+msgid "ui.admin.servicecheck.edit.label.markdownFilter"
+msgstr "Markdown Filter"
+
+msgid "ui.admin.servicecheck.edit.label.multipleServices"
+msgstr "Create Multiple Services"
+
+msgid "ui.admin.servicecheck.edit.label.name"
+msgstr "名字"
+
+msgid "ui.admin.servicecheck.edit.label.noRate"
+msgstr "No rate"
+
+msgid "ui.admin.servicecheck.edit.label.notEquals"
+msgstr "not equals"
+
+msgid "ui.admin.servicecheck.edit.label.notificationInterval"
+msgstr "Re-notification Interval"
+
+msgid "ui.admin.servicecheck.edit.label.notificationPeriod"
+msgstr "Notification Period"
+
+msgid "ui.admin.servicecheck.edit.label.numericComparison"
+msgstr "Numeric Comparison"
+
+msgid "ui.admin.servicecheck.edit.label.oid"
+msgstr "OID"
+
+msgid "ui.admin.servicecheck.edit.label.plugin"
+msgstr "Plugin"
+
+msgid "ui.admin.servicecheck.edit.label.ratePerHour"
+msgstr "Per hour"
+
+msgid "ui.admin.servicecheck.edit.label.ratePerMinute"
+msgstr "Per minute"
+
+msgid "ui.admin.servicecheck.edit.label.ratePerSecond"
+msgstr "Per second"
+
+msgid "ui.admin.servicecheck.edit.label.regex"
+msgstr "regex"
+
+msgid "ui.admin.servicecheck.edit.label.rescan"
+msgstr "Rescan"
+
+msgid "ui.admin.servicecheck.edit.label.resendNotifications"
+msgstr "Resend Notifications"
+
+msgid "ui.admin.servicecheck.edit.label.retryInterval"
+msgstr "Retry Interval"
+
+msgid "ui.admin.servicecheck.edit.label.serviceNotificationOptions"
+msgstr "Notify for Service On"
+
+msgid "ui.admin.servicecheck.edit.label.servicegroup"
+msgstr "Service Group"
+
+msgid "ui.admin.servicecheck.edit.label.setStale"
+msgstr "Submit Result"
+
+msgid "ui.admin.servicecheck.edit.label.snmpLabel"
+msgstr "Label"
+
+msgid "ui.admin.servicecheck.edit.label.snmpWalk"
+msgstr "SNMP Walk"
+
+msgid "ui.admin.servicecheck.edit.label.staleState"
+msgstr "State"
+
+msgid "ui.admin.servicecheck.edit.label.staleThreshold"
+msgstr "Timeout"
+
+msgid "ui.admin.servicecheck.edit.label.stateText"
+msgstr "Text"
+
+msgid "ui.admin.servicecheck.edit.label.stringComparison"
+msgstr "String Comparison"
+
+msgid "ui.admin.servicecheck.edit.label.value"
+msgstr "Value"
+
+msgid "ui.admin.servicecheck.edit.label.volatile"
+msgstr "Alert Every Failure"
+
+msgid "ui.admin.servicecheck.edit.label.volatile.disable"
+msgstr "Disable"
+
+msgid "ui.admin.servicecheck.edit.label.volatile.enable"
+msgstr "Enable"
+
+msgid "ui.admin.servicecheck.edit.label.volatile.enableWithRenotificationDelay"
+msgstr "Enable with re-notification interval"
+
+msgid "ui.admin.servicecheck.edit.message.cloneSnmpTrapRules"
+msgstr "Rules will be cloned. Next page will show all the rules to edit"
+
+msgid "ui.admin.servicecheck.edit.message.hidePluginHelp"
+msgstr "Hide Plugin Help"
+
+#. (exceptions_count)
+msgid "ui.admin.servicecheck.edit.message.listExceptions %1"
+msgstr "List %quant(%1,Exception / Timed Override,Exceptions / Timed Overrides)"
+
+msgid "ui.admin.servicecheck.edit.message.needExampleHost"
+msgstr "Must enter an example host"
+
+msgid "ui.admin.servicecheck.edit.message.nextPageForSnmpTrapRules"
+msgstr "Next page will be the edit rules page for this servicecheck"
+
+msgid "ui.admin.servicecheck.edit.message.noExceptions"
+msgstr "No Exceptions / Timed Overrides Exist"
+
+msgid "ui.admin.servicecheck.edit.message.showPluginHelp"
+msgstr "Show Plugin Help"
+
+msgid "ui.admin.servicecheck.edit.message.snmpTrapRules"
+msgstr "Edit rules"
+
+msgid "ui.admin.servicecheck.exceptions.title.forServiceCheck"
+msgstr "Exceptions for Service Check"
+
+#. (object.snmptraprules_rs.count)
+msgid "ui.admin.servicecheck.label.editSnmpTrapRules %1"
+msgstr "Edit SNMP Trap Rules: %1"
+
+msgid "ui.admin.servicecheck.label.passiveCheck"
+msgstr "Passive check"
+
+msgid "ui.admin.servicecheck.label.pollingSNMPOid"
+msgstr "Polling SNMP OID"
+
+msgid "ui.admin.servicecheck.list.multiple"
+msgstr "Multiple"
+
+msgid "ui.admin.servicecheck.list.title"
+msgstr "Service Checks"
+
+msgid "ui.admin.servicecheck.menu.label.exceptions"
+msgstr "Exceptions"
+
+msgid "ui.admin.servicecheck.menu.label.status"
+msgstr "状态"
+
+msgid "ui.admin.servicecheck.table.title.hosts"
+msgstr "主机"
+
+msgid "ui.admin.servicecheck.table.title.hosttemplates"
+msgstr "Host Templ"
+
+msgid "ui.admin.servicecheck.table.title.servicecheck"
+msgstr "Service Check"
+
+msgid "ui.admin.servicecheck.table.title.summary"
+msgstr "Summary"
+
+msgid "ui.admin.servicegroup.edit.label.name"
+msgstr "名字"
+
+msgid "ui.admin.servicegroup.help.cannotDelete"
+msgstr "Cannot delete as there are service checks using this service group"
+
+msgid "ui.admin.servicegroup.list.title"
+msgstr "Service Groups"
+
+msgid "ui.admin.servicegroup.table.title.servicechecks"
+msgstr "Service Checks"
+
+msgid "ui.admin.servicegroup.table.title.servicegroup"
+msgstr "Service Group"
+
+msgid "ui.admin.snmptrap.help.exampleMacrosDump"
+msgstr "Dump all data"
+
+msgid "ui.admin.snmptrap.help.exampleMacrosName"
+msgstr "Replace with value for this trap parameter"
+
+msgid "ui.admin.snmptrap.help.exampleMacrosParameterx"
+msgstr "Replace with parameter on line x"
+
+msgid "ui.admin.snmptrap.help.exampleMacrosTrapname"
+msgstr "Replace with trap name for this trap"
+
+msgid "ui.admin.snmptrap.help.exampleMacrosValuex"
+msgstr "Replace with value on line x"
+
+msgid "ui.admin.snmptrap.label.exampleMacros"
+msgstr "Example Macros"
+
+msgid "ui.admin.snmptrap.summary.debuggingRows"
+msgstr "SNMP trap debugging rows"
+
+msgid "ui.admin.snmptrap.summary.hostsExpectingTraps"
+msgstr "Hosts expecting SNMP traps"
+
+msgid "ui.admin.snmptrap.summary.hostsWithTracing"
+msgstr "Hosts with tracing enabled"
+
+msgid "ui.admin.snmptrap.summary.servicechecksWithSnmptraps"
+msgstr "SNMP trap service checks"
+
+msgid "ui.admin.snmptrap.summary.snmptrapExceptions"
+msgstr "SNMP trap exceptions"
+
+msgid "ui.admin.snmptrap.summary.title"
+msgstr "SNMP Trap Summary"
+
+msgid "ui.admin.snmptrap.summary.viewDebug"
+msgstr "View debug"
+
+msgid "ui.admin.snmptrap.summary.viewExceptions"
+msgstr "View exceptions"
+
+msgid "ui.admin.snmptrap.summary.viewHosts"
+msgstr "View hosts"
+
+msgid "ui.admin.snmptrap.tracing.button.add"
+msgstr "Add"
+
+msgid "ui.admin.snmptrap.tracing.button.collect"
+msgstr "Collect"
+
+msgid "ui.admin.snmptrap.tracing.button.remove"
+msgstr "Remove"
+
+msgid "ui.admin.snmptrap.tracing.cannotGenerateNewConfigurationFile"
+msgstr "Cannot generate new SNMP trap configuration file"
+
+msgid "ui.admin.snmptrap.tracing.debugPage"
+msgstr "Debug page"
+
+msgid "ui.admin.snmptrap.tracing.label.tracingHosts"
+msgstr "Tracing Hosts"
+
+msgid "ui.admin.snmptrap.tracing.message.selectHost"
+msgstr "Select a host"
+
+msgid "ui.admin.snmptrap.tracing.message.selectOneHost"
+msgstr "Select only one host"
+
+msgid "ui.admin.snmptrap.tracing.noTrapsCollected"
+msgstr "No traps collected"
+
+#. (join( " ", @hostnames)
+msgid "ui.admin.snmptrap.tracing.setForHosts %1"
+msgstr "Set snmptrap tracing for hosts: %1"
+
+msgid "ui.admin.snmptrap.tracing.title"
+msgstr "SNMP Trap Tracing"
+
+#. (scalar @traps)
+msgid "ui.admin.snmptrap.tracing.trapsCollected %1"
+msgstr "Collected and debugged %1 traps"
+
+msgid "ui.admin.snmptrapdebug.button.deleteDebug"
+msgstr "Delete All Debug"
+
+msgid "ui.admin.snmptrapdebug.help.confirmDeleteDebug"
+msgstr "Are you sure you want to delete all debug data?"
+
+msgid "ui.admin.snmptrapdebug.table.title.packet"
+msgstr "数据包"
+
+msgid "ui.admin.snmptrapdebug.table.title.processingTime"
+msgstr "Processing Time"
+
+msgid "ui.admin.snmptrapdebug.table.title.rules"
+msgstr "Rules"
+
+msgid "ui.admin.snmptrapdebug.table.title.time"
+msgstr "Time"
+
+msgid "ui.admin.snmptrapexception.button.promoteMib"
+msgstr "Promote MIB"
+
+msgid "ui.admin.snmptrapexception.button.refresh"
+msgstr "Refresh"
+
+msgid "ui.admin.snmptrapexception.button.reprocess"
+msgstr "Re-process"
+
+msgid "ui.admin.snmptrapexception.button.search"
+msgstr "Search"
+
+msgid "ui.admin.snmptrapexception.help.completed"
+msgstr "Completed"
+
+#. (object.similar_count)
+msgid "ui.admin.snmptrapexception.help.deleteSimilarTraps %1"
+msgstr "Are you sure you want to delete all %1 similar traps?"
+
+msgid "ui.admin.snmptrapexception.help.deleteTrap"
+msgstr "Are you sure you want to delete this trap?"
+
+msgid "ui.admin.snmptrapexception.help.mibAlreadyPromoted"
+msgstr "MIB already promoted; waiting re-processing"
+
+msgid "ui.admin.snmptrapexception.help.mibPromotionInProgress"
+msgstr "MIB promotion in progress"
+
+#. ($id)
+msgid "ui.admin.snmptrapexception.help.noSnmpTrapExceptionById %1"
+msgstr "No SNMP trap exception by id %1 found"
+
+msgid "ui.admin.snmptrapexception.help.viewDebug"
+msgstr "View debug"
+
+msgid "ui.admin.snmptrapexception.label.listAllTraps"
+msgstr "Show all traps"
+
+msgid "ui.admin.snmptrapexception.label.listUniqueTraps"
+msgstr "Show unique traps"
+
+#. (search_terms)
+msgid "ui.admin.snmptrapexception.label.packetContains %1"
+msgstr "Packet contains %1"
+
+msgid "ui.admin.snmptrapexception.label.uniquePackets"
+msgstr "Unique packets"
+
+msgid "ui.admin.snmptrapexception.table.title.datetime"
+msgstr "Date / Time"
+
+msgid "ui.admin.snmptrapexception.table.title.hostip"
+msgstr "Hostip"
+
+msgid "ui.admin.snmptrapexception.table.title.packet"
+msgstr "数据包"
+
+msgid "ui.admin.snmptrapexception.table.title.reason"
+msgstr "Reason"
+
+msgid "ui.admin.snmptrapexception.table.title.trapname"
+msgstr "Trap name"
+
+msgid "ui.admin.snmptrapexceptions.help.noUnexpectedTraps"
+msgstr "No unexpected traps"
+
+msgid "ui.admin.snmptrapexceptions.label.traps"
+msgstr "Traps"
+
+msgid "ui.admin.snmptraprule.edit.label.action"
+msgstr "Action"
+
+msgid "ui.admin.snmptraprule.edit.label.alertLevel"
+msgstr "Alert Level"
+
+msgid "ui.admin.snmptraprule.edit.label.message"
+msgstr "Message"
+
+msgid "ui.admin.snmptraprule.edit.label.name"
+msgstr "名字"
+
+msgid "ui.admin.snmptraprule.edit.label.rule"
+msgstr "Rule"
+
+msgid "ui.admin.snmptraprule.edit.label.sendAlert"
+msgstr "Send Alert"
+
+msgid "ui.admin.snmptraprule.edit.label.stopProcessing"
+msgstr "Stop Processing"
+
+msgid "ui.admin.snmptraprule.help.exampleRules"
+msgstr "Example Rules"
+
+msgid "ui.admin.snmptraprule.label.exampleTrap"
+msgstr "Example Trap"
+
+msgid "ui.admin.snmptraprule.label.stop"
+msgstr "Stop"
+
+msgid "ui.admin.snmptraprule.list.title"
+msgstr "SNMP Trap Rules"
+
+msgid "ui.admin.snmptraprule.table.title.alertLevel"
+msgstr "Alert Level"
+
+msgid "ui.admin.snmptraprule.table.title.message"
+msgstr "Message"
+
+msgid "ui.admin.snmptraprule.table.title.name"
+msgstr "名字"
+
+msgid "ui.admin.snmptraprule.table.title.rule"
+msgstr "Rule"
+
+#. ($sc->name)
+msgid "ui.admin.snmptraprule.title.createNewRuleForServicecheck %1"
+msgstr "Create new rule for %1"
+
+msgid "ui.admin.snmpwalk.output.error"
+msgstr "Error"
+
+msgid "ui.admin.snmpwalk.output.lastUpdated"
+msgstr "Last updated"
+
+msgid "ui.admin.snmpwalk.output.progressLines"
+msgstr "Lines"
+
+msgid "ui.admin.snmpwalk.output.running"
+msgstr "Running..."
+
+msgid "ui.admin.systempreference.edit.help.aqlCheckCredit"
+msgstr "Check credit"
+
+msgid "ui.admin.systempreference.edit.help.auditLogRetention"
+msgstr "In days"
+
+msgid "ui.admin.systempreference.edit.help.daemonDumpsCore"
+msgstr "Allow a core dump to be generated to aid debugging in the event nagios crashes"
+
+msgid "ui.admin.systempreference.edit.help.informationUrlsMacroExpansion"
+msgstr "These option override comment pages with the provided fully qualified URL (with macro expansion). For example:"
+
+msgid "ui.admin.systempreference.edit.help.macrosForHostgroups"
+msgstr "Available macros for host groups are:"
+
+msgid "ui.admin.systempreference.edit.help.macrosForHosts"
+msgstr "Available macros for hosts are:"
+
+msgid "ui.admin.systempreference.edit.help.odwRetention"
+msgstr "In months. 0 means do not prune data"
+
+msgid "ui.admin.systempreference.edit.help.opsviewServerName"
+msgstr "This is the web server for accessing the web interface of Opsview"
+
+msgid "ui.admin.systempreference.edit.help.refreshRate"
+msgstr "Time in seconds between web page refreshes"
+
+msgid "ui.admin.systempreference.edit.help.reloadRequired"
+msgstr "Note: All options will only take effect when a 'Reload' is performed"
+
+msgid "ui.admin.systempreference.edit.help.smartHostTemplateRemoval"
+msgstr "If a host template is removed from a host, appropriate host exceptions are removed"
+
+msgid "ui.admin.systempreference.edit.label.auditLogRetention"
+msgstr "Audit Log Retention"
+
+msgid "ui.admin.systempreference.edit.label.daemonDumpsCore"
+msgstr "Enable Core Dumps"
+
+msgid "ui.admin.systempreference.edit.label.date_format"
+msgstr "Date Format"
+
+msgid "ui.admin.systempreference.edit.label.hostInfoUrl"
+msgstr "Host Info URL"
+
+msgid "ui.admin.systempreference.edit.label.hostgroupInfoUrl"
+msgstr "Host Group Info URL"
+
+msgid "ui.admin.systempreference.edit.label.importOdw"
+msgstr "Enable ODW Import"
+
+msgid "ui.admin.systempreference.edit.label.importOdwFull"
+msgstr "Enable Extended Import"
+
+msgid "ui.admin.systempreference.edit.label.logEventHandlers"
+msgstr "Log Event Handlers"
+
+msgid "ui.admin.systempreference.edit.label.logHostRetries"
+msgstr "Log Host Retries"
+
+msgid "ui.admin.systempreference.edit.label.logNotifications"
+msgstr "Log Notifications"
+
+msgid "ui.admin.systempreference.edit.label.logPassiveChecks"
+msgstr "Log Passive Checks"
+
+msgid "ui.admin.systempreference.edit.label.logServiceRetries"
+msgstr "Log Service Retries"
+
+msgid "ui.admin.systempreference.edit.label.netdiscoUrl"
+msgstr "Netdisco URL"
+
+msgid "ui.admin.systempreference.edit.label.odwRetentionLarge"
+msgstr "Retention"
+
+msgid "ui.admin.systempreference.edit.label.odwRetentionSmall"
+msgstr "Retention"
+
+msgid "ui.admin.systempreference.edit.label.opsviewServerName"
+msgstr "Opsview Web Server"
+
+msgid "ui.admin.systempreference.edit.label.refreshRate"
+msgstr "Refresh Interval"
+
+msgid "ui.admin.systempreference.edit.label.showTimeline"
+msgstr "Show Timeline"
+
+msgid "ui.admin.systempreference.edit.label.smartHostTemplateRemoval"
+msgstr "Smart Host Template Removal"
+
+msgid "ui.admin.systempreference.edit.label.softStateDependencies"
+msgstr "Use Soft State Dependencies"
+
+msgid "ui.admin.systempreference.edit.label.statusMap"
+msgstr "Network Map Layout"
+
+msgid "ui.admin.systempreference.edit.label.statusMap.balancedTree"
+msgstr "Balanced Tree"
+
+msgid "ui.admin.systempreference.edit.label.statusMap.circular"
+msgstr "Circular"
+
+msgid "ui.admin.systempreference.edit.label.statusMap.circularMarkedUp"
+msgstr "Circular (Marked Up)"
+
+msgid "ui.admin.systempreference.edit.label.statusMap.collapsedTree"
+msgstr "Collapsed Tree"
+
+msgid "ui.admin.systempreference.edit.label.statusMap.depthLayers"
+msgstr "Depth Layers"
+
+msgid "ui.admin.systempreference.help.odwExtendedImport"
+msgstr "The import will include every service result and every performance plot"
+
+msgid "ui.admin.systempreference.help.odwStandardImport"
+msgstr "ODW will be populated with events and summarised availability and performance statistics"
+
+msgid "ui.admin.systempreference.label.hideSurveyInformation"
+msgstr "Hide Survey Information"
+
+msgid "ui.admin.systempreference.label.includeMajorUpdates"
+msgstr "Include Major Updates"
+
+msgid "ui.admin.systempreference.label.includeSurveyData"
+msgstr "Include Survey Data"
+
+msgid "ui.admin.systempreference.label.showSurveyInformation"
+msgstr "Show Survey Information for Your System"
+
+msgid "ui.admin.systempreference.message.successfullySaved"
+msgstr "Successfully saved"
+
+msgid "ui.admin.systempreference.subtitle"
+msgstr "Editing System Preferences"
+
+msgid "ui.admin.timeperiod.edit.help.alias"
+msgstr "Brief description of the time period"
+
+msgid "ui.admin.timeperiod.edit.help.example.fullDay"
+msgstr "a full day"
+
+msgid "ui.admin.timeperiod.edit.help.example.midnightToNineAM"
+msgstr "Midnight to 9am, and 5:30pm to midnight"
+
+msgid "ui.admin.timeperiod.edit.help.example.nineToFive"
+msgstr "9am to 5:30pm"
+
+msgid "ui.admin.timeperiod.edit.help.hoursHelp"
+msgstr "Where HH are hours specified in 24 hour format. Fields may be left blank to mean no time during this day"
+
+msgid "ui.admin.timeperiod.edit.help.timeperiodFormat"
+msgstr "HH:MM-HH:MM[,HH:MM-HH:MM][...]"
+
+msgid "ui.admin.timeperiod.edit.help.timeperiodFormatHelp"
+msgstr "The following fields are time periods specified in the following format"
+
+msgid "ui.admin.timeperiod.edit.help.timezoneInformation"
+msgstr "The times are based on the timezone of the Opsview server"
+
+msgid "ui.admin.timeperiod.edit.label.alias"
+msgstr "Alias"
+
+msgid "ui.admin.timeperiod.edit.label.name"
+msgstr "名字"
+
+msgid "ui.admin.timeperiod.list.help.cannotDelete"
+msgstr "Cannot delete as there are objects using this time period"
+
+msgid "ui.admin.timeperiod.list.title"
+msgstr "Time Periods"
+
+msgid "ui.admin.timeperiod.table.title.alias"
+msgstr "Alias"
+
+msgid "ui.admin.timeperiod.table.title.timeperiod"
+msgstr "Time Period"
+
+#. ($c->stash->{object}->name)
+msgid "ui.admin.title.clone %1"
+msgstr "Clone %1"
+
+msgid "ui.admin.title.list"
+msgstr "List"
+
+msgid "ui.admin.title.new"
+msgstr "New"
+
+#. ($c->uri_for("atom")
+msgid "ui.atom.help.rssDeprecated %1"
+msgstr "Opsview RSS feed has been deprecated. Please use the Atom feed instead at %1"
+
+#. ($username)
+msgid "ui.atom.notification.noAlertsForUsername %1"
+msgstr "Welcome to the Opsview Atom feed. There are currently no alert notifications for your account (%1)"
+
+msgid "ui.atom.notification.title"
+msgstr "Opsview Alerts"
+
+msgid "ui.atom.title.rssDeprecated"
+msgstr "Opsview RSS Deprecated"
+
+msgid "ui.auto.tab.access"
+msgstr "Access"
+
+msgid "ui.auto.tab.advanced"
+msgstr "Advanced"
+
+msgid "ui.auto.tab.contact"
+msgstr "Contact"
+
+msgid "ui.auto.tab.host"
+msgstr "主机"
+
+msgid "ui.auto.tab.hosts"
+msgstr "主机"
+
+msgid "ui.auto.tab.hosttemplate"
+msgstr "Host Template"
+
+msgid "ui.auto.tab.managementurls"
+msgstr "Management URLs"
+
+msgid "ui.auto.tab.monitors"
+msgstr "Monitors"
+
+msgid "ui.auto.tab.nagios"
+msgstr "Nagios"
+
+msgid "ui.auto.tab.notifications"
+msgstr "通知"
+
+msgid "ui.auto.tab.objects"
+msgstr "Objects"
+
+msgid "ui.auto.tab.odw"
+msgstr "ODW"
+
+msgid "ui.auto.tab.options"
+msgstr "Options"
+
+msgid "ui.auto.tab.rancid"
+msgstr "RANCID"
+
+msgid "ui.auto.tab.role"
+msgstr "Role"
+
+msgid "ui.auto.tab.servicecheck"
+msgstr "Service Check"
+
+msgid "ui.auto.tab.sms"
+msgstr "SMS"
+
+msgid "ui.auto.tab.snmp"
+msgstr "SNMP"
+
+msgid "ui.auto.tab.updates"
+msgstr "Updates"
+
+msgid "ui.auto.tab.web"
+msgstr "Web"
+
+msgid "ui.backup.error.cannotProcessWithGet"
+msgstr "Cannot process request directly"
+
+#. ($backup_file)
+msgid "ui.backup.error.noBackupFileFound %1"
+msgstr "No backup file found: %1"
+
+msgid "ui.banner.help.configurationStatus"
+msgstr "配置状态"
+
+msgid "ui.banner.help.reloadFailure"
+msgstr "重新加载失败"
+
+msgid "ui.banner.help.serverStatus"
+msgstr "服务器状态"
+
+msgid "ui.banner.help.uncommittedChanges"
+msgstr "未提交的更改"
+
+msgid "ui.downtime.help.commentEmpty"
+msgstr "备注为空"
+
+#. ($c->stash->{object}->name)
+msgid "ui.downtime.help.downtimeDeletedFor %1"
+msgstr "Downtime delete for %1"
+
+#. ($c->stash->{object}->name)
+msgid "ui.downtime.help.submitted %1"
+msgstr "Downtime submitted for %1"
+
+#. ($c->stash->{object}->name, $c->stash->{object}->hostname)
+msgid "ui.downtime.help.submittedForService %1 %2"
+msgstr "Downtime submitted for service %1 on host %2"
+
+msgid "ui.duration.oneDay"
+msgstr "1 天"
+
+msgid "ui.duration.oneMonth"
+msgstr "1 月"
+
+msgid "ui.duration.oneWeek"
+msgstr "1 周"
+
+msgid "ui.duration.oneYear"
+msgstr "1 年"
+
+msgid "ui.duration.sixMonths"
+msgstr "6个月"
+
+msgid "ui.duration.twoMonths"
+msgstr "2个月"
+
+msgid "ui.edition.community"
+msgstr "社区版本"
+
+msgid "ui.edition.enterprise"
+msgstr "企业版本"
+
+msgid "ui.error.help.applicationError"
+msgstr "There has been an error in the Opsview application."
+
+msgid "ui.error.help.onlineHelp"
+msgstr "You can find further help at:"
+
+msgid "ui.error.help.opsviewError"
+msgstr "Opsview error"
+
+msgid "ui.error.label.viewError"
+msgstr "View Error"
+
+msgid "ui.error.update"
+msgstr "Error retrieving update from Opsview. Will continue to retry."
+
+msgid "ui.event.button.help.resetFilter"
+msgstr "Reset filter"
+
+msgid "ui.event.button.ok"
+msgstr "OK"
+
+msgid "ui.event.button.reset"
+msgstr "重设"
+
+msgid "ui.event.help.lastSeen"
+msgstr "Since"
+
+msgid "ui.event.help.muteSounds"
+msgstr "Mute alerts"
+
+msgid "ui.event.help.newEvents"
+msgstr "新的事件"
+
+msgid "ui.event.help.noMatchingRecords"
+msgstr "No matching records found"
+
+msgid "ui.event.help.playSounds"
+msgstr "Play alerts"
+
+msgid "ui.event.label.acknowledgeNewEvents"
+msgstr "Reset"
+
+msgid "ui.event.label.addToFilter"
+msgstr "Add to Filter"
+
+msgid "ui.event.label.after"
+msgstr "After"
+
+msgid "ui.event.label.anyFilter"
+msgstr "Any"
+
+msgid "ui.event.label.anyTime"
+msgstr "Any"
+
+msgid "ui.event.label.autoRefresh"
+msgstr "自动刷新"
+
+msgid "ui.event.label.before"
+msgstr "Before"
+
+msgid "ui.event.label.clear"
+msgstr "清除"
+
+msgid "ui.event.label.columns"
+msgstr "Columns"
+
+msgid "ui.event.label.endTime"
+msgstr "End Time"
+
+msgid "ui.event.label.exportData"
+msgstr "Export Data"
+
+msgid "ui.event.label.hideTimeline"
+msgstr "Hide Timeline"
+
+msgid "ui.event.label.host"
+msgstr "主机"
+
+msgid "ui.event.label.hostState"
+msgstr "Host State"
+
+msgid "ui.event.label.hostgroup"
+msgstr "Host Group"
+
+msgid "ui.event.label.hoststate"
+msgstr "Host State"
+
+msgid "ui.event.label.keyword"
+msgstr "关键字"
+
+msgid "ui.event.label.loading"
+msgstr "加载中..."
+
+msgid "ui.event.label.output"
+msgstr "输出"
+
+msgid "ui.event.label.rowsPerPage"
+msgstr "每页行数"
+
+msgid "ui.event.label.select"
+msgstr "选择"
+
+msgid "ui.event.label.service"
+msgstr "服务"
+
+msgid "ui.event.label.serviceState"
+msgstr "服务状态"
+
+msgid "ui.event.label.servicestate"
+msgstr "服务状态"
+
+msgid "ui.event.label.showTimeline"
+msgstr "显示时间轴"
+
+msgid "ui.event.label.startTime"
+msgstr "开始时间"
+
+msgid "ui.event.label.state"
+msgstr "状态"
+
+msgid "ui.event.label.stateType"
+msgstr "状态类型"
+
+msgid "ui.event.label.time"
+msgstr "时间"
+
+msgid "ui.event.label.timelineUpdateError"
+msgstr "更新时间轴出错"
+
+msgid "ui.event.label.viewNewEvents"
+msgstr "查看"
+
+msgid "ui.event.label.viewTimeline"
+msgstr "查看时间轴"
+
+msgid "ui.event.table.title.host"
+msgstr "主机"
+
+msgid "ui.event.table.title.hostgroup"
+msgstr "主机组"
+
+msgid "ui.event.table.title.output"
+msgstr "输出"
+
+msgid "ui.event.table.title.service"
+msgstr "服务"
+
+msgid "ui.event.table.title.state"
+msgstr "状态"
+
+msgid "ui.event.table.title.stateType"
+msgstr "状态类型"
+
+msgid "ui.event.table.title.time"
+msgstr "时间"
+
+msgid "ui.event.title"
+msgstr "事件"
+
+msgid "ui.footer.enterpriseSupport"
+msgstr "Opsview Enterprise Edition is supported and certified by Opsera Limited"
+
+msgid "ui.footer.html.clickForSupportAndEnterpriseModules"
+msgstr "Click here for support and enterprise modules"
+
+msgid "ui.footer.html.communityNoSupport"
+msgstr "Opsview Community Edition is supplied free of charge with <b>no support</b>, <b>no maintenance</b> and <b>no warranty</b> by Opsera or its Certified Partners"
+
+#. ("http://www.opsera.com")
+msgid "ui.footer.html.copyrightStatement %1"
+msgstr "© <a href='%1'>Opsera Limited</a> 2011 All Rights Reserved"
+
+msgid "ui.footer.message.loading"
+msgstr "Loading..."
+
+msgid "ui.footer.message.refresh"
+msgstr "Refresh in"
+
+msgid "ui.footer.message.start"
+msgstr "开始"
+
+msgid "ui.footer.message.stop"
+msgstr "停止"
+
+msgid "ui.graph.button.addSeriesButton"
+msgstr "添加"
+
+msgid "ui.graph.button.graph"
+msgstr "Graph"
+
+msgid "ui.graph.button.label.graphOptionsClose"
+msgstr "Graph Options"
+
+msgid "ui.graph.button.label.graphOptionsOpen"
+msgstr "Graph Options"
+
+msgid "ui.graph.button.label.link"
+msgstr "Link"
+
+msgid "ui.graph.button.refresh"
+msgstr "Refresh"
+
+msgid "ui.graph.configuration.title"
+msgstr "Graph Configuration"
+
+msgid "ui.graph.help.addGraph"
+msgstr "Select metric to add graph to page"
+
+msgid "ui.graph.help.addHost"
+msgstr "主机"
+
+msgid "ui.graph.help.addMetric"
+msgstr "Metric"
+
+msgid "ui.graph.help.addService"
+msgstr "服务"
+
+msgid "ui.graph.help.embedLink"
+msgstr "Paste HTML to embed in website"
+
+msgid "ui.graph.help.invalidSeries"
+msgstr "Host, service, metric combination does not exist"
+
+msgid "ui.graph.help.link"
+msgstr "Paste link in email or IM"
+
+msgid "ui.graph.help.pageLink"
+msgstr "Link"
+
+msgid "ui.graph.help.removeGraphFromPage"
+msgstr "Remove graph from page"
+
+msgid "ui.graph.help.startAutoPanning"
+msgstr "Start auto-panning with time"
+
+msgid "ui.graph.help.stopAutoPanning"
+msgstr "Stop auto-panning with time"
+
+msgid "ui.graph.help.viewLargerGraph"
+msgstr "View larger graph"
+
+msgid "ui.graph.label.addGraph"
+msgstr "Add graph"
+
+msgid "ui.graph.label.addSeries"
+msgstr "Add Series"
+
+msgid "ui.graph.label.autoscaleYAxis"
+msgstr "Autoscale Y Axis"
+
+msgid "ui.graph.label.clickToEdit"
+msgstr "Click to edit"
+
+msgid "ui.graph.label.export"
+msgstr "Export"
+
+msgid "ui.graph.label.go"
+msgstr "Go"
+
+msgid "ui.graph.label.graph"
+msgstr "图表"
+
+msgid "ui.graph.label.graphType"
+msgstr "图表类型"
+
+msgid "ui.graph.label.hoverOverPlotPointLabelAuto"
+msgstr "自动"
+
+msgid "ui.graph.label.hoverOverPlotPointLabelRaw"
+msgstr "Raw"
+
+msgid "ui.graph.label.loading"
+msgstr "加载"
+
+msgid "ui.graph.label.optionsTitle"
+msgstr "选项"
+
+msgid "ui.graph.label.pageLink"
+msgstr "Link"
+
+msgid "ui.graph.label.panLeft"
+msgstr "Pan Left"
+
+msgid "ui.graph.label.panRight"
+msgstr "Pan Right"
+
+msgid "ui.graph.label.promptYLabelMessage"
+msgstr "Please enter a label for the Y axis"
+
+msgid "ui.graph.label.seriesTitle"
+msgstr "Series"
+
+msgid "ui.graph.label.showLegend"
+msgstr "Show legend"
+
+msgid "ui.graph.label.snapToNow"
+msgstr "Snap To Now"
+
+msgid "ui.graph.label.yUnits"
+msgstr "Y Units"
+
+msgid "ui.graph.label.zoomTooltip"
+msgstr "Click to zoom"
+
+msgid "ui.graph.objects.label.all"
+msgstr "所有"
+
+msgid "ui.graph.ongraph.short.average"
+msgstr "平均"
+
+msgid "ui.graph.ongraph.short.current"
+msgstr "当前"
+
+msgid "ui.graph.ongraph.short.max"
+msgstr "最大"
+
+msgid "ui.graph.ongraph.short.metric"
+msgstr "度量"
+
+msgid "ui.graph.ongraph.short.min"
+msgstr "最小"
+
+msgid "ui.graph.options.help.defaultNow"
+msgstr "现在"
+
+msgid "ui.graph.options.help.pixels"
+msgstr "Pixels"
+
+msgid "ui.graph.options.label.automatic"
+msgstr "自动"
+
+msgid "ui.graph.options.label.end"
+msgstr "结尾"
+
+msgid "ui.graph.options.label.fixedscale"
+msgstr "Fixed Scale"
+
+msgid "ui.graph.options.label.giga"
+msgstr "Giga"
+
+msgid "ui.graph.options.label.height"
+msgstr "高度"
+
+msgid "ui.graph.options.label.kilo"
+msgstr "Kilo"
+
+msgid "ui.graph.options.label.legend"
+msgstr "Legend"
+
+msgid "ui.graph.options.label.mega"
+msgstr "Mega"
+
+msgid "ui.graph.options.label.none"
+msgstr "None"
+
+msgid "ui.graph.options.label.onlyTitles"
+msgstr "Only Titles"
+
+msgid "ui.graph.options.label.stack"
+msgstr "Stack"
+
+msgid "ui.graph.options.label.start"
+msgstr "Start"
+
+msgid "ui.graph.options.label.tera"
+msgstr "Tera"
+
+msgid "ui.graph.options.label.thresholds"
+msgstr "Thresholds"
+
+msgid "ui.graph.options.label.title"
+msgstr "Title"
+
+msgid "ui.graph.options.label.vlabel"
+msgstr "Vertical Label"
+
+msgid "ui.graph.options.label.vlabel.short"
+msgstr "V Label"
+
+msgid "ui.graph.options.label.width"
+msgstr "Width"
+
+msgid "ui.graph.options.label.withLimits"
+msgstr "With Limits"
+
+msgid "ui.graph.options.title"
+msgstr "Options"
+
+msgid "ui.graph.overview.title"
+msgstr "Overview"
+
+msgid "ui.graph.series.label.hideThresholds"
+msgstr "Hide thresholds"
+
+msgid "ui.graph.series.label.remove"
+msgstr "Remove"
+
+msgid "ui.graph.series.label.removeFromGraph"
+msgstr "Remove from graph"
+
+msgid "ui.graph.series.label.showThresholds"
+msgstr "Show thresholds"
+
+msgid "ui.graph.series.label.useFullName"
+msgstr "Use full name"
+
+msgid "ui.graph.style.overview.label.daily"
+msgstr "Daily"
+
+msgid "ui.graph.style.overview.label.monthly"
+msgstr "Monthly"
+
+msgid "ui.graph.style.overview.label.weekly"
+msgstr "Weekly"
+
+msgid "ui.graph.style.overview.label.yearly"
+msgstr "Yearly"
+
+msgid "ui.graph.style.summary.menu.linkToOverview"
+msgstr "Overview"
+
+msgid "ui.graph.style.summary.menu.linkToOverviewAllMetrics"
+msgstr "Overview All Metrics"
+
+msgid "ui.graph.summary.title"
+msgstr "Summary"
+
+msgid "ui.graph.title"
+msgstr "Graph"
+
+msgid "ui.graph.type.label.bars"
+msgstr "Bar"
+
+msgid "ui.graph.type.label.line"
+msgstr "Line"
+
+msgid "ui.graph.type.label.lineAndPoints"
+msgstr "Line (with points)"
+
+msgid "ui.graph.type.label.points"
+msgstr "Scatter"
+
+msgid "ui.graph.type.label.stacked"
+msgstr "Stacked"
+
+msgid "ui.graph.units.label.automatic"
+msgstr "Automatic"
+
+msgid "ui.header.logo"
+msgstr "Logo"
+
+msgid "ui.help.addNewHost"
+msgstr "Add new host"
+
+msgid "ui.help.addNewMetric"
+msgstr "Add new metric"
+
+msgid "ui.help.addNewServiceCheck"
+msgstr "Add new service check"
+
+msgid "ui.help.list"
+msgstr "List"
+
+msgid "ui.help.selectDelete"
+msgstr "Must select an item to delete"
+
+#. ($interfaceid)
+msgid "ui.host.edit.snmp.interface.blankNameForId %1"
+msgstr "Blank interface name for interface id %1 - ignoring"
+
+#. ($interface_hash->{ifAlias}, $interface_hash->{ifSpeed}, $interface_hash->{ifLink}, $interface_hash->{ifStatus})
+msgid "ui.host.edit.snmp.interface.extraInfo %1 %2 %3 %4"
+msgstr "alias:'%1' speed:'%2' link:'%3' status:'%4'"
+
+msgid "ui.icon.close"
+msgstr "Close"
+
+msgid "ui.icon.collapse.help.collapse"
+msgstr "Collapse"
+
+msgid "ui.icon.expand.help.expand"
+msgstr "Expand"
+
+msgid "ui.icon.graph"
+msgstr "View graph"
+
+msgid "ui.icon.hide"
+msgstr "Hide"
+
+msgid "ui.icon.reveal"
+msgstr "Reveal"
+
+msgid "ui.icon.toggleOff"
+msgstr "Toggle off"
+
+msgid "ui.icon.toggleOn"
+msgstr "Toggle on"
+
+msgid "ui.javascript.cannotMoveOption"
+msgstr "You cannot move this option"
+
+msgid "ui.javascript.duplicates"
+msgstr "Duplicates"
+
+msgid "ui.javascript.fixValidationErrors"
+msgstr "Please fix validation errors first"
+
+msgid "ui.javascript.invalidCharacter"
+msgstr "Invalid character:"
+
+msgid "ui.javascript.missingInformation"
+msgstr "Missing information"
+
+msgid "ui.javascript.useCommaSeparateKeywords"
+msgstr "Use a comma to separate between different keywords"
+
+msgid "ui.label.day.friday"
+msgstr "星期五"
+
+msgid "ui.label.day.monday"
+msgstr "星期一"
+
+msgid "ui.label.day.saturday"
+msgstr "星期六"
+
+msgid "ui.label.day.sunday"
+msgstr "星期日"
+
+msgid "ui.label.day.thursday"
+msgstr "星期四"
+
+msgid "ui.label.day.tuesday"
+msgstr "星期二"
+
+msgid "ui.label.day.wednesday"
+msgstr "星期三"
+
+msgid "ui.label.hosts"
+msgstr "主机"
+
+msgid "ui.label.login"
+msgstr "登录"
+
+msgid "ui.label.logout"
+msgstr "登出"
+
+msgid "ui.label.metrics"
+msgstr "Metrics"
+
+msgid "ui.label.services"
+msgstr "服务"
+
+msgid "ui.languages.label.useBrowser"
+msgstr "使用浏览器设置"
+
+msgid "ui.login.field.password"
+msgstr "密码"
+
+msgid "ui.login.field.username"
+msgstr "用户名"
+
+msgid "ui.login.help.moreInformation"
+msgstr "更多信息"
+
+msgid "ui.login.help.oldIE"
+msgstr "你正在使用旧版Internet Explorer,好像不怎么支持"
+
+msgid "ui.login.label.community"
+msgstr "社区"
+
+msgid "ui.login.label.documentation"
+msgstr "文档"
+
+msgid "ui.login.label.support"
+msgstr "支持"
+
+msgid "ui.login.label.training"
+msgstr "培训"
+
+msgid "ui.login.message"
+msgstr "请登录"
+
+msgid "ui.login.submit"
+msgstr "登录"
+
+msgid "ui.login.title"
+msgstr "Opsview 登陆页面"
+
+msgid "ui.macro.help.address1"
+msgstr "1st address listed in other addresses"
+
+msgid "ui.macro.help.addresses"
+msgstr "full comma separated list of other addresses for host"
+
+msgid "ui.macro.help.addressn"
+msgstr "nth address listed in other addresses"
+
+msgid "ui.macro.help.attribute"
+msgstr "Substitute with host attribute called NAME"
+
+msgid "ui.macro.help.attributeArg1"
+msgstr "Substitute with the first argument of host attribute NAME"
+
+msgid "ui.macro.help.hostaddress"
+msgstr "primary hostname/ip of host"
+
+msgid "ui.macro.help.hostgroup"
+msgstr "name of the host group that contains the host"
+
+msgid "ui.macro.help.hostgroupname"
+msgstr "name of the host group"
+
+msgid "ui.macro.help.hostname"
+msgstr "title of the host"
+
+msgid "ui.macro.help.monitoredByName"
+msgstr "name of the monitoring server that monitors this host"
+
+msgid "ui.macro.help.snmpCommunity"
+msgstr "SNMP community string for host"
+
+msgid "ui.macro.help.snmpV3AuthPassword"
+msgstr "SNMP V3 authentication password"
+
+msgid "ui.macro.help.snmpV3AuthProtocol"
+msgstr "SNMP V3 authentication protocol"
+
+msgid "ui.macro.help.snmpV3PrivPassword"
+msgstr "SNMP V3 privacy password"
+
+msgid "ui.macro.help.snmpV3PrivProtocol"
+msgstr "SNMP V3 privacy protocol"
+
+msgid "ui.macro.help.snmpV3Username"
+msgstr "SNMP V3 username"
+
+msgid "ui.macro.help.snmpVersion"
+msgstr "SNMP version (1, 2c or 3)"
+
+msgid "ui.menu.comments"
+msgstr "备注"
+
+msgid "ui.menu.entry.$ident"
+msgstr ""
+
+msgid "ui.menu.entry.aboutopsview"
+msgstr "About Opsview"
+
+msgid "ui.menu.entry.alerthistogram"
+msgstr "告警历史图表"
+
+msgid "ui.menu.entry.alerthistory"
+msgstr "告警历史"
+
+msgid "ui.menu.entry.alertsummary"
+msgstr "报警概况"
+
+msgid "ui.menu.entry.allunhandled"
+msgstr "所有未处理"
+
+msgid "ui.menu.entry.attributes"
+msgstr "属性"
+
+msgid "ui.menu.entry.auditlog"
+msgstr "审计日志"
+
+msgid "ui.menu.entry.availability"
+msgstr "可用性"
+
+msgid "ui.menu.entry.clusternodechecks"
+msgstr "集群节点检测"
+
+msgid "ui.menu.entry.comments"
+msgstr "备注"
+
+msgid "ui.menu.entry.contacts"
+msgstr "联系人"
+
+msgid "ui.menu.entry.documentation"
+msgstr "文档"
+
+msgid "ui.menu.entry.events"
+msgstr "事件"
+
+msgid "ui.menu.entry.forums"
+msgstr "论坛"
+
+msgid "ui.menu.entry.graphs"
+msgstr "图表"
+
+msgid "ui.menu.entry.host-all"
+msgstr "主机 - 全部"
+
+msgid "ui.menu.entry.hostcheckcommands"
+msgstr "Host Check Commands"
+
+msgid "ui.menu.entry.hostdetail"
+msgstr "主机详情"
+
+msgid "ui.menu.entry.hostgrouphierarchy"
+msgstr "Host Group Hierarchy"
+
+msgid "ui.menu.entry.hostgroups"
+msgstr "主机组"
+
+msgid "ui.menu.entry.hostgroupshierarchy"
+msgstr "Host Groups Hierarchy"
+
+msgid "ui.menu.entry.hosts"
+msgstr "主机"
+
+msgid "ui.menu.entry.hosttemplates"
+msgstr "主机模板"
+
+msgid "ui.menu.entry.keywords"
+msgstr "关键字"
+
+msgid "ui.menu.entry.modules"
+msgstr "模块"
+
+msgid "ui.menu.entry.monitoringservers"
+msgstr "监控服务器"
+
+msgid "ui.menu.entry.mrtg"
+msgstr "MRTG"
+
+msgid "ui.menu.entry.nagvis"
+msgstr "Nagvis"
+
+msgid "ui.menu.entry.networkmap"
+msgstr "网络图"
+
+msgid "ui.menu.entry.networkoutages"
+msgstr "网络中断"
+
+msgid "ui.menu.entry.nmis"
+msgstr "NMIS"
+
+msgid "ui.menu.entry.notificationmethods"
+msgstr "通知方法"
+
+msgid "ui.menu.entry.notifications"
+msgstr "通知"
+
+msgid "ui.menu.entry.parenttree"
+msgstr "父节点"
+
+msgid "ui.menu.entry.performanceinfo"
+msgstr "性能信息"
+
+msgid "ui.menu.entry.preferences"
+msgstr "设置"
+
+msgid "ui.menu.entry.processinfo"
+msgstr "进程信息"
+
+msgid "ui.menu.entry.rancid"
+msgstr "RANCID"
+
+msgid "ui.menu.entry.roles"
+msgstr "角色"
+
+msgid "ui.menu.entry.scheduleddowntime"
+msgstr "例行维护"
+
+msgid "ui.menu.entry.scheduledreports"
+msgstr "例行报表"
+
+msgid "ui.menu.entry.schedulingqueue"
+msgstr "调度中的队列"
+
+msgid "ui.menu.entry.selections"
+msgstr "选中"
+
+msgid "ui.menu.entry.service-all"
+msgstr "服务 - 所有"
+
+msgid "ui.menu.entry.service-critical"
+msgstr "服务 - 严重"
+
+msgid "ui.menu.entry.service-unknown"
+msgstr "服务 - 未知的"
+
+msgid "ui.menu.entry.service-warning"
+msgstr "服务 - 警告"
+
+msgid "ui.menu.entry.servicechecks"
+msgstr "服务检测"
+
+msgid "ui.menu.entry.servicedetail"
+msgstr "服务细节"
+
+msgid "ui.menu.entry.servicegroups"
+msgstr "服务组"
+
+msgid "ui.menu.entry.slavenodechecks"
+msgstr "Slave Node Checks"
+
+msgid "ui.menu.entry.snmpinterfacepolling"
+msgstr "SNMP Interface Polling"
+
+msgid "ui.menu.entry.snmptraps"
+msgstr "SNMP Traps"
+
+msgid "ui.menu.entry.statusandreload"
+msgstr "状态"
+
+msgid "ui.menu.entry.systempreferences"
+msgstr "系统设置"
+
+msgid "ui.menu.entry.timeperiods"
+msgstr "Time Periods"
+
+msgid "ui.menu.entry.trends"
+msgstr "Trends"
+
+msgid "ui.menu.entry.viewportsummary"
+msgstr "Viewport Summary"
+
+msgid "ui.menu.host.label.manageBy"
+msgstr "Manage by"
+
+msgid "ui.menu.host.label.nmis"
+msgstr "NMIS"
+
+msgid "ui.menu.host.label.rancid"
+msgstr "RANCID"
+
+msgid "ui.menu.host.label.result"
+msgstr "结果"
+
+msgid "ui.menu.label.acknowledge"
+msgstr "确认"
+
+msgid "ui.menu.label.editHostConfiguration"
+msgstr "编辑主机设置"
+
+msgid "ui.menu.label.editServiceCheckConfiguration"
+msgstr "编辑服务检查设置"
+
+msgid "ui.menu.label.hostDetail"
+msgstr "主机详情"
+
+msgid "ui.menu.label.lastCheck"
+msgstr "最后一次检查"
+
+msgid "ui.menu.label.liveHostInterfaces"
+msgstr "查看主机接口"
+
+msgid "ui.menu.label.scheduleDowntime"
+msgstr "计划的宕机"
+
+msgid "ui.menu.label.serviceDetail"
+msgstr "服务详情"
+
+msgid "ui.menu.label.serviceSummary"
+msgstr "服务概况"
+
+msgid "ui.menu.label.viewAllServices"
+msgstr "查看所有服务"
+
+#. (object.name)
+msgid "ui.menu.label.viewDowntimes"
+msgstr "查看宕机时间"
+
+msgid "ui.menu.label.viewEvents"
+msgstr "查看事件"
+
+msgid "ui.menu.label.viewNotifications"
+msgstr "查看通知"
+
+msgid "ui.menu.section.$ident"
+msgstr ""
+
+msgid "ui.menu.section.advanced"
+msgstr "高级"
+
+msgid "ui.menu.section.alerts"
+msgstr "警告"
+
+msgid "ui.menu.section.configuration"
+msgstr "配置"
+
+msgid "ui.menu.section.help"
+msgstr "帮助"
+
+msgid "ui.menu.section.history"
+msgstr "历史"
+
+msgid "ui.menu.section.modules"
+msgstr "模块"
+
+msgid "ui.menu.section.reports"
+msgstr "报告"
+
+msgid "ui.menu.section.server"
+msgstr "服务器"
+
+msgid "ui.menu.section.status"
+msgstr "状态"
+
+msgid "ui.menu.section.user"
+msgstr "用户"
+
+msgid "ui.menu.service.help.submitResult"
+msgstr "提交一个结果来改变服务的状态"
+
+msgid "ui.menu.service.label.submitResult"
+msgstr "提交检查结果"
+
+msgid "ui.menu.viewHostStatus"
+msgstr "检查主机状态"
+
+msgid "ui.message.accessDenied"
+msgstr "拒绝访问"
+
+msgid "ui.message.hostNotInConfiguration"
+msgstr "配置中不存在此主机"
+
+msgid "ui.message.loading"
+msgstr "加载中..."
+
+msgid "ui.message.needNetdiscoUrl"
+msgstr "Need to configure the Netdisco URL"
+
+msgid "ui.message.no"
+msgstr "否"
+
+msgid "ui.message.noPermission"
+msgstr "你无权使用此功能"
+
+msgid "ui.message.off"
+msgstr "关"
+
+msgid "ui.message.on"
+msgstr "开"
+
+msgid "ui.message.pageDoesNotExist"
+msgstr "You have tried to access a page that doesn't exist."
+msgstr "同学，你在尝试访问不存在的页面"
+
+msgid "ui.message.pageDoesNotExist.selectLinkFromMenu"
+msgstr "Please select a link from the navigation menu."
+
+msgid "ui.message.pageNotFound"
+msgstr "页面未找到"
+
+msgid "ui.message.pleaseEnableJavascript"
+msgstr "Please enable JavaScript in your browser before continuing"
+msgstr "请在继续浏览前开启浏览器的JavaScript"
+
+msgid "ui.message.requireJavascript"
+msgstr "本网站需要 JavaScript 支持"
+
+msgid "ui.message.yes"
+msgstr "是"
+
+msgid "ui.messages.seeDocumentation"
+msgstr "查看文档"
+
+msgid "ui.mrtg.title"
+msgstr "网络流量"
+
+msgid "ui.mrtg.title.networkTraffic"
+msgstr "网络流量"
+
+msgid "ui.nagios.title.acknowledge"
+msgstr "确认"
+
+msgid "ui.nagios.title.alertHistogram"
+msgstr "告警图表"
+
+msgid "ui.nagios.title.alertHistory"
+msgstr "告警历史"
+
+msgid "ui.nagios.title.alertSummary"
+msgstr "告警概况"
+
+msgid "ui.nagios.title.availabilityReport"
+msgstr "可用性报告"
+
+msgid "ui.nagios.title.comments"
+msgstr "备注"
+
+msgid "ui.nagios.title.detail"
+msgstr "详情"
+
+msgid "ui.nagios.title.externalCommand"
+msgstr "额外的命令"
+
+msgid "ui.nagios.title.logDisplay"
+msgstr "日志显示"
+
+msgid "ui.nagios.title.nagiosConfiguration"
+msgstr "Nagios 配置"
+
+msgid "ui.nagios.title.networkOutages"
+msgstr "网络中断"
+
+msgid "ui.nagios.title.notifications"
+msgstr "通知"
+
+msgid "ui.nagios.title.performanceInformation"
+msgstr "Performance Information" msgid "ui.nagios.title.processInformation"
+msgstr "Process Information"
+
+msgid "ui.nagios.title.scheduledDowntime"
+msgstr "Scheduled Downtime"
+
+msgid "ui.nagios.title.schedulingQueue"
+msgstr "Scheduling Queue"
+
+msgid "ui.nagios.title.status"
+msgstr "状态"
+
+msgid "ui.nagios.title.statusMap"
+msgstr "Network Map"
+
+msgid "ui.nagios.title.tacticalView"
+msgstr "Tactical View"
+
+msgid "ui.nagios.title.trends"
+msgstr "Trends"
+
+msgid "ui.nav.button.label.actions"
+msgstr "Actions"
+
+msgid "ui.nav.button.label.options"
+msgstr "选项"
+
+msgid "ui.nav.button.label.refresh"
+msgstr "刷新"
+
+msgid "ui.nav.button.label.search"
+msgstr "搜索"
+
+msgid "ui.nav.help.errorUpdating"
+msgstr "更新时出错"
+
+msgid "ui.nav.status.lastUpdate"
+msgstr "最后更新"
+
+msgid "ui.nav.status.serverUpdated"
+msgstr "服务器已更新"
+
+msgid "ui.objecttype.$moniker_lc"
+msgstr ""
+
+msgid "ui.objecttype.agent"
+msgstr "客户端"
+
+msgid "ui.objecttype.attribute"
+msgstr "属性"
+
+msgid "ui.objecttype.auditlog"
+msgstr "审计日志"
+
+msgid "ui.objecttype.contact"
+msgstr "联系人"
+
+msgid "ui.objecttype.host"
+msgstr "主机"
+
+msgid "ui.objecttype.hostcheckcommand"
+msgstr "Host Check Command"
+
+msgid "ui.objecttype.hostgroup"
+msgstr "主机组"
+
+msgid "ui.objecttype.hosttemplate"
+msgstr "主机模板"
+
+msgid "ui.objecttype.keyword"
+msgstr "关键字"
+
+msgid "ui.objecttype.module"
+msgstr "模块"
+
+msgid "ui.objecttype.monitoringserver"
+msgstr "Monitoring Server"
+
+msgid "ui.objecttype.notificationmethods"
+msgstr "Notification Method"
+
+msgid "ui.objecttype.notificationprofile"
+msgstr "Notification profile"
+
+msgid "ui.objecttype.preference"
+msgstr "Preferences"
+
+msgid "ui.objecttype.report"
+msgstr "Report"
+
+msgid "ui.objecttype.reporttype"
+msgstr "Report Type"
+
+msgid "ui.objecttype.role"
+msgstr "Role"
+
+msgid "ui.objecttype.selection"
+msgstr "Selection"
+
+msgid "ui.objecttype.service"
+msgstr "服务"
+
+msgid "ui.objecttype.servicecheck"
+msgstr "Service Check"
+
+msgid "ui.objecttype.servicegroup"
+msgstr "Service Group"
+
+msgid "ui.objecttype.snmptrapdebug"
+msgstr "SNMP Trap Debug"
+
+msgid "ui.objecttype.snmptrapexception"
+msgstr "SNMP Trap Exceptions"
+
+msgid "ui.objecttype.snmptraprule"
+msgstr "SNMP Trap Rule"
+
+msgid "ui.objecttype.snmptrapruledebug"
+msgstr "SNMP Trap Rule Debug"
+
+msgid "ui.objecttype.systempreference"
+msgstr "System Preferences"
+
+msgid "ui.objecttype.timeperiod"
+msgstr "Time Period"
+
+msgid "ui.pager.help.next"
+msgstr "Next page"
+
+msgid "ui.pager.help.previous"
+msgstr "Previous page"
+
+msgid "ui.rechecks.help.hostCheckBoxDoesNotIncludeServices"
+msgstr "Selecting the check box for a host will re-check the host, but not any of its services."
+
+msgid "ui.rechecks.label.toggleCheckboxes"
+msgstr "Toggle All Checkboxes"
+
+msgid "ui.rechecks.message.delay"
+msgstr "It may take a small time to take effect"
+
+msgid "ui.rechecks.message.noItemsSelected"
+msgstr "No items selected - no re-checks to run"
+
+#. ($hosts_count, $services_count)
+msgid "ui.rechecks.message.submittedForHostsAndServices %1 %2"
+msgstr "Re-checks submitted for hosts: %1, services: %2"
+
+msgid "ui.rechecks.pageInformation"
+msgstr "This view only shows the services for which you have permission to re-check."
+
+msgid "ui.rechecks.submit"
+msgstr "Submit"
+
+msgid "ui.rechecks.table.title.host"
+msgstr "主机"
+
+msgid "ui.rechecks.table.title.service"
+msgstr "服务"
+
+msgid "ui.rechecks.table.title.status"
+msgstr "状态"
+
+msgid "ui.rechecks.table.title.statusInformation"
+msgstr "Status Information"
+
+msgid "ui.rechecks.title"
+msgstr "Mass Re-checks"
+
+msgid "ui.rss.atomfeed"
+msgstr "Opsview Atom Feed"
+
+msgid "ui.search.filters.label.none"
+msgstr "None"
+
+msgid "ui.search.label.filter"
+msgstr "Filter"
+
+msgid "ui.search.label.filters"
+msgstr "Filters"
+
+msgid "ui.search.label.total"
+msgstr "Total"
+
+#. ($c->stash->{object}->name, $c->stash->{object}->host_object_id->name)
+msgid "ui.service.submitCheckResult.submitted %1 %2"
+msgstr "Change of state for '%1' on '%2' submitted"
+
+#. (object.name, object.host_object_id.name)
+msgid "ui.service.title.serviceOnHost %1 %2"
+msgstr "%1 on %2"
+
+msgid "ui.sidenav.build"
+msgstr "Build"
+
+msgid "ui.sidenav.table.summary"
+msgstr "Navigation"
+
+msgid "ui.sidenav.version"
+msgstr "Version"
+
+msgid "ui.state.downtime.button.submit"
+msgstr "Submit"
+
+msgid "ui.state.downtime.help.cancelDowntime"
+msgstr "Cancel downtime"
+
+#. (new_name || object.name)
+msgid "ui.state.downtime.help.cancelDowntimeAllFor %1"
+msgstr "Are you sure you want to cancel all periods of downtime for '%1'? (This will take a few moments to process)"
+
+#. ((new_name || object.name)
+msgid "ui.state.downtime.help.cancelDowntimeAllForService %1 %2"
+msgstr "Are you sure you want to cancel all periods of downtime for '%1' on '%2'? (This will take a few moments to process)"
+
+#. (new_name || object.name)
+msgid "ui.state.downtime.help.cancelDowntimeFor %1"
+msgstr "Are you sure you want to cancel this period of downtime for '%1'?"
+
+msgid "ui.state.downtime.help.startTime"
+msgstr "Values are assumed to be in the time zone of the Opsview server"
+
+msgid "ui.state.downtime.label.comment"
+msgstr "Comment"
+
+msgid "ui.state.downtime.label.endTime"
+msgstr "End Time"
+
+msgid "ui.state.downtime.label.startTime"
+msgstr "Start Time"
+
+msgid "ui.state.downtime.table.title.author"
+msgstr "Author"
+
+msgid "ui.state.downtime.table.title.comment"
+msgstr "Comment"
+
+msgid "ui.state.downtime.table.title.end"
+msgstr "End"
+
+msgid "ui.state.downtime.table.title.start"
+msgstr "Start"
+
+msgid "ui.state.downtime.title.scheduleDowntime"
+msgstr "Schedule Downtime"
+
+#. (object.name)
+msgid "ui.state.host.downtime.help.schedulesDowntime %1"
+msgstr "Schedules downtime for the host %1"
+
+msgid "ui.state.host.hostinterfaces.searchNetdisco"
+msgstr "Search Netdisco"
+
+msgid "ui.state.host.label.cancelHostDowntime"
+msgstr "Cancel All Host Downtime"
+
+msgid "ui.state.host.queryhost.help.errorsDiscardsGraph"
+msgstr "Errors/Discards Graph"
+
+msgid "ui.state.host.queryhost.help.overview"
+msgstr "This is the current state of the SNMP interfaces, mixed with the latest status and historical graphs from Opsview"
+
+msgid "ui.state.host.queryhost.help.throughputGraph"
+msgstr "Throughput Graph"
+
+msgid "ui.state.host.queryhost.message.cannotRetrieveInformation"
+msgstr "Cannot retrieve"
+
+msgid "ui.state.host.queryhost.message.interfacesBasedOnStatus"
+msgstr "Will display interfaces based on current information in Opsview"
+
+msgid "ui.state.host.queryhost.message.noGraphDataYet"
+msgstr "No graph data yet"
+
+msgid "ui.state.host.queryhost.message.notMonitoring"
+msgstr "Not monitoring"
+
+msgid "ui.state.host.queryhost.title.adminStatus"
+msgstr "Admin Status"
+
+msgid "ui.state.host.queryhost.title.graph"
+msgstr "Graph"
+
+msgid "ui.state.host.queryhost.title.hostInterfaces"
+msgstr "Host Interfaces"
+
+msgid "ui.state.host.queryhost.title.ifAlias"
+msgstr "Alias"
+
+msgid "ui.state.host.queryhost.title.interfaceid"
+msgstr "Interface ID"
+
+msgid "ui.state.host.queryhost.title.linkStatus"
+msgstr "Link Status"
+
+msgid "ui.state.host.queryhost.title.name"
+msgstr "名字"
+
+msgid "ui.state.host.queryhost.title.speed"
+msgstr "Speed"
+
+msgid "ui.state.host.queryhost.title.throughputStatus"
+msgstr "Throughput Status"
+
+#. ($object->name)
+msgid "ui.state.host.title.summary %1"
+msgstr "Detail for %1"
+
+msgid "ui.state.hostgroup.detail.label.totalHosts"
+msgstr "Total Number of Hosts"
+
+msgid "ui.state.hostgroup.detail.label.totalServices"
+msgstr "Total Number of Services"
+
+msgid "ui.state.hostgroup.detail.label.uniqueHostsWithDowntime"
+msgstr "Number of Unique Hosts with Downtime"
+
+msgid "ui.state.hostgroup.detail.label.uniqueServicesWithDowntime"
+msgstr "Number of Unique Services with Downtime"
+
+#. (object.name)
+msgid "ui.state.hostgroup.downtime.help.schedulesDowntime %1"
+msgstr "Schedules downtime for %1 and all the hosts and services contained"
+
+#. (object.name)
+msgid "ui.state.hostgroup.downtime.host.title %1"
+msgstr "Hosts with Scheduled Downtime within %1"
+
+#. (object.name)
+msgid "ui.state.hostgroup.downtime.service.title %1"
+msgstr "Services with Scheduled Downtime within %1"
+
+msgid "ui.state.hostgroup.downtime.table.title.author"
+msgstr "Author"
+
+msgid "ui.state.hostgroup.downtime.table.title.comment"
+msgstr "Comment"
+
+msgid "ui.state.hostgroup.downtime.table.title.end"
+msgstr "End"
+
+msgid "ui.state.hostgroup.downtime.table.title.hostgroup"
+msgstr "Host Group"
+
+msgid "ui.state.hostgroup.downtime.table.title.hostname"
+msgstr "主机"
+
+msgid "ui.state.hostgroup.downtime.table.title.service"
+msgstr "服务"
+
+msgid "ui.state.hostgroup.downtime.table.title.start"
+msgstr "Start"
+
+msgid "ui.state.hostgroup.label.cancelHostgroupDowntime"
+msgstr "Cancel All Host Group Downtime"
+
+#. ($object->name)
+msgid "ui.state.hostgroup.title.summary %1"
+msgstr "Detail for %1"
+
+msgid "ui.state.label.noDowntimes"
+msgstr "No downtimes recorded"
+
+msgid "ui.state.service.button.submit"
+msgstr "Submit"
+
+#. (object.name, object.hostname)
+msgid "ui.state.service.downtime.help.schedulesDowntime %1 %2"
+msgstr "Schedules downtime for the service %1 on host %2"
+
+#. (object.name, object.host_object_id.name)
+msgid "ui.state.service.help.submitCheckResult %1 %2"
+msgstr "Change the current state of %1 on %2"
+
+msgid "ui.state.service.label.cancelServiceDowntime"
+msgstr "Cancel All Service Downtime"
+
+msgid "ui.state.service.label.comment"
+msgstr "Comment"
+
+msgid "ui.state.service.label.state"
+msgstr "State"
+
+msgid "ui.state.service.title.submitCheckResult"
+msgstr "Submit Check Result"
+
+#. ($object->name, $object->host_object_id->name)
+msgid "ui.state.service.title.summary %1 %2"
+msgstr "Detail for %1 on %2"
+
+msgid "ui.state.title.downtimeList"
+msgstr "List of Recorded Downtime Periods"
+
+msgid "ui.status.host.label.hostStatus"
+msgstr "主机状态"
+
+msgid "ui.status.host.label.summary"
+msgstr "主机概况"
+
+msgid "ui.status.host.table.label.title"
+msgstr "主机"
+
+msgid "ui.status.hostgroup.label.summary"
+msgstr "主机组概况"
+
+msgid "ui.status.hostgroup.menu.downtime"
+msgstr "例行维护"
+
+msgid "ui.status.hostgroup.table.label.title"
+msgstr "主机组"
+
+msgid "ui.status.label.$highest_state"
+msgstr ""
+
+msgid "ui.status.label.$this_state"
+msgstr ""
+
+msgid "ui.status.label.acknowledged"
+msgstr "已确认"
+
+msgid "ui.status.label.critical"
+msgstr "严重"
+
+msgid "ui.status.label.down"
+msgstr "宕机"
+
+msgid "ui.status.label.downtime"
+msgstr "Downtime"
+
+msgid "ui.status.label.flapping"
+msgstr "反复"
+
+msgid "ui.status.label.handled"
+msgstr "已处理"
+
+msgid "ui.status.label.hard"
+msgstr "HARD"
+
+msgid "ui.status.label.hostTotals"
+msgstr "主机状态总计"
+
+msgid "ui.status.label.hostinterfaces"
+msgstr "Host Interfaces"
+
+msgid "ui.status.label.massAcknowledgements"
+msgstr "Mass Acknowledgements"
+
+msgid "ui.status.label.massRechecks"
+msgstr "Mass Re-checks"
+
+msgid "ui.status.label.menu"
+msgstr "菜单"
+
+msgid "ui.status.label.noHosts"
+msgstr "No matching hosts"
+
+msgid "ui.status.label.noServices"
+msgstr "No matching services"
+
+#. (number_of_comments)
+#. (args.number_of_comments)
+msgid "ui.status.label.numberOfComments %1"
+msgstr "备注: %1"
+
+msgid "ui.status.label.ok"
+msgstr "OK"
+
+msgid "ui.status.label.scheduledDowntime"
+msgstr "Scheduled Downtime"
+
+msgid "ui.status.label.serviceTotals"
+msgstr "Service Status Totals"
+
+msgid "ui.status.label.soft"
+msgstr "SOFT"
+
+msgid "ui.status.label.totals"
+msgstr "总计"
+
+msgid "ui.status.label.unhandled"
+msgstr "未处理的"
+
+msgid "ui.status.label.unknown"
+msgstr "未知"
+
+msgid "ui.status.label.unreachable"
+msgstr "无法到达"
+
+msgid "ui.status.label.up"
+msgstr "UP"
+
+msgid "ui.status.label.warning"
+msgstr "警告"
+
+msgid "ui.status.networkTraffic.label.mrtgGraphs"
+msgstr "MRTG Graphs"
+
+msgid "ui.status.networkTraffic.table.title.host"
+msgstr "主机"
+
+msgid "ui.status.networkTraffic.table.title.networkTraffic"
+msgstr "网络流量"
+
+msgid "ui.status.service.label.summary"
+msgstr "服务状态"
+
+#. ($downtime_output)
+msgid "ui.status.service.label.summary.forDowntime %1"
+msgstr "Service Status for Downtime Starting At %1"
+
+#. (host.services.size)
+#. (failed_services)
+msgid "ui.status.service.servicesFailed %1"
+msgstr "服务失败: %1"
+
+msgid "ui.status.service.table.title.checkattempts"
+msgstr "#"
+
+msgid "ui.status.service.table.title.help.checkattempts"
+msgstr "Current check attempt / Max attempts"
+
+msgid "ui.status.service.table.title.help.status"
+msgstr "Current status and duration since last OK state"
+
+msgid "ui.status.service.table.title.host"
+msgstr "主机"
+
+msgid "ui.status.service.table.title.lastcheck"
+msgstr "上一次检查"
+
+msgid "ui.status.service.table.title.service"
+msgstr "服务"
+
+msgid "ui.status.service.table.title.status"
+msgstr "状态"
+
+msgid "ui.status.service.table.title.statusInformation"
+msgstr "状态详情"
+
+msgid "ui.title.host"
+msgstr "主机"
+
+#. ($host)
+msgid "ui.title.host %1"
+msgstr "主机: %1"
+
+#. ($hostgroup)
+msgid "ui.title.hostgroup %1"
+msgstr "主机组: %1"
+
+msgid "ui.title.service"
+msgstr "服务"
+
+#. ($service)
+msgid "ui.title.service %1"
+msgstr "服务: %1"
+
+#. ($servicegroup)
+msgid "ui.title.servicegroup %1"
+msgstr "服务组: %1"
+
+#. (username_with_link)
+msgid "ui.user.loggedIn %1"
+msgstr "以 %1 登录"
+
+msgid "ui.user.notLoggedIn"
+msgstr "未登录"
+
+msgid "ui.user.notificationprofile.title.editMyNotificationVariables"
+msgstr "编辑我的通知信息"
+
+msgid "ui.user.preference.action.listNotificationprofiles"
+msgstr "列出通知配置"
+
+msgid "ui.user.preference.message.successfullySaved"
+msgstr "成功保存"
+
+msgid "ui.user.preference.subtitle"
+msgstr "编辑用户选项"
+
+msgid "ui.viewport.label.allOkay"
+msgstr "一切正常"
+
+msgid "ui.viewport.label.allProblemsHandled"
+msgstr "所有问题已处理"
+
+msgid "ui.viewport.label.noServices"
+msgstr "没有匹配的服务"
+
+msgid "ui.viewport.performance.historyUnauthorised"
+msgstr "请登录后查看数据"
+
+msgid "ui.viewport.state.acknowledged"
+msgstr "确认"
+
+msgid "ui.viewport.state.hostFailed"
+msgstr "主机处于失败状态"
+
+msgid "ui.viewport.state.notAcknowledgedYet"
+msgstr "未确认"
+
+msgid "ui.viewport.state.scheduledDowntime"
+msgstr "在例行维护中"
+
+msgid "ui.viewport.style.$style"
+msgstr ""
+
+msgid "ui.viewport.style.errors_and_host_cells"
+msgstr "Errors and host cells"
+
+#. (total_errors)
+msgid "ui.viewport.style.errors_and_host_cells.title.failures %1"
+msgstr "失败: %1"
+
+msgid "ui.viewport.style.errors_and_host_cells.title.hostState"
+msgstr "主机状态"
+
+msgid "ui.viewport.style.group_by_host"
+msgstr "按主机分组"
+
+msgid "ui.viewport.style.group_by_service"
+msgstr "按服务分组"
+
+msgid "ui.viewport.style.host_summary"
+msgstr "主机概况"
+
+msgid "ui.viewport.style.performance"
+msgstr "性能"
+
+msgid "ui.viewport.summary.help.showErrors"
+msgstr "显示错误"
+
+msgid "ui.viewport.summary.notFound"
+msgstr "No viewports configured"
+
+msgid "ui.viewport.summary.table.help.status"
+msgstr "This is the most severe state returned by the viewport"
+
+msgid "ui.viewport.summary.table.title.status"
+msgstr "状态"
+
+msgid "ui.viewport.summary.table.title.viewport"
+msgstr "Viewport"
+
+msgid "ui.viewport.summary.title"
+msgstr "Viewport Summary"
+
+msgid "ui.viewport.table.title.handled"
+msgstr "Handled"
+
+msgid "ui.viewport.table.title.history"
+msgstr "历史"
+
+msgid "ui.viewport.table.title.host"
+msgstr "主机"
+
+msgid "ui.viewport.table.title.latest"
+msgstr "Latest"
+
+msgid "ui.viewport.table.title.metric"
+msgstr "Metric"
+
+msgid "ui.viewport.table.title.service"
+msgstr "服务"
+
+msgid "ui.viewport.table.title.servicesSummary"
+msgstr "服务概况"
+
+msgid "ui.viewport.table.title.status"
+msgstr "状态"
+
+msgid "ui.viewport.table.title.statusInformation"
+msgstr "状态信息"
+
+msgid "ui.viewport.title"
+msgstr "Viewport"
+
+msgid "ui.viewportsummary.label.addToFilter"
+msgstr "添加到过滤器"
+
+msgid "ui.viewportsummary.label.clear"
+msgstr "清除"
+
+msgid "ui.viewportsummary.label.pageTitle"
+msgstr "页面标题"
+
+msgid "ui.viewportsummary.label.style"
+msgstr "样式"
+
+#. ($failures)
+msgid "ui.viewportsummary.style.tagcloud.unhandledFailures %1"
+msgstr "未处理的失败: %1"
+
+#. ("systemprefslink", tablink)
+msgid "ui.welcome.admin.html.surveyLink %1 %2"
+msgstr "You can change this in Opsview's <a id='%1' href='%2'>System Preferences</a>"
+
+msgid "ui.welcome.admin.notSetForSurvey"
+msgstr "Your system is not currently set to participate in this survey."
+
+msgid "ui.welcome.admin.setForSurvey"
+msgstr "Your system is currently set to participate in this survey."
+
+msgid "ui.welcome.button.continue"
+msgstr "继续!"
+
+msgid "ui.welcome.button.help"
+msgstr "Continue to Opsview"
+
+#. ("http://opsview.com", "http://www.nagios.org")
+msgid "ui.welcome.html.intro.opsview %1 %2"
+msgstr "Welcome to <a href='%1'>Opsview</a>, the award winning system monitoring software based on <a href='%2'>Nagios</a>."
+
+msgid "ui.welcome.intro.happyMonitoring!"
+msgstr "Happy Monitoring!"
+
+#. (c.helpsite("systemsurvey")
+msgid "ui.welcome.intro.html.surveyInformation %1 %2"
+msgstr "To help us with software development and testing we would like to collect some information from your Opsview system. This will be done through the <a href='%1'>Opsview System Survey</a> feature in this software. Don't worry, we do not transmit any <a href='%1'>confidential information</a>."
+
+msgid "ui.welcome.intro.onlineDocumentationLink"
+msgstr "You can find our online documentation via the Documentation link in the main menu (menu options may be localised)."
+
+msgid "ui.welcome.intro.quickstart"
+msgstr "Our quick start guide is at:"
+
+msgid "ui.welcome.intro.status"
+msgstr "View all status data at Host Group Hierarchy or look at Viewport Summary for a summary of your most important services."
+
+msgid "ui.welcome.title"
+msgstr "Welcome to Opsview!"
+
+#~ msgid "ui.admin.role.table.title.description"
+#~ msgstr "Description"
+
+#~ msgid "ui.admin.keyword.edit.label.contacts"
+#~ msgstr "联系人"
+
+#~ msgid "ui.admin.keyword.table.title.contacts"
+#~ msgstr "联系人"
+
+#~ msgid "ui.admin.contact.edit.label.hostgroups"
+#~ msgstr "Host Groups"
+
+#~ msgid "ui.admin.contact.edit.label.keywords"
+#~ msgstr "关键字"
+
+#~ msgid "ui.admin.contact.edit.label.servicegroups"
+#~ msgstr "Service Groups"
+
+#~ msgid "ui.admin.contact.edit.message.noHostgroupsDefined"
+#~ msgstr "No host groups defined"
+
+#~ msgid "ui.admin.contact.edit.message.noKeywordsDefined"
+#~ msgstr "No keywords associated to this contact"
+
+#~ msgid "ui.admin.contact.edit.message.noServicegroupsDefined"
+#~ msgstr "No service groups defined"
+
+#~ msgid "ui.admin.module.table.title.url"
+#~ msgstr "URL"
