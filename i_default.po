@@ -1278,7 +1278,7 @@ msgid "ui.admin.hosttemplate.table.help.servicechecks"
 msgstr "Service checks"
 
 msgid "ui.admin.hosttemplate.table.title.description"
-msgstr "Description"
+msgstr "描述"
 
 msgid "ui.admin.hosttemplate.table.title.hosts"
 msgstr "主机"
@@ -1287,16 +1287,16 @@ msgid "ui.admin.hosttemplate.table.title.servicechecks"
 msgstr "SCs"
 
 msgid "ui.admin.hosttemplate.table.title.template"
-msgstr "Template"
+msgstr "模板"
 
 msgid "ui.admin.hosttemplate.table.title.urls"
 msgstr "URLs"
 
 msgid "ui.admin.hypergraph.title.networkMap"
-msgstr "Network Map"
+msgstr "网络拓扑结构"
 
 msgid "ui.admin.hypergraph.title.parentTree"
-msgstr "Parent Tree"
+msgstr "父节点"
 
 msgid "ui.admin.keyword.edit.help.allHosts"
 msgstr "All hosts with these service checks will be tagged with this keyword"
@@ -1308,10 +1308,10 @@ msgid "ui.admin.keyword.edit.help.filterBySelectedHosts"
 msgstr "Filter by selected hosts"
 
 msgid "ui.admin.keyword.edit.label.allHosts"
-msgstr "All Hosts"
+msgstr "所有主机"
 
 msgid "ui.admin.keyword.edit.label.allServicechecks"
-msgstr "All Service Checks"
+msgstr "所有服务检测"
 
 msgid "ui.admin.keyword.edit.label.hosts"
 msgstr "主机"
@@ -1320,28 +1320,28 @@ msgid "ui.admin.keyword.edit.label.roles"
 msgstr "角色"
 
 msgid "ui.admin.keyword.edit.label.servicechecks"
-msgstr "Service Checks"
+msgstr "服务检测"
 
 msgid "ui.admin.keyword.label.description"
-msgstr "Description"
+msgstr "描述"
 
 msgid "ui.admin.keyword.label.disable"
-msgstr "Disable"
+msgstr "禁用"
 
 msgid "ui.admin.keyword.label.enable"
-msgstr "Enable"
+msgstr "启用"
 
 msgid "ui.admin.keyword.label.name"
 msgstr "名字"
 
 msgid "ui.admin.keyword.label.style"
-msgstr "Style"
+msgstr "格式"
 
 msgid "ui.admin.keyword.label.viewport"
 msgstr "Viewport"
 
 msgid "ui.admin.keyword.list.label.all"
-msgstr "All"
+msgstr "所有的"
 
 msgid "ui.admin.keyword.list.label.delete"
 msgstr "Deleting this keyword will also remove its association with its hosts and service checks. Are you sure?"
@@ -1350,43 +1350,43 @@ msgid "ui.admin.keyword.list.title"
 msgstr "关键字"
 
 msgid "ui.admin.keyword.table.title.description"
-msgstr "Description"
+msgstr "描述"
 
 msgid "ui.admin.keyword.table.title.hosts"
 msgstr "主机"
 
 msgid "ui.admin.keyword.table.title.keyword"
-msgstr "Keyword"
+msgstr "关键字"
 
 msgid "ui.admin.keyword.table.title.roles"
 msgstr "角色"
 
 msgid "ui.admin.keyword.table.title.servicechecks"
-msgstr "Service Checks"
+msgstr "服务检查"
 
 msgid "ui.admin.keyword.table.title.totalservices"
-msgstr "Total Services"
+msgstr "服务总计"
 
 msgid "ui.admin.keyword.table.title.viewportStyle"
 msgstr "Viewport Style"
 
 msgid "ui.admin.label.delete"
-msgstr "Delete"
+msgstr "删除"
 
 msgid "ui.admin.label.indicator"
 msgstr "Indicator"
 
 #. ($c->stash->{title_description})
 msgid "ui.admin.list.createNew %1"
-msgstr "Create new %1"
+msgstr "创建新的 %1"
 
 #. (object_name)
 msgid "ui.admin.list.label.clone %1"
-msgstr "Clone %1"
+msgstr "克隆 %1"
 
 #. (object_name)
 msgid "ui.admin.list.label.delete %1"
-msgstr "Delete %1"
+msgstr "删除 %1"
 
 #. ((new_name || object_name)
 msgid "ui.admin.list.label.delete.confirm %1"
@@ -1396,16 +1396,16 @@ msgstr "Are you sure you want to delete `%1`?"
 #. ($o->name)
 #. (object_name)
 msgid "ui.admin.list.label.edit %1"
-msgstr "Edit %1"
+msgstr "编辑 %1"
 
 msgid "ui.admin.list.label.unnamedObject"
-msgstr "Unnamed"
+msgstr "未命名"
 
 msgid "ui.admin.list.pages"
-msgstr "Pages"
+msgstr "页面"
 
 msgid "ui.admin.list.pagesAll"
-msgstr "all"
+msgstr "所有的"
 
 msgid "ui.admin.list.reorder"
 msgstr "Reorder"
