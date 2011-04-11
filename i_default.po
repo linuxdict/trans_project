@@ -496,23 +496,23 @@ msgstr "Re-processing all traps. Click OK to reload"
 
 #. (i)
 msgid "ui.admin.attribute.edit.label.attributeLabel %1"
-msgstr "Label %1"
+msgstr "标签 %1"
 
 #. (i)
 msgid "ui.admin.attribute.edit.label.defaultArg %1"
-msgstr "Default Arg%1"
+msgstr "默认参数 %1"
 
 msgid "ui.admin.attribute.edit.label.defaultValue"
-msgstr "Default Value"
+msgstr "默认值"
 
 msgid "ui.admin.attribute.edit.label.name"
 msgstr "名字"
 
 msgid "ui.admin.attribute.list.help.internallyGeneratedAttribute"
-msgstr "This attribute is internally generated"
+msgstr "此属性是由系统生成"
 
 msgid "ui.admin.attribute.message.cannotDeleteAsInternallyUsed"
-msgstr "Cannot delete this as this attribute is internally used"
+msgstr "无法删除，因为此属性是由系统生成"
 
 msgid "ui.admin.attribute.message.cannotDeleteAsServicechecksReferencing"
 msgstr "Cannot delete this as this attribute is referenced in some service checks"
@@ -524,7 +524,7 @@ msgid "ui.admin.attribute.table.title.hosts"
 msgstr "主机"
 
 msgid "ui.admin.attribute.table.title.servicechecks"
-msgstr "Service Checks"
+msgstr "服务检查"
 
 msgid "ui.admin.auditlog.button.restore"
 msgstr "恢复"
@@ -551,10 +551,10 @@ msgstr "search for %1"
 
 #. ($username)
 msgid "ui.admin.auditlog.label.filter.username %1"
-msgstr "username is %1"
+msgstr "用户名是 %1"
 
 msgid "ui.admin.auditlog.label.removeFilters"
-msgstr "Remove Filters"
+msgstr "删除过滤器"
 
 msgid "ui.admin.auditlog.list.title"
 msgstr "审计日志"
@@ -575,26 +575,26 @@ msgid "ui.admin.button.up"
 msgstr "运行"
 
 msgid "ui.admin.contact.edit.authorisedServicegroups"
-msgstr "Authorised for Service Groups"
+msgstr "授权的服务组"
 
 msgid "ui.admin.contact.edit.error.passwordNotMatch"
-msgstr "Passwords do not match - please re-enter"
+msgstr "密码不匹配 - 请重试"
 
 #. (vhash.notificationmethods.join(", ")
 msgid "ui.admin.contact.edit.heading.notificationmethodRequiredFor %1"
-msgstr "Required for: %1"
+msgstr "需要: %1"
 
 msgid "ui.admin.contact.edit.help.immediatePasswords"
-msgstr "Password changes take effect immediately"
+msgstr "密码修改将马上生效"
 
 msgid "ui.admin.contact.edit.help.notificationLevel"
-msgstr "Contact will receive notifications starting from this alert number"
+msgstr "联系人将从本告警起收到通知"
 
 msgid "ui.admin.contact.edit.help.notificationPeriod"
-msgstr "When notifications will be sent to this contact"
+msgstr "设置此联系人收到通知的时间段"
 
 msgid "ui.admin.contact.edit.help.requireReload"
-msgstr "Changes to notifications require Opsview to be reloaded by an administrator."
+msgstr "修改通知需要重载Opsview的配置"
 
 msgid "ui.admin.contact.edit.label.allHostgroups"
 msgstr "所有主机组"
@@ -606,13 +606,13 @@ msgid "ui.admin.contact.edit.label.allServicegroups"
 msgstr "所有服务组"
 
 msgid "ui.admin.contact.edit.label.authenticationRealm"
-msgstr "Authentication Realm"
+msgstr "验证范围"
 
 msgid "ui.admin.contact.edit.label.authorisedHostgroups"
-msgstr "Authorised for Host Groups"
+msgstr "主机组的授权"
 
 msgid "ui.admin.contact.edit.label.authorisedKeywords"
-msgstr "Authorised for Keywords"
+msgstr "关键字的授权"
 
 msgid "ui.admin.contact.edit.label.comments"
 msgstr "注释"
@@ -651,22 +651,22 @@ msgid "ui.admin.contact.edit.label.username"
 msgstr "用户名"
 
 msgid "ui.admin.contact.edit.message.submitAndEditNotificationProfiles"
-msgstr "Submit and Edit Notification Profiles"
+msgstr "编辑并提交通知配置"
 
 msgid "ui.admin.contact.label.cannotDeleteAuthtktUser"
-msgstr "Cannot delete as contact is used as the default authtkt username"
+msgstr "无法删除，因为联系人被用为默认authkt的用户名"
 
 msgid "ui.admin.contact.label.cannotDeleteCurrentUser"
-msgstr "Cannot delete as this is the current user"
+msgstr "无法删除当前登录用户"
 
 msgid "ui.admin.contact.list.title"
 msgstr "联系人"
 
 msgid "ui.admin.contact.menu.createNewNotificationProfile"
-msgstr "Create new notification profile"
+msgstr "创建新的通知配置"
 
 msgid "ui.admin.contact.menu.listNotificationProfiles"
-msgstr "List notification profiles"
+msgstr "列出通知配置"
 
 msgid "ui.admin.contact.notifications.needToCreateNotificationProfile"
 msgstr "Enter common contact information here. Create a notification profile to choose which objects you will get alerted for."
@@ -731,7 +731,7 @@ msgid "ui.admin.edit.label.down"
 msgstr "宕机"
 
 msgid "ui.admin.edit.label.exampleTrap"
-msgstr "Example Trap"
+msgstr "示例Trap"
 
 msgid "ui.admin.edit.label.flapping"
 msgstr "反复"
@@ -809,13 +809,13 @@ msgid "ui.admin.edit.validation.requireProtocol"
 msgstr "Must start with a protocol, eg 'http://'"
 
 msgid "ui.admin.edit.validation.required"
-msgstr "This field is required"
+msgstr "本区域为必填"
 
 msgid "ui.admin.exceptions.label.arguments"
-msgstr "Arguments"
+msgstr "参数"
 
 msgid "ui.admin.exceptions.label.hostException"
-msgstr "Host Exception"
+msgstr "主机异常"
 
 msgid "ui.admin.exceptions.label.hostExcludedServiceCheck"
 msgstr "Host Excluded Service Check"
@@ -866,25 +866,22 @@ msgid "ui.admin.host.edit.action.snmpWalk"
 msgstr "SNMP Walk"
 
 msgid "ui.admin.host.edit.action.testSNMP"
-msgstr "Test SNMP connection"
+msgstr "测试SNMP连接"
 
 msgid "ui.admin.host.edit.help.blankHost"
 msgstr "空表示假设主机永久处在运行状态"
 
 msgid "ui.admin.host.edit.help.checkOnDemand"
-msgstr "0 means to only check host on demand"
 msgstr "0 表示按需检查"
 
 msgid "ui.admin.host.edit.help.chooseHosttemplatesFromList"
-msgstr "Choose host templates from list"
 msgstr "从列表中选择主机模板"
 
 msgid "ui.admin.host.edit.help.flapDetection"
-msgstr "Will disable notifications if service is changing frequently between states"
 msgstr "如果服务状态改变太频繁将禁用通知"
 
 msgid "ui.admin.host.edit.help.notificationPeriod"
-msgstr "When notifications will be sent"
+msgstr "通知的发送时间段"
 
 msgid "ui.admin.host.edit.help.renotificationInterval"
 msgstr "Interval before re-notifying when host is down or unreachable. 0 disables this feature"
@@ -911,7 +908,7 @@ msgid "ui.admin.host.edit.helpline.orEnterNew"
 msgstr "或者添加新的"
 
 msgid "ui.admin.host.edit.helpline.otherAddresses"
-msgstr "Other network addresses for this host, comma separated"
+msgstr "本主机的其他网络地址，以 ',' 分割"
 
 msgid "ui.admin.host.edit.helpline.primaryHostname"
 msgstr "网络地址 (必需)"
