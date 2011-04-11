@@ -2134,7 +2134,7 @@ msgid "ui.admin.snmptrapexception.button.promoteMib"
 msgstr "Promote MIB"
 
 msgid "ui.admin.snmptrapexception.button.refresh"
-msgstr "Refresh"
+msgstr "刷新"
 
 msgid "ui.admin.snmptrapexception.button.reprocess"
 msgstr "Re-process"
@@ -2342,7 +2342,7 @@ msgid "ui.admin.systempreference.edit.label.opsviewServerName"
 msgstr "Opsview Web Server"
 
 msgid "ui.admin.systempreference.edit.label.refreshRate"
-msgstr "Refresh Interval"
+msgstr "刷新间隔"
 
 msgid "ui.admin.systempreference.edit.label.showTimeline"
 msgstr "Show Timeline"
@@ -2752,10 +2752,10 @@ msgid "ui.footer.html.copyrightStatement %1"
 msgstr "© <a href='%1'>Opsera Limited</a> 2011 All Rights Reserved"
 
 msgid "ui.footer.message.loading"
-msgstr "Loading..."
+msgstr "加载中..."
 
 msgid "ui.footer.message.refresh"
-msgstr "Refresh in"
+msgstr "将刷新"
 
 msgid "ui.footer.message.start"
 msgstr "开始"
@@ -2779,7 +2779,7 @@ msgid "ui.graph.button.label.link"
 msgstr "Link"
 
 msgid "ui.graph.button.refresh"
-msgstr "Refresh"
+msgstr "刷新"
 
 msgid "ui.graph.configuration.title"
 msgstr "Graph Configuration"
