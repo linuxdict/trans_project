@@ -1209,7 +1209,7 @@ msgid "ui.admin.hostgroup.graph.rename %1"
 msgstr "重命名 '%1'"
 
 msgid "ui.admin.hostgroup.graph.title"
-msgstr "Host Groups Hierarchy"
+msgstr "主机组分类"
 
 msgid "ui.admin.hostgroup.list.help.cannotDeleteHostsStillUsing"
 msgstr "Cannot delete as there are hosts using this host group"
@@ -1851,7 +1851,7 @@ msgid "ui.admin.servicecheck.edit.label.flapDetection"
 msgstr "Flap Detection"
 
 msgid "ui.admin.servicecheck.edit.label.freshnessType"
-msgstr "Action"
+msgstr "操作"
 
 msgid "ui.admin.servicecheck.edit.label.invertResults"
 msgstr "Invert Plugin Results"
@@ -2200,19 +2200,19 @@ msgid "ui.admin.snmptrapexceptions.label.traps"
 msgstr "Traps"
 
 msgid "ui.admin.snmptraprule.edit.label.action"
-msgstr "Action"
+msgstr "操作"
 
 msgid "ui.admin.snmptraprule.edit.label.alertLevel"
-msgstr "Alert Level"
+msgstr "告警等级"
 
 msgid "ui.admin.snmptraprule.edit.label.message"
-msgstr "Message"
+msgstr "消息"
 
 msgid "ui.admin.snmptraprule.edit.label.name"
 msgstr "名字"
 
 msgid "ui.admin.snmptraprule.edit.label.rule"
-msgstr "Rule"
+msgstr "规则"
 
 msgid "ui.admin.snmptraprule.edit.label.sendAlert"
 msgstr "Send Alert"
@@ -2420,7 +2420,7 @@ msgid "ui.admin.timeperiod.edit.help.timezoneInformation"
 msgstr "The times are based on the timezone of the Opsview server"
 
 msgid "ui.admin.timeperiod.edit.label.alias"
-msgstr "Alias"
+msgstr "别名"
 
 msgid "ui.admin.timeperiod.edit.label.name"
 msgstr "名字"
@@ -2429,23 +2429,23 @@ msgid "ui.admin.timeperiod.list.help.cannotDelete"
 msgstr "Cannot delete as there are objects using this time period"
 
 msgid "ui.admin.timeperiod.list.title"
-msgstr "Time Periods"
+msgstr "时间段"
 
 msgid "ui.admin.timeperiod.table.title.alias"
-msgstr "Alias"
+msgstr "别名"
 
 msgid "ui.admin.timeperiod.table.title.timeperiod"
-msgstr "Time Period"
+msgstr "时间段"
 
 #. ($c->stash->{object}->name)
 msgid "ui.admin.title.clone %1"
-msgstr "Clone %1"
+msgstr "克隆 %1"
 
 msgid "ui.admin.title.list"
-msgstr "List"
+msgstr "列表"
 
 msgid "ui.admin.title.new"
-msgstr "New"
+msgstr "新建"
 
 #. ($c->uri_for("atom")
 msgid "ui.atom.help.rssDeprecated %1"
@@ -3273,19 +3273,19 @@ msgid "ui.menu.entry.host-all"
 msgstr "主机 - 全部"
 
 msgid "ui.menu.entry.hostcheckcommands"
-msgstr "Host Check Commands"
+msgstr "主机检测命令"
 
 msgid "ui.menu.entry.hostdetail"
 msgstr "主机详情"
 
 msgid "ui.menu.entry.hostgrouphierarchy"
-msgstr "Host Group Hierarchy"
+msgstr "主机组分类"
 
 msgid "ui.menu.entry.hostgroups"
 msgstr "主机组"
 
 msgid "ui.menu.entry.hostgroupshierarchy"
-msgstr "Host Groups Hierarchy"
+msgstr "主机组分类"
 
 msgid "ui.menu.entry.hosts"
 msgstr "主机"
@@ -3604,7 +3604,7 @@ msgid "ui.nagios.title.trends"
 msgstr "Trends"
 
 msgid "ui.nav.button.label.actions"
-msgstr "Actions"
+msgstr "操作"
 
 msgid "ui.nav.button.label.options"
 msgstr "选项"
@@ -3746,10 +3746,10 @@ msgid "ui.rechecks.table.title.status"
 msgstr "状态"
 
 msgid "ui.rechecks.table.title.statusInformation"
-msgstr "Status Information"
+msgstr "状态信息"
 
 msgid "ui.rechecks.title"
-msgstr "Mass Re-checks"
+msgstr "全部重新检查"
 
 msgid "ui.rss.atomfeed"
 msgstr "Opsview Atom Feed"
@@ -4024,22 +4024,22 @@ msgid "ui.status.label.hostTotals"
 msgstr "主机状态总计"
 
 msgid "ui.status.label.hostinterfaces"
-msgstr "Host Interfaces"
+msgstr "主机接口"
 
 msgid "ui.status.label.massAcknowledgements"
-msgstr "Mass Acknowledgements"
+msgstr "批量确认"
 
 msgid "ui.status.label.massRechecks"
-msgstr "Mass Re-checks"
+msgstr "批量重新检查"
 
 msgid "ui.status.label.menu"
 msgstr "菜单"
 
 msgid "ui.status.label.noHosts"
-msgstr "No matching hosts"
+msgstr "没有匹配的主机"
 
 msgid "ui.status.label.noServices"
-msgstr "No matching services"
+msgstr "没有匹配的服务"
 
 #. (number_of_comments)
 #. (args.number_of_comments)
@@ -4050,10 +4050,10 @@ msgid "ui.status.label.ok"
 msgstr "OK"
 
 msgid "ui.status.label.scheduledDowntime"
-msgstr "Scheduled Downtime"
+msgstr "例行维护"
 
 msgid "ui.status.label.serviceTotals"
-msgstr "Service Status Totals"
+msgstr "服务状态总计"
 
 msgid "ui.status.label.soft"
 msgstr "SOFT"
