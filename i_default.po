@@ -1302,7 +1302,7 @@ msgid "ui.admin.keyword.edit.help.allServiceChecks"
 msgstr "All service checks on these hosts will be tagged with this keyword"
 
 msgid "ui.admin.keyword.edit.help.filterBySelectedHosts"
-msgstr "Filter by selected hosts"
+msgstr "以选中的主机为过滤条件"
 
 msgid "ui.admin.keyword.edit.label.allHosts"
 msgstr "所有主机"
@@ -1387,7 +1387,7 @@ msgstr "删除 %1"
 
 #. ((new_name || object_name)
 msgid "ui.admin.list.label.delete.confirm %1"
-msgstr "Are you sure you want to delete `%1`?"
+msgstr "你确定要删除 `%1`?"
 
 #. ($c->stash->{object}->name)
 #. ($o->name)
@@ -1405,16 +1405,16 @@ msgid "ui.admin.list.pagesAll"
 msgstr "所有的"
 
 msgid "ui.admin.list.reorder"
-msgstr "Reorder"
+msgstr "重新排序"
 
 msgid "ui.admin.module.edit.label.access"
-msgstr "Access"
+msgstr "访问"
 
 msgid "ui.admin.module.edit.label.description"
-msgstr "Description"
+msgstr "描述"
 
 msgid "ui.admin.module.edit.label.enabled"
-msgstr "Enabled"
+msgstr "启用的"
 
 msgid "ui.admin.module.edit.label.name"
 msgstr "名字"
@@ -1426,22 +1426,22 @@ msgid "ui.admin.module.edit.label.url"
 msgstr "URL"
 
 msgid "ui.admin.module.table.title.description"
-msgstr "Description"
+msgstr "描述"
 
 msgid "ui.admin.module.table.title.enabled"
-msgstr "Enabled"
+msgstr "启用的"
 
 msgid "ui.admin.module.table.title.module"
-msgstr "Module"
+msgstr "模块"
 
 msgid "ui.admin.monitoringserver.edit.help.clusterNodes"
-msgstr "Use CNTRL to select multiple nodes"
+msgstr "使用 CTRL 可选中多个节点"
 
 msgid "ui.admin.monitoringserver.edit.label.activated"
-msgstr "Activated"
+msgstr "激活的"
 
 msgid "ui.admin.monitoringserver.edit.label.clusterNodes"
-msgstr "Cluster Nodes"
+msgstr "集群节点"
 
 msgid "ui.admin.monitoringserver.edit.label.host"
 msgstr "主机"
@@ -1450,13 +1450,13 @@ msgid "ui.admin.monitoringserver.edit.label.name"
 msgstr "名字"
 
 msgid "ui.admin.monitoringserver.edit.label.passive"
-msgstr "Passive"
+msgstr "被动的"
 
 msgid "ui.admin.monitoringserver.edit.message.isMasterMonitoringServer"
-msgstr "This is the master monitoring server"
+msgstr "这是主监控服务器"
 
 msgid "ui.admin.monitoringserver.edit.message.isSlave"
-msgstr "This is a slave"
+msgstr "这是从监控服务器"
 
 msgid "ui.admin.monitoringserver.edit.message.isSlaveCluster"
 msgstr "This is a slave cluster"
