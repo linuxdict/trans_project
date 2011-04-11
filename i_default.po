@@ -1459,22 +1459,22 @@ msgid "ui.admin.monitoringserver.edit.message.isSlave"
 msgstr "这是从监控服务器"
 
 msgid "ui.admin.monitoringserver.edit.message.isSlaveCluster"
-msgstr "This is a slave cluster"
+msgstr "这是一个从监控服务器集群"
 
 msgid "ui.admin.monitoringserver.edit.message.willBeMasterMonitoringServer"
-msgstr "This will be a master monitoring server"
+msgstr "这将会是主监控服务器"
 
 msgid "ui.admin.monitoringserver.edit.message.willBeSlave"
-msgstr "This will be a slave"
+msgstr "这将会是从服务器"
 
 msgid "ui.admin.monitoringserver.error.atLeastOneNode"
-msgstr "Must choose at least 1 node"
+msgstr "必须选中一个节点"
 
 msgid "ui.admin.monitoringserver.list.title"
-msgstr "Monitoring Servers"
+msgstr "监控服务器"
 
 msgid "ui.admin.monitoringserver.message.alwaysActivated"
-msgstr "Always"
+msgstr "总是"
 
 msgid "ui.admin.monitoringserver.message.cannotDeleteAsMasterMonitoringServer"
 msgstr "Cannot delete as this is the master monitoring server"
@@ -1483,14 +1483,14 @@ msgid "ui.admin.monitoringserver.message.cannotDeleteRoleLinked"
 msgstr "Cannot delete this monitoring server as a role is linked to it"
 
 msgid "ui.admin.monitoringserver.message.showSlaveStatus"
-msgstr "Slave Status"
+msgstr "从监控服务器状态"
 
 #. (node.slave_port)
 msgid "ui.admin.monitoringserver.message.slavePort %1"
-msgstr "Slave port %1"
+msgstr "从监控服务器端口 %1"
 
 msgid "ui.admin.monitoringserver.table.title.activated"
-msgstr "Activated"
+msgstr "已激活"
 
 msgid "ui.admin.monitoringserver.table.title.monitoringserver"
 msgstr "Monitoring Server"
