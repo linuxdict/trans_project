@@ -1245,16 +1245,16 @@ msgid "ui.admin.hosttemplate.edit.help.warningMacrosNotPrivate2"
 msgstr "Be careful assigning private data"
 
 msgid "ui.admin.hosttemplate.edit.label.addNewManagementURL"
-msgstr "Add new management URL"
+msgstr "添加新的管理URL"
 
 msgid "ui.admin.hosttemplate.edit.label.description"
-msgstr "Description"
+msgstr "描述"
 
 msgid "ui.admin.hosttemplate.edit.label.hosts"
 msgstr "主机"
 
 msgid "ui.admin.hosttemplate.edit.label.managementurl"
-msgstr "Management URLs"
+msgstr "管理URL"
 
 msgid "ui.admin.hosttemplate.edit.label.name"
 msgstr "名字"
@@ -1266,13 +1266,13 @@ msgid "ui.admin.hosttemplate.edit.managementurl.label.url"
 msgstr "URL"
 
 msgid "ui.admin.hosttemplate.edit.message.noManagementUrls"
-msgstr "No management URLs"
+msgstr "没有管理URL"
 
 msgid "ui.admin.hosttemplate.list.title"
-msgstr "Host Templates"
+msgstr "主机模板"
 
 msgid "ui.admin.hosttemplate.table.help.servicechecks"
-msgstr "Service checks"
+msgstr "服务检查"
 
 msgid "ui.admin.hosttemplate.table.title.description"
 msgstr "描述"
