@@ -208,19 +208,19 @@ int main(void){
 		else if(display_type==DISPLAY_SERVICE_INFO)
 			snprintf(temp_buffer,sizeof(temp_buffer)-1,"服务信息");
 		else if(display_type==DISPLAY_COMMENTS)
-			snprintf(temp_buffer,sizeof(temp_buffer)-1,"All Host and Service Comments");
+			snprintf(temp_buffer,sizeof(temp_buffer)-1,"所有主机和服务组件");
 		else if(display_type==DISPLAY_PERFORMANCE)
-			snprintf(temp_buffer,sizeof(temp_buffer)-1,"Performance Information");
+			snprintf(temp_buffer,sizeof(temp_buffer)-1,"性能信息");
 		else if(display_type==DISPLAY_HOSTGROUP_INFO)
-			snprintf(temp_buffer,sizeof(temp_buffer)-1,"Hostgroup Information");
+			snprintf(temp_buffer,sizeof(temp_buffer)-1,"主机组信息");
 		else if(display_type==DISPLAY_SERVICEGROUP_INFO)
-			snprintf(temp_buffer,sizeof(temp_buffer)-1,"Servicegroup Information");
+			snprintf(temp_buffer,sizeof(temp_buffer)-1,"服务组信息");
 		else if(display_type==DISPLAY_DOWNTIME)
-			snprintf(temp_buffer,sizeof(temp_buffer)-1,"All Host and Service Scheduled Downtime");
+			snprintf(temp_buffer,sizeof(temp_buffer)-1,"所有例行维护的主机和服务");
 		else if(display_type==DISPLAY_SCHEDULING_QUEUE)
-			snprintf(temp_buffer,sizeof(temp_buffer)-1,"Check Scheduling Queue");
+			snprintf(temp_buffer,sizeof(temp_buffer)-1,"检查调度队列");
 		else
-			snprintf(temp_buffer,sizeof(temp_buffer)-1,"Nagios Process Information");
+			snprintf(temp_buffer,sizeof(temp_buffer)-1,"Nagios的进程信息");
 		temp_buffer[sizeof(temp_buffer)-1]='\x0';
 		display_info_table(temp_buffer,TRUE,&current_authdata);
 
@@ -269,35 +269,35 @@ int main(void){
 			printf("<TABLE BORDER=1 CELLPADDING=0 CELLSPACING=0 CLASS='linkBox'>\n");
 			printf("<TR><TD CLASS='linkBox'>\n");
 			if(display_type==DISPLAY_SERVICE_INFO)
-				printf("<A HREF='%s?type=%d&host=%s'>View Information For This Host</A><br>\n",EXTINFO_CGI,DISPLAY_HOST_INFO,url_encode(host_name));
+				printf("<A HREF='%s?type=%d&host=%s'>查看主机的信息</A><br>\n",EXTINFO_CGI,DISPLAY_HOST_INFO,url_encode(host_name));
 			if(display_type==DISPLAY_SERVICE_INFO || display_type==DISPLAY_HOST_INFO)
-				printf("<A HREF='%s?host=%s'>检查本主机的各项服务状态</A><BR>\n",STATUS_CGI,url_encode(host_name));
+				printf("<A HREF='%s?host=%s'>检查主机的各项服务状态</A><BR>\n",STATUS_CGI,url_encode(host_name));
 			if(display_type==DISPLAY_HOST_INFO){
-				printf("<A HREF='%s?host=%s'>View Alert History For This Host</A><BR>\n",HISTORY_CGI,url_encode(host_name));
+				printf("<A HREF='%s?host=%s'>检查主机的告警历史</A><BR>\n",HISTORY_CGI,url_encode(host_name));
 #ifdef USE_TRENDS
-				printf("<A HREF='%s?host=%s'>View Trends For This Host</A><BR>\n",TRENDS_CGI,url_encode(host_name));
+				printf("<A HREF='%s?host=%s'>查看主机趋势</A><BR>\n",TRENDS_CGI,url_encode(host_name));
 #endif
 #ifdef USE_HISTOGRAM
-				printf("<A HREF='%s?host=%s'>View Alert Histogram For This Host</A><BR>\n",HISTOGRAM_CGI,url_encode(host_name));
+				printf("<A HREF='%s?host=%s'>查看告警历史图</A><BR>\n",HISTOGRAM_CGI,url_encode(host_name));
 #endif
-				printf("<A HREF='%s?host=%s&show_log_entries'>View Availability Report For This Host</A><BR>\n",AVAIL_CGI,url_encode(host_name));
-				printf("<A HREF='%s?host=%s'>View Notifications For This Host</A>\n",NOTIFICATIONS_CGI,url_encode(host_name));
+				printf("<A HREF='%s?host=%s&show_log_entries'>查看主机的可用性报告</A><BR>\n",AVAIL_CGI,url_encode(host_name));
+				printf("<A HREF='%s?host=%s'>查看主机的通知信息</A>\n",NOTIFICATIONS_CGI,url_encode(host_name));
 		                }
 			else if(display_type==DISPLAY_SERVICE_INFO){
 				printf("<A HREF='%s?host=%s&",HISTORY_CGI,url_encode(host_name));
-				printf("service=%s'>View Alert History For This Service</A><BR>\n",url_encode(service_desc));
+				printf("service=%s'>查看服务的告警历史</A><BR>\n",url_encode(service_desc));
 #ifdef USE_TRENDS
 				printf("<A HREF='%s?host=%s&",TRENDS_CGI,url_encode(host_name));
-				printf("service=%s'>View Trends For This Service</A><BR>\n",url_encode(service_desc));
+				printf("service=%s'>查看服务的趋势</A><BR>\n",url_encode(service_desc));
 #endif
 #ifdef USE_HISTOGRAM
 				printf("<A HREF='%s?host=%s&",HISTOGRAM_CGI,url_encode(host_name));
-				printf("service=%s'>View Alert Histogram For This Service</A><BR>\n",url_encode(service_desc));
+				printf("service=%s'>查看服务的告警历史图表</A><BR>\n",url_encode(service_desc));
 #endif
 				printf("<A HREF='%s?host=%s&",AVAIL_CGI,url_encode(host_name));
-				printf("service=%s&show_log_entries'>View Availability Report For This Service</A><BR>\n",url_encode(service_desc));
+				printf("service=%s&show_log_entries'>查看服务的可用性报告</A><BR>\n",url_encode(service_desc));
 				printf("<A HREF='%s?host=%s&",NOTIFICATIONS_CGI,url_encode(host_name));
-				printf("service=%s'>View Notifications For This Service</A>\n",url_encode(service_desc));
+				printf("service=%s'>查看服务的通知</A>\n",url_encode(service_desc));
 		                }
 			else if(display_type==DISPLAY_HOSTGROUP_INFO){
 				printf("<A HREF='%s?hostgroup=%s&style=detail'>View Status Detail For This Hostgroup</A><BR>\n",STATUS_CGI,url_encode(hostgroup_name));
