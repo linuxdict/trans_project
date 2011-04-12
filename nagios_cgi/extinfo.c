@@ -300,16 +300,16 @@ int main(void){
 				printf("service=%s'>查看服务的通知</A>\n",url_encode(service_desc));
 		                }
 			else if(display_type==DISPLAY_HOSTGROUP_INFO){
-				printf("<A HREF='%s?hostgroup=%s&style=detail'>View Status Detail For This Hostgroup</A><BR>\n",STATUS_CGI,url_encode(hostgroup_name));
-				printf("<A HREF='%s?hostgroup=%s&style=overview'>View Status Overview For This Hostgroup</A><BR>\n",STATUS_CGI,url_encode(hostgroup_name));
-				printf("<A HREF='%s?hostgroup=%s&style=grid'>View Status Grid For This Hostgroup</A><BR>\n",STATUS_CGI,url_encode(hostgroup_name));
-				printf("<A HREF='%s?hostgroup=%s'>View Availability For This Hostgroup</A><BR>\n",AVAIL_CGI,url_encode(hostgroup_name));
+				printf("<A HREF='%s?hostgroup=%s&style=detail'>查看主机组的状态</A><BR>\n",STATUS_CGI,url_encode(hostgroup_name));
+				printf("<A HREF='%s?hostgroup=%s&style=overview'>查看主机组的概况</A><BR>\n",STATUS_CGI,url_encode(hostgroup_name));
+				printf("<A HREF='%s?hostgroup=%s&style=grid'>查看主机组的状态表</A><BR>\n",STATUS_CGI,url_encode(hostgroup_name));
+				printf("<A HREF='%s?hostgroup=%s'>查看主机组的可用性</A><BR>\n",AVAIL_CGI,url_encode(hostgroup_name));
 		                }
 			else if(display_type==DISPLAY_SERVICEGROUP_INFO){
-				printf("<A HREF='%s?servicegroup=%s&style=detail'>View Status Detail For This Servicegroup</A><BR>\n",STATUS_CGI,url_encode(servicegroup_name));
-				printf("<A HREF='%s?servicegroup=%s&style=overview'>View Status Overview For This Servicegroup</A><BR>\n",STATUS_CGI,url_encode(servicegroup_name));
-				printf("<A HREF='%s?servicegroup=%s&style=grid'>View Status Grid For This Servicegroup</A><BR>\n",STATUS_CGI,url_encode(servicegroup_name));
-				printf("<A HREF='%s?servicegroup=%s'>View Availability For This Servicegroup</A><BR>\n",AVAIL_CGI,url_encode(servicegroup_name));
+				printf("<A HREF='%s?servicegroup=%s&style=detail'>查看服务组的状态</A><BR>\n",STATUS_CGI,url_encode(servicegroup_name));
+				printf("<A HREF='%s?servicegroup=%s&style=overview'>查看服务组的概况</A><BR>\n",STATUS_CGI,url_encode(servicegroup_name));
+				printf("<A HREF='%s?servicegroup=%s&style=grid'>查看服务组的状态表</A><BR>\n",STATUS_CGI,url_encode(servicegroup_name));
+				printf("<A HREF='%s?servicegroup=%s'>查看服务组的可用性</A><BR>\n",AVAIL_CGI,url_encode(servicegroup_name));
 		                }
 			printf("</TD></TR>\n");
 			printf("</TABLE>\n");
@@ -323,13 +323,13 @@ int main(void){
 		if((display_type==DISPLAY_HOST_INFO && temp_host!=NULL) || (display_type==DISPLAY_SERVICE_INFO && temp_host!=NULL && temp_service!=NULL) || (display_type==DISPLAY_HOSTGROUP_INFO && temp_hostgroup!=NULL) || (display_type==DISPLAY_SERVICEGROUP_INFO && temp_servicegroup!=NULL)){
 
 			if(display_type==DISPLAY_HOST_INFO){
-				printf("<DIV CLASS='data'>Host</DIV>\n");
+				printf("<DIV CLASS='data'>主机</DIV>\n");
 				printf("<DIV CLASS='dataTitle'>%s</DIV>\n",temp_host->alias);
 				printf("<DIV CLASS='dataTitle'>(%s)</DIV><BR>\n",temp_host->name);
 
 				if (temp_host->parent_hosts != NULL) {
 					/* print all parent hosts */
-					printf("<DIV CLASS='data'>Parents:</DIV>\n");
+					printf("<DIV CLASS='data'>父节点:</DIV>\n");
 					for(temp_parenthost=temp_host->parent_hosts;temp_parenthost!=NULL;temp_parenthost=temp_parenthost->next)
 						printf("<DIV CLASS='dataTitle'><A HREF='%s?host=%s'>%s</A></DIV>\n",STATUS_CGI, url_encode(temp_parenthost->host_name),temp_parenthost->host_name);
 					printf("<BR>");
@@ -346,12 +346,12 @@ int main(void){
 					}
 			
 				if(found==FALSE)
-					printf("No hostgroups");
+					printf("没有主机组");
 				printf("</DIV><BR>\n");
 				printf("<DIV CLASS='data'>%s</DIV>\n",temp_host->address);
 			        }
 			if(display_type==DISPLAY_SERVICE_INFO){
-				printf("<DIV CLASS='data'>Service</DIV><DIV CLASS='dataTitle'>%s</DIV><DIV CLASS='data'>On Host</DIV>\n",service_desc);
+				printf("<DIV CLASS='data'>服务</DIV><DIV CLASS='dataTitle'>%s</DIV><DIV CLASS='data'>在主机</DIV>\n",service_desc);
 				printf("<DIV CLASS='dataTitle'>%s</DIV>\n",temp_host->alias);
 				printf("<DIV CLASS='dataTitle'>(<A HREF='%s?type=%d&host=%s'>%s</a>)</DIV><BR>\n",EXTINFO_CGI,DISPLAY_HOST_INFO,url_encode(temp_host->name),temp_host->name);
                                 printf("<DIV CLASS='data'>Member of</DIV><DIV CLASS='dataTitle'>");
@@ -365,13 +365,13 @@ int main(void){
                                         }
 
                                 if(found==FALSE)
-					printf("No servicegroups.");
+					printf("没有服务组.");
                                 printf("</DIV><BR>\n");
 
 				printf("<DIV CLASS='data'>%s</DIV>\n",temp_host->address);
 				}
 			if(display_type==DISPLAY_HOSTGROUP_INFO){
-				printf("<DIV CLASS='data'>Hostgroup</DIV>\n");
+				printf("<DIV CLASS='data'>主机组</DIV>\n");
 				printf("<DIV CLASS='dataTitle'>%s</DIV>\n",temp_hostgroup->alias);
 				printf("<DIV CLASS='dataTitle'>(%s)</DIV>\n",temp_hostgroup->group_name);
 				if(temp_hostgroup->notes!=NULL){
@@ -381,7 +381,7 @@ int main(void){
 					}
 			        }
 			if(display_type==DISPLAY_SERVICEGROUP_INFO){
-				printf("<DIV CLASS='data'>Servicegroup</DIV>\n");
+				printf("<DIV CLASS='data'>服务组</DIV>\n");
 				printf("<DIV CLASS='dataTitle'>%s</DIV>\n",temp_servicegroup->alias);
 				printf("<DIV CLASS='dataTitle'>(%s)</DIV>\n",temp_servicegroup->group_name);
 				if(temp_servicegroup->notes!=NULL){
@@ -439,8 +439,8 @@ int main(void){
 				process_macros(temp_host->action_url,&processed_string,0);
 				printf("%s",processed_string);
 				free(processed_string);
-				printf("' TARGET='%s'><img src='%s%s' border=0 alt='Perform Additional Actions On This Host' title='Perform Additional Actions On This Host'></A>\n",(action_url_target==NULL)?"_blank":action_url_target,url_images_path,ACTION_ICON);
-				printf("<BR CLEAR=ALL><FONT SIZE=-1><I>Extra Actions</I></FONT><BR CLEAR=ALL><BR CLEAR=ALL>\n");
+				printf("' TARGET='%s'><img src='%s%s' border=0 alt='手动检查主机' title='手动检查主机'></A>\n",(action_url_target==NULL)?"_blank":action_url_target,url_images_path,ACTION_ICON);
+				printf("<BR CLEAR=ALL><FONT SIZE=-1><I>手动检查</I></FONT><BR CLEAR=ALL><BR CLEAR=ALL>\n");
 				printf("</TD></TR>\n");
 			        }
 			if(temp_host->notes_url!=NULL && strcmp(temp_host->notes_url,"")){
@@ -450,8 +450,8 @@ int main(void){
 				printf("%s",processed_string);
 				free(processed_string);
 				/*print_extra_host_url(temp_host->name,temp_host->notes_url);*/
-				printf("' TARGET='%s'><img src='%s%s' border=0 alt='View Additional Notes For This Host' title='View Additional Notes For This Host'></A>\n",(notes_url_target==NULL)?"_blank":notes_url_target,url_images_path,NOTES_ICON);
-				printf("<BR CLEAR=ALL><FONT SIZE=-1><I>Extra Notes</I></FONT><BR CLEAR=ALL><BR CLEAR=ALL>\n");
+				printf("' TARGET='%s'><img src='%s%s' border=0 alt='主机备注' title='主机备注'></A>\n",(notes_url_target==NULL)?"_blank":notes_url_target,url_images_path,NOTES_ICON);
+				printf("<BR CLEAR=ALL><FONT SIZE=-1><I>备注</I></FONT><BR CLEAR=ALL><BR CLEAR=ALL>\n");
 				printf("</TD></TR>\n");
 			        }
 			printf("</TABLE>\n");
@@ -464,16 +464,16 @@ int main(void){
 				process_macros(temp_service->action_url,&processed_string,0);
 				printf("%s",processed_string);
 				free(processed_string);
-				printf("' TARGET='%s'><img src='%s%s' border=0 alt='Perform Additional Actions On This Service' title='Perform Additional Actions On This Service'></A>\n",(action_url_target==NULL)?"_blank":action_url_target,url_images_path,ACTION_ICON);
-				printf("<BR CLEAR=ALL><FONT SIZE=-1><I>Extra Actions</I></FONT><BR CLEAR=ALL><BR CLEAR=ALL>\n");
+				printf("' TARGET='%s'><img src='%s%s' border=0 alt='手动检查服务' title='手动检查服务'></A>\n",(action_url_target==NULL)?"_blank":action_url_target,url_images_path,ACTION_ICON);
+				printf("<BR CLEAR=ALL><FONT SIZE=-1><I>手动检查</I></FONT><BR CLEAR=ALL><BR CLEAR=ALL>\n");
 			        }
 			if(temp_service->notes_url!=NULL && strcmp(temp_service->notes_url,"")){
 				printf("<A HREF='");
 				process_macros(temp_service->notes_url,&processed_string,0);
 				printf("%s",processed_string);
 				free(processed_string);
-				printf("' TARGET='%s'><img src='%s%s' border=0 alt='View Additional Notes For This Service' title='View Additional Notes For This Service'></A>\n",(notes_url_target==NULL)?"_blank":notes_url_target,url_images_path,NOTES_ICON);
-				printf("<BR CLEAR=ALL><FONT SIZE=-1><I>Extra Notes</I></FONT><BR CLEAR=ALL><BR CLEAR=ALL>\n");
+				printf("' TARGET='%s'><img src='%s%s' border=0 alt='服务备注' title='服务备注'></A>\n",(notes_url_target==NULL)?"_blank":notes_url_target,url_images_path,NOTES_ICON);
+				printf("<BR CLEAR=ALL><FONT SIZE=-1><I>备注</I></FONT><BR CLEAR=ALL><BR CLEAR=ALL>\n");
 			        }
 			printf("</TD></TR></TABLE>\n");
 	                }
@@ -484,16 +484,16 @@ int main(void){
 				printf("<TR><TD ALIGN='right'>\n");
 				printf("<A HREF='");
 				print_extra_hostgroup_url(temp_hostgroup->group_name,temp_hostgroup->action_url);
-				printf("' TARGET='%s'><img src='%s%s' border=0 alt='Perform Additional Actions On This Hostgroup' title='Perform Additional Actions On This Hostgroup'></A>\n",(action_url_target==NULL)?"_blank":action_url_target,url_images_path,ACTION_ICON);
-				printf("<BR CLEAR=ALL><FONT SIZE=-1><I>Extra Actions</I></FONT><BR CLEAR=ALL><BR CLEAR=ALL>\n");
+				printf("' TARGET='%s'><img src='%s%s' border=0 alt='手动检查主机组' title='手动检查主机组'></A>\n",(action_url_target==NULL)?"_blank":action_url_target,url_images_path,ACTION_ICON);
+				printf("<BR CLEAR=ALL><FONT SIZE=-1><I>手动检查</I></FONT><BR CLEAR=ALL><BR CLEAR=ALL>\n");
 				printf("</TD></TR>\n");
 			        }
 			if(temp_hostgroup->notes_url!=NULL && strcmp(temp_hostgroup->notes_url,"")){
 				printf("<TR><TD ALIGN='right'>\n");
 				printf("<A HREF='");
 				print_extra_hostgroup_url(temp_hostgroup->group_name,temp_hostgroup->notes_url);
-				printf("' TARGET='%s'><img src='%s%s' border=0 alt='View Additional Notes For This Hostgroup' title='View Additional Notes For This Hostgroup'></A>\n",(notes_url_target==NULL)?"_blank":notes_url_target,url_images_path,NOTES_ICON);
-				printf("<BR CLEAR=ALL><FONT SIZE=-1><I>Extra Notes</I></FONT><BR CLEAR=ALL><BR CLEAR=ALL>\n");
+				printf("' TARGET='%s'><img src='%s%s' border=0 alt='查看主机组备注' title='查看主机组备注'></A>\n",(notes_url_target==NULL)?"_blank":notes_url_target,url_images_path,NOTES_ICON);
+				printf("<BR CLEAR=ALL><FONT SIZE=-1><I>备注</I></FONT><BR CLEAR=ALL><BR CLEAR=ALL>\n");
 				printf("</TD></TR>\n");
 			        }
 			printf("</TABLE>\n");
@@ -504,14 +504,14 @@ int main(void){
 			if(temp_servicegroup->action_url!=NULL && strcmp(temp_servicegroup->action_url,"")){
 				printf("<A HREF='");
 				print_extra_servicegroup_url(temp_servicegroup->group_name,temp_servicegroup->action_url);
-				printf("' TARGET='%s'><img src='%s%s' border=0 alt='Perform Additional Actions On This Servicegroup' title='Perform Additional Actions On This Servicegroup'></A>\n",(action_url_target==NULL)?"_blank":action_url_target,url_images_path,ACTION_ICON);
-				printf("<BR CLEAR=ALL><FONT SIZE=-1><I>Extra Actions</I></FONT><BR CLEAR=ALL><BR CLEAR=ALL>\n");
+				printf("' TARGET='%s'><img src='%s%s' border=0 alt='手动检查服务组' title='手动检查服务组'></A>\n",(action_url_target==NULL)?"_blank":action_url_target,url_images_path,ACTION_ICON);
+				printf("<BR CLEAR=ALL><FONT SIZE=-1><I>手动检查</I></FONT><BR CLEAR=ALL><BR CLEAR=ALL>\n");
 			        }
 			if(temp_servicegroup->notes_url!=NULL && strcmp(temp_servicegroup->notes_url,"")){
 				printf("<A HREF='");
 				print_extra_servicegroup_url(temp_servicegroup->group_name,temp_servicegroup->notes_url);
-				printf("' TARGET='%s'><img src='%s%s' border=0 alt='View Additional Notes For This Servicegroup' title='View Additional Notes For This Servicegroup'></A>\n",(notes_url_target==NULL)?"_blank":notes_url_target,url_images_path,NOTES_ICON);
-				printf("<BR CLEAR=ALL><FONT SIZE=-1><I>Extra Notes</I></FONT><BR CLEAR=ALL><BR CLEAR=ALL>\n");
+				printf("' TARGET='%s'><img src='%s%s' border=0 alt='服务组备注' title='服务组备注'></A>\n",(notes_url_target==NULL)?"_blank":notes_url_target,url_images_path,NOTES_ICON);
+				printf("<BR CLEAR=ALL><FONT SIZE=-1><I>备注</I></FONT><BR CLEAR=ALL><BR CLEAR=ALL>\n");
 			        }
 			printf("</TABLE>\n");
 	                }
@@ -801,75 +801,75 @@ void show_process_info(void){
 	printf("<TABLE BORDER=0 CELLPADDING=20>\n");
 	printf("<TR><TD VALIGN=TOP>\n");
 
-	printf("<DIV CLASS='dataTitle'>Process Information</DIV>\n");
+	printf("<DIV CLASS='dataTitle'>进程信息</DIV>\n");
 
 	printf("<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=0 CLASS='data'>\n");
 	printf("<TR><TD class='stateInfoTable1'>\n");
 	printf("<TABLE BORDER=0>\n");
 
 	/* program version */
-	printf("<TR><TD CLASS='dataVar'>Program Version:</TD><TD CLASS='dataVal'>%s</TD></TR>\n",PROGRAM_VERSION);
+	printf("<TR><TD CLASS='dataVar'>程序版本:</TD><TD CLASS='dataVal'>%s</TD></TR>\n",PROGRAM_VERSION);
 
 	/* program start time */
 	get_time_string(&program_start,date_time,(int)sizeof(date_time),SHORT_DATE_TIME);
-	printf("<TR><TD CLASS='dataVar'>Program Start Time:</TD><TD CLASS='dataVal'>%s</TD></TR>\n",date_time);
+	printf("<TR><TD CLASS='dataVar'>进程启动时间:</TD><TD CLASS='dataVal'>%s</TD></TR>\n",date_time);
 
 	/* total running time */
 	time(&current_time);
 	run_time=(unsigned long)(current_time-program_start);
 	get_time_breakdown(run_time,&days,&hours,&minutes,&seconds);
 	sprintf(run_time_string,"%dd %dh %dm %ds",days,hours,minutes,seconds);
-	printf("<TR><TD CLASS='dataVar'>Total Running Time:</TD><TD CLASS='dataVal'>%s</TD></TR>\n",run_time_string);
+	printf("<TR><TD CLASS='dataVar'>运行时间总计:</TD><TD CLASS='dataVal'>%s</TD></TR>\n",run_time_string);
 
 	/* last external check */
 	get_time_string(&last_command_check,date_time,(int)sizeof(date_time),SHORT_DATE_TIME);
-	printf("<TR><TD CLASS='dataVar'>Last External Command Check:</TD><TD CLASS='dataVal'>%s</TD></TR>\n",(last_command_check==(time_t)0)?"N/A":date_time);
+	printf("<TR><TD CLASS='dataVar'>上次检查时间:</TD><TD CLASS='dataVal'>%s</TD></TR>\n",(last_command_check==(time_t)0)?"N/A":date_time);
 
 	/* last log file rotation */
 	get_time_string(&last_log_rotation,date_time,(int)sizeof(date_time),SHORT_DATE_TIME);
-	printf("<TR><TD CLASS='dataVar'>Last Log File Rotation:</TD><TD CLASS='dataVal'>%s</TD></TR>\n",(last_log_rotation==(time_t)0)?"N/A":date_time);
+	printf("<TR><TD CLASS='dataVar'>上次日志循环时间:</TD><TD CLASS='dataVal'>%s</TD></TR>\n",(last_log_rotation==(time_t)0)?"N/A":date_time);
 
 	/* PID */
-	printf("<TR><TD CLASS='dataVar'>Nagios PID</TD><TD CLASS='dataval'>%d</TD></TR>\n",nagios_pid);
+	printf("<TR><TD CLASS='dataVar'>Nagios进程号</TD><TD CLASS='dataval'>%d</TD></TR>\n",nagios_pid);
 
 	/* notifications enabled */
-	printf("<TR><TD CLASS='dataVar'>Notifications Enabled?</TD><TD CLASS='dataVal'><DIV CLASS='notifications%s'>&nbsp;&nbsp;%s&nbsp;&nbsp;</DIV></TD></TR>\n",(enable_notifications==TRUE)?"ENABLED":"DISABLED",(enable_notifications==TRUE)?"YES":"NO");
+	printf("<TR><TD CLASS='dataVar'>启用通知?</TD><TD CLASS='dataVal'><DIV CLASS='notifications%s'>&nbsp;&nbsp;%s&nbsp;&nbsp;</DIV></TD></TR>\n",(enable_notifications==TRUE)?"ENABLED":"DISABLED",(enable_notifications==TRUE)?"YES":"NO");
 
 	/* service check execution enabled */
-	printf("<TR><TD CLASS='dataVar'>Service Checks Being Executed?</TD><TD CLASS='dataVal'><DIV CLASS='checks%s'>&nbsp;&nbsp;%s&nbsp;&nbsp;</DIV></TD></TR>\n",(execute_service_checks==TRUE)?"ENABLED":"DISABLED",(execute_service_checks==TRUE)?"YES":"NO");
+	printf("<TR><TD CLASS='dataVar'>执行服务检查?</TD><TD CLASS='dataVal'><DIV CLASS='checks%s'>&nbsp;&nbsp;%s&nbsp;&nbsp;</DIV></TD></TR>\n",(execute_service_checks==TRUE)?"ENABLED":"DISABLED",(execute_service_checks==TRUE)?"YES":"NO");
 
 	/* passive service check acceptance */
-	printf("<TR><TD CLASS='dataVar'>Passive Service Checks Being Accepted?</TD><TD CLASS='dataVal'><DIV CLASS='checks%s'>&nbsp;&nbsp;%s&nbsp;&nbsp;</DIV></TD></TR>\n",(accept_passive_service_checks==TRUE)?"ENABLED":"DISABLED",(accept_passive_service_checks==TRUE)?"YES":"NO");
+	printf("<TR><TD CLASS='dataVar'>启用被动服务检查?</TD><TD CLASS='dataVal'><DIV CLASS='checks%s'>&nbsp;&nbsp;%s&nbsp;&nbsp;</DIV></TD></TR>\n",(accept_passive_service_checks==TRUE)?"ENABLED":"DISABLED",(accept_passive_service_checks==TRUE)?"YES":"NO");
 
 	/* host check execution enabled */
-	printf("<TR><TD CLASS='dataVar'>Host Checks Being Executed?</TD><TD CLASS='dataVal'><DIV CLASS='checks%s'>&nbsp;&nbsp;%s&nbsp;&nbsp;</DIV></TD></TR>\n",(execute_host_checks==TRUE)?"ENABLED":"DISABLED",(execute_host_checks==TRUE)?"YES":"NO");
+	printf("<TR><TD CLASS='dataVar'>执行主机检查?</TD><TD CLASS='dataVal'><DIV CLASS='checks%s'>&nbsp;&nbsp;%s&nbsp;&nbsp;</DIV></TD></TR>\n",(execute_host_checks==TRUE)?"ENABLED":"DISABLED",(execute_host_checks==TRUE)?"YES":"NO");
 
 	/* passive host check acceptance */
-	printf("<TR><TD CLASS='dataVar'>Passive Host Checks Being Accepted?</TD><TD CLASS='dataVal'><DIV CLASS='checks%s'>&nbsp;&nbsp;%s&nbsp;&nbsp;</DIV></TD></TR>\n",(accept_passive_host_checks==TRUE)?"ENABLED":"DISABLED",(accept_passive_host_checks==TRUE)?"YES":"NO");
+	printf("<TR><TD CLASS='dataVar'>启用被动主机检查?</TD><TD CLASS='dataVal'><DIV CLASS='checks%s'>&nbsp;&nbsp;%s&nbsp;&nbsp;</DIV></TD></TR>\n",(accept_passive_host_checks==TRUE)?"ENABLED":"DISABLED",(accept_passive_host_checks==TRUE)?"YES":"NO");
 
 	/* event handlers enabled */
-	printf("<TR><TD CLASS='dataVar'>Event Handlers Enabled?</TD><TD CLASS='dataVal'>%s</TD></TR>\n",(enable_event_handlers==TRUE)?"Yes":"No");
+	printf("<TR><TD CLASS='dataVar'>启用事件处理器?</TD><TD CLASS='dataVal'>%s</TD></TR>\n",(enable_event_handlers==TRUE)?"Yes":"No");
 
 	/* obsessing over services */
-	printf("<TR><TD CLASS='dataVar'>Obsessing Over Services?</TD><TD CLASS='dataVal'>%s</TD></TR>\n",(obsess_over_services==TRUE)?"Yes":"No");
+	printf("<TR><TD CLASS='dataVar'>检测服务?</TD><TD CLASS='dataVal'>%s</TD></TR>\n",(obsess_over_services==TRUE)?"Yes":"No");
 
 	/* obsessing over hosts */
-	printf("<TR><TD CLASS='dataVar'>Obsessing Over Hosts?</TD><TD CLASS='dataVal'>%s</TD></TR>\n",(obsess_over_hosts==TRUE)?"Yes":"No");
+	printf("<TR><TD CLASS='dataVar'>检测主机?</TD><TD CLASS='dataVal'>%s</TD></TR>\n",(obsess_over_hosts==TRUE)?"Yes":"No");
 
 	/* flap detection enabled */
-	printf("<TR><TD CLASS='dataVar'>Flap Detection Enabled?</TD><TD CLASS='dataVal'>%s</TD></TR>\n",(enable_flap_detection==TRUE)?"Yes":"No");
+	printf("<TR><TD CLASS='dataVar'>启用反复检测?</TD><TD CLASS='dataVal'>%s</TD></TR>\n",(enable_flap_detection==TRUE)?"Yes":"No");
 
 #ifdef PREDICT_FAILURES
 	/* failure prediction enabled */
-	printf("<TR><TD CLASS='dataVar'>Failure Prediction Enabled?</TD><TD CLASS='dataVal'>%s</TD></TR>\n",(enable_failure_prediction==TRUE)?"Yes":"No");
+	printf("<TR><TD CLASS='dataVar'>启用失败预警?</TD><TD CLASS='dataVal'>%s</TD></TR>\n",(enable_failure_prediction==TRUE)?"Yes":"No");
 #endif
 
 	/* process performance data */
-	printf("<TR><TD CLASS='dataVar'>Performance Data Being Processed?</TD><TD CLASS='dataVal'>%s</TD></TR>\n",(process_performance_data==TRUE)?"Yes":"No");
+	printf("<TR><TD CLASS='dataVar'>处理性能数据?</TD><TD CLASS='dataVal'>%s</TD></TR>\n",(process_performance_data==TRUE)?"Yes":"No");
 
 #ifdef USE_OLDCRUD
 	/* daemon mode */
-	printf("<TR><TD CLASS='dataVar'>Running As A Daemon?</TD><TD CLASS='dataVal'>%s</TD></TR>\n",(daemon_mode==TRUE)?"Yes":"No");
+	printf("<TR><TD CLASS='dataVar'>以Daemon运行?</TD><TD CLASS='dataVal'>%s</TD></TR>\n",(daemon_mode==TRUE)?"Yes":"No");
 #endif
 
 	printf("</TABLE>\n");
@@ -879,7 +879,7 @@ void show_process_info(void){
 
 	printf("</TD><TD VALIGN=TOP>\n");
 
-	printf("<DIV CLASS='commandTitle'>Process Commands</DIV>\n");
+	printf("<DIV CLASS='commandTitle'>执行名利</DIV>\n");
 
 	printf("<TABLE BORDER=1 CELLPADDING=0 CELLSPACING=0 CLASS='command'>\n");
 	printf("<TR><TD>\n");
@@ -1494,7 +1494,7 @@ void show_service_info(void){
 		status_age[sizeof(status_age)-1]='\x0';
 
 		get_time_string(&temp_svcstatus->last_update,date_time,(int)sizeof(date_time),SHORT_DATE_TIME);
-		printf("<TR><TD CLASS='dataVar'>Last Update:</TD><TD CLASS='dataVal'>%s&nbsp;&nbsp;(%s ago)</TD></TR>\n",(temp_svcstatus->last_update==(time_t)0)?"N/A":date_time,status_age);
+		printf("<TR><TD CLASS='dataVar'>最后更新:</TD><TD CLASS='dataVal'>%s&nbsp;&nbsp;(%s ago)</TD></TR>\n",(temp_svcstatus->last_update==(time_t)0)?"N/A":date_time,status_age);
 
 
 		printf("</TABLE>\n");
@@ -2985,10 +2985,10 @@ void show_scheduling_queue(void){
 		                }
 			else{
 				printf("<a href='%s?cmd_typ=%d&host=%s",COMMAND_CGI,CMD_ENABLE_HOST_CHECK,url_encode(temp_hststatus->host_name));
-				printf("'><img src='%s%s' border=0 ALT='Enable Active Checks Of This Host' TITLE='Enable Active Checks Of This Host'></a>\n",url_images_path,ENABLED_ICON);
+				printf("'><img src='%s%s' border=0 ALT='启用本机的主动检查' TITLE='启用本机的主动检查'></a>\n",url_images_path,ENABLED_ICON);
 		                }
 			printf("<a href='%s?cmd_typ=%d&host=%s%s",COMMAND_CGI,CMD_SCHEDULE_HOST_CHECK,url_encode(temp_hststatus->host_name),(temp_hststatus->checks_enabled==TRUE)?"&force_check":"");
-			printf("'><img src='%s%s' border=0 ALT='Re-schedule This Host Check' TITLE='Re-schedule This Host Check'></a>\n",url_images_path,DELAY_ICON);
+			printf("'><img src='%s%s' border=0 ALT='重新调度检查' TITLE='重新调度检查'></a>\n",url_images_path,DELAY_ICON);
 			printf("</TD>\n");
 		        }
 
