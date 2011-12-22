@@ -372,11 +372,11 @@ int main(int argc, char **argv){
 		printf("<td align=left valign=top width=33%%>\n");
 
 		if(display_type==DISPLAY_HOST_TRENDS)
-			snprintf(temp_buffer,sizeof(temp_buffer)-1,"Host State Trends");
+			snprintf(temp_buffer,sizeof(temp_buffer)-1,"主机状态的趋势");
 		else if(display_type==DISPLAY_SERVICE_TRENDS)
-			snprintf(temp_buffer,sizeof(temp_buffer)-1,"Service State Trends");
+			snprintf(temp_buffer,sizeof(temp_buffer)-1,"服务状态的趋势");
 		else
-			snprintf(temp_buffer,sizeof(temp_buffer)-1,"Host and Service State Trends");
+			snprintf(temp_buffer,sizeof(temp_buffer)-1,"主机和服务状态的趋势");
 		temp_buffer[sizeof(temp_buffer)-1]='\x0';
 		display_info_table(temp_buffer,FALSE,&current_authdata);
 
@@ -386,24 +386,24 @@ int main(int argc, char **argv){
 			printf("<TR><TD CLASS='linkBox'>\n");
 
 			if(display_type==DISPLAY_HOST_TRENDS){
-				printf("<a href='%s?host=%s&t1=%lu&t2=%lu&includesoftstates=%s&assumestateretention=%s&assumeinitialstates=%s&assumestatesduringnotrunning=%s&initialassumedhoststate=%d&backtrack=%d&show_log_entries'>View Availability Report For This Host</a><BR>\n",AVAIL_CGI,url_encode(host_name),t1,t2,(include_soft_states==TRUE)?"yes":"no",(assume_state_retention==TRUE)?"yes":"no",(assume_initial_states==TRUE)?"yes":"no",(assume_states_during_notrunning==TRUE)?"yes":"no",initial_assumed_host_state,backtrack_archives);
+				printf("<a href='%s?host=%s&t1=%lu&t2=%lu&includesoftstates=%s&assumestateretention=%s&assumeinitialstates=%s&assumestatesduringnotrunning=%s&initialassumedhoststate=%d&backtrack=%d&show_log_entries'>该主机的可用性报告</a><BR>\n",AVAIL_CGI,url_encode(host_name),t1,t2,(include_soft_states==TRUE)?"yes":"no",(assume_state_retention==TRUE)?"yes":"no",(assume_initial_states==TRUE)?"yes":"no",(assume_states_during_notrunning==TRUE)?"yes":"no",initial_assumed_host_state,backtrack_archives);
 #ifdef USE_HISTROGRAM
-				printf("<a href='%s?host=%s&t1=%lu&t2=%lu&assumestateretention=%s'>View Alert Histogram For This Host</a><BR>\n",HISTOGRAM_CGI,url_encode(host_name),t1,t2,(assume_state_retention==TRUE)?"yes":"no");
+				printf("<a href='%s?host=%s&t1=%lu&t2=%lu&assumestateretention=%s'>该主机的告警柱状图</a><BR>\n",HISTOGRAM_CGI,url_encode(host_name),t1,t2,(assume_state_retention==TRUE)?"yes":"no");
 #endif
-				printf("<a href='%s?host=%s'>View Status Detail For This Host</a><BR>\n",STATUS_CGI,url_encode(host_name));
-				printf("<a href='%s?host=%s'>View Alert History For This Host</a><BR>\n",HISTORY_CGI,url_encode(host_name));
-				printf("<a href='%s?host=%s'>View Notifications For This Host</a><BR>\n",NOTIFICATIONS_CGI,url_encode(host_name));
+				printf("<a href='%s?host=%s'>该主机的详细状态</a><BR>\n",STATUS_CGI,url_encode(host_name));
+				printf("<a href='%s?host=%s'>该主机的告警历史信息</a><BR>\n",HISTORY_CGI,url_encode(host_name));
+				printf("<a href='%s?host=%s'>查看该主机的通知</a><BR>\n",NOTIFICATIONS_CGI,url_encode(host_name));
 		                }
 			else{
-				printf("<a href='%s?host=%s&t1=%lu&t2=%lu&includesoftstates=%s&assumestateretention=%s&assumeinitialstates=%s&assumestatesduringnotrunning=%s&initialassumedservicestate=%d&backtrack=%d'>View Trends For This Host</a><BR>\n",TRENDS_CGI,url_encode(host_name),t1,t2,(include_soft_states==TRUE)?"yes":"no",(assume_state_retention==TRUE)?"yes":"no",(assume_initial_states==TRUE)?"yes":"no",(assume_states_during_notrunning==TRUE)?"yes":"no",initial_assumed_service_state,backtrack_archives);
+				printf("<a href='%s?host=%s&t1=%lu&t2=%lu&includesoftstates=%s&assumestateretention=%s&assumeinitialstates=%s&assumestatesduringnotrunning=%s&initialassumedservicestate=%d&backtrack=%d'>查看该主机趋势</a><BR>\n",TRENDS_CGI,url_encode(host_name),t1,t2,(include_soft_states==TRUE)?"yes":"no",(assume_state_retention==TRUE)?"yes":"no",(assume_initial_states==TRUE)?"yes":"no",(assume_states_during_notrunning==TRUE)?"yes":"no",initial_assumed_service_state,backtrack_archives);
 				printf("<a href='%s?host=%s",AVAIL_CGI,url_encode(host_name));
-				printf("&service=%s&t1=%lu&t2=%lu&assumestateretention=%s&includesoftstates=%s&assumeinitialstates=%s&assumestatesduringnotrunning=%s&initialassumedservicestate=%d&backtrack=%d&show_log_entries'>View Availability Report For This Service</a><BR>\n",url_encode(svc_description),t1,t2,(include_soft_states==TRUE)?"yes":"no",(assume_state_retention==TRUE)?"yes":"no",(assume_initial_states==TRUE)?"yes":"no",(assume_states_during_notrunning==TRUE)?"yes":"no",initial_assumed_service_state,backtrack_archives);
+				printf("&service=%s&t1=%lu&t2=%lu&assumestateretention=%s&includesoftstates=%s&assumeinitialstates=%s&assumestatesduringnotrunning=%s&initialassumedservicestate=%d&backtrack=%d&show_log_entries'>查看该服务的可用性报告</a><BR>\n",url_encode(svc_description),t1,t2,(include_soft_states==TRUE)?"yes":"no",(assume_state_retention==TRUE)?"yes":"no",(assume_initial_states==TRUE)?"yes":"no",(assume_states_during_notrunning==TRUE)?"yes":"no",initial_assumed_service_state,backtrack_archives);
 				printf("<a href='%s?host=%s",HISTOGRAM_CGI,url_encode(host_name));
-				printf("&service=%s&t1=%lu&t2=%lu&assumestateretention=%s'>View Alert Histogram For This Service</a><BR>\n",url_encode(svc_description),t1,t2,(assume_state_retention==TRUE)?"yes":"no");
+				printf("&service=%s&t1=%lu&t2=%lu&assumestateretention=%s'>该服务的告警柱状图</a><BR>\n",url_encode(svc_description),t1,t2,(assume_state_retention==TRUE)?"yes":"no");
 				printf("<A HREF='%s?host=%s&",HISTORY_CGI,url_encode(host_name));
-				printf("service=%s'>View Alert History For This Service</A><BR>\n",url_encode(svc_description));
+				printf("service=%s'>该服务的告警历史信息</A><BR>\n",url_encode(svc_description));
 				printf("<A HREF='%s?host=%s&",NOTIFICATIONS_CGI,url_encode(host_name));
-				printf("service=%s'>View Notifications For This Service</A><BR>\n",url_encode(svc_description));
+				printf("service=%s'>查看该服务的通知</A><BR>\n",url_encode(svc_description));
 		                }
 
 			printf("</TD></TR>\n");
@@ -419,23 +419,23 @@ int main(int argc, char **argv){
 
 			printf("<DIV ALIGN=CENTER CLASS='dataTitle'>\n");
 			if(display_type==DISPLAY_HOST_TRENDS)
-				printf("Host '%s'",host_name);
+				printf("主机 '%s'",host_name);
 			else if(display_type==DISPLAY_SERVICE_TRENDS)
-				printf("Service '%s' On Host '%s'",svc_description,host_name);
+				printf("主机 '%s' 上的 '%s' 服务",host_name,svc_description);
 			printf("</DIV>\n");
 
 			printf("<BR>\n");
 
-			printf("<IMG SRC='%s%s' BORDER=0 ALT='%s State Trends' TITLE='%s State Trends'>\n",url_images_path,TRENDS_ICON,(display_type==DISPLAY_HOST_TRENDS)?"Host":"Service",(display_type==DISPLAY_HOST_TRENDS)?"Host":"Service");
+			printf("<IMG SRC='%s%s' BORDER=0 ALT='%s 状态趋势' TITLE='%s 状态趋势'>\n",url_images_path,TRENDS_ICON,(display_type==DISPLAY_HOST_TRENDS)?"主机":"服务",(display_type==DISPLAY_HOST_TRENDS)?"主机":"服务");
 
 			printf("<BR CLEAR=ALL>\n");
 
 			get_time_string(&t1,start_timestring,sizeof(start_timestring)-1,SHORT_DATE_TIME);
 			get_time_string(&t2,end_timestring,sizeof(end_timestring)-1,SHORT_DATE_TIME);
-			printf("<div align=center class='reportRange'>%s to %s</div>\n",start_timestring,end_timestring);
+			printf("<div align=center class='reportRange'>%s 到 %s</div>\n",start_timestring,end_timestring);
 
 			get_time_breakdown((time_t)(t2-t1),&days,&hours,&minutes,&seconds);
-			printf("<div align=center class='reportDuration'>Duration: %dd %dh %dm %ds</div>\n",days,hours,minutes,seconds);
+			printf("<div align=center class='reportDuration'>持续时间: %d天 %d时 %d分 %d秒</div>\n",days,hours,minutes,seconds);
 		        }
 
 		printf("</td>\n");
@@ -463,47 +463,47 @@ int main(int argc, char **argv){
 			printf("<input type='hidden' name='assumestatesduringnotrunning' value='%s'>\n",(assume_states_during_notrunning==TRUE)?"yes":"no");
 			printf("<input type='hidden' name='includesoftstates' value='%s'>\n",(include_soft_states==TRUE)?"yes":"no");
 
-			printf("<tr><td CLASS='optBoxItem' valign=top align=left>First assumed %s state:</td><td CLASS='optBoxItem' valign=top align=left>Backtracked archives:</td></tr>\n",(display_type==DISPLAY_HOST_TRENDS)?"host":"service");
+			printf("<tr><td CLASS='optBoxItem' valign=top align=left>首先假定%s的状态:</td><td CLASS='optBoxItem' valign=top align=left>追溯归档个数:</td></tr>\n",(display_type==DISPLAY_HOST_TRENDS)?"主机":"服务");
 			printf("<tr><td CLASS='optBoxItem' valign=top align=left>");
 			if(display_type==DISPLAY_HOST_TRENDS){
 				printf("<input type='hidden' name='initialassumedservicestate' value='%d'>",initial_assumed_service_state);
 				printf("<select name='initialassumedhoststate'>\n");
-				printf("<option value=%d %s>Unspecified\n",AS_NO_DATA,(initial_assumed_host_state==AS_NO_DATA)?"SELECTED":"");
-				printf("<option value=%d %s>Current State\n",AS_CURRENT_STATE,(initial_assumed_host_state==AS_CURRENT_STATE)?"SELECTED":"");
-				printf("<option value=%d %s>Host Up\n",AS_HOST_UP,(initial_assumed_host_state==AS_HOST_UP)?"SELECTED":"");
-				printf("<option value=%d %s>Host Down\n",AS_HOST_DOWN,(initial_assumed_host_state==AS_HOST_DOWN)?"SELECTED":"");
-				printf("<option value=%d %s>Host Unreachable\n",AS_HOST_UNREACHABLE,(initial_assumed_host_state==AS_HOST_UNREACHABLE)?"SELECTED":"");
+				printf("<option value=%d %s>未定义的\n",AS_NO_DATA,(initial_assumed_host_state==AS_NO_DATA)?"SELECTED":"");
+				printf("<option value=%d %s>当前的状态\n",AS_CURRENT_STATE,(initial_assumed_host_state==AS_CURRENT_STATE)?"SELECTED":"");
+				printf("<option value=%d %s>主机运行\n",AS_HOST_UP,(initial_assumed_host_state==AS_HOST_UP)?"SELECTED":"");
+				printf("<option value=%d %s>主机宕机\n",AS_HOST_DOWN,(initial_assumed_host_state==AS_HOST_DOWN)?"SELECTED":"");
+				printf("<option value=%d %s>主机不可达\n",AS_HOST_UNREACHABLE,(initial_assumed_host_state==AS_HOST_UNREACHABLE)?"SELECTED":"");
 			        }
 			else{
 				printf("<input type='hidden' name='initialassumedhoststate' value='%d'>",initial_assumed_host_state);
 				printf("<select name='initialassumedservicestate'>\n");
-				printf("<option value=%d %s>Unspecified\n",AS_NO_DATA,(initial_assumed_service_state==AS_NO_DATA)?"SELECTED":"");
-				printf("<option value=%d %s>Current State\n",AS_CURRENT_STATE,(initial_assumed_service_state==AS_CURRENT_STATE)?"SELECTED":"");
-				printf("<option value=%d %s>Service Ok\n",AS_SVC_OK,(initial_assumed_service_state==AS_SVC_OK)?"SELECTED":"");
-				printf("<option value=%d %s>Service Warning\n",AS_SVC_WARNING,(initial_assumed_service_state==AS_SVC_WARNING)?"SELECTED":"");
-				printf("<option value=%d %s>Service Unknown\n",AS_SVC_UNKNOWN,(initial_assumed_service_state==AS_SVC_UNKNOWN)?"SELECTED":"");
-				printf("<option value=%d %s>Service Critical\n",AS_SVC_CRITICAL,(initial_assumed_service_state==AS_SVC_CRITICAL)?"SELECTED":"");
+				printf("<option value=%d %s>未定义的\n",AS_NO_DATA,(initial_assumed_service_state==AS_NO_DATA)?"SELECTED":"");
+				printf("<option value=%d %s>当前的状态\n",AS_CURRENT_STATE,(initial_assumed_service_state==AS_CURRENT_STATE)?"SELECTED":"");
+				printf("<option value=%d %s>服务正常\n",AS_SVC_OK,(initial_assumed_service_state==AS_SVC_OK)?"SELECTED":"");
+				printf("<option value=%d %s>服务告警\n",AS_SVC_WARNING,(initial_assumed_service_state==AS_SVC_WARNING)?"SELECTED":"");
+				printf("<option value=%d %s>服务未知\n",AS_SVC_UNKNOWN,(initial_assumed_service_state==AS_SVC_UNKNOWN)?"SELECTED":"");
+				printf("<option value=%d %s>服务紧急\n",AS_SVC_CRITICAL,(initial_assumed_service_state==AS_SVC_CRITICAL)?"SELECTED":"");
 			        }
 			printf("</select>\n");
 			printf("</td><td CLASS='optBoxItem' valign=top align=left>\n");
 			printf("<input type='text' name='backtrack' size='2' maxlength='2' value='%d'>\n",backtrack_archives);
 			printf("</td></tr>\n");
 
-			printf("<tr><td CLASS='optBoxItem' valign=top align=left>Report period:</td><td CLASS='optBoxItem' valign=top align=left>Zoom factor:</td></tr>\n");
+			printf("<tr><td CLASS='optBoxItem' valign=top align=left>报告周期:</td><td CLASS='optBoxItem' valign=top align=left>放大缩小:</td></tr>\n");
 			printf("<tr><td CLASS='optBoxItem' valign=top align=left>\n");
 			printf("<select name='timeperiod'>\n");
-			printf("<option>[ Current time range ]\n");
-			printf("<option value=today %s>Today\n",(timeperiod_type==TIMEPERIOD_TODAY)?"SELECTED":"");
-			printf("<option value=last24hours %s>Last 24 Hours\n",(timeperiod_type==TIMEPERIOD_LAST24HOURS)?"SELECTED":"");
-			printf("<option value=yesterday %s>Yesterday\n",(timeperiod_type==TIMEPERIOD_YESTERDAY)?"SELECTED":"");
-			printf("<option value=thisweek %s>This Week\n",(timeperiod_type==TIMEPERIOD_THISWEEK)?"SELECTED":"");
-			printf("<option value=last7days %s>Last 7 Days\n",(timeperiod_type==TIMEPERIOD_LAST7DAYS)?"SELECTED":"");
-			printf("<option value=lastweek %s>Last Week\n",(timeperiod_type==TIMEPERIOD_LASTWEEK)?"SELECTED":"");
-			printf("<option value=thismonth %s>This Month\n",(timeperiod_type==TIMEPERIOD_THISMONTH)?"SELECTED":"");
-			printf("<option value=last31days %s>Last 31 Days\n",(timeperiod_type==TIMEPERIOD_LAST31DAYS)?"SELECTED":"");
-			printf("<option value=lastmonth %s>Last Month\n",(timeperiod_type==TIMEPERIOD_LASTMONTH)?"SELECTED":"");
-			printf("<option value=thisyear %s>This Year\n",(timeperiod_type==TIMEPERIOD_THISYEAR)?"SELECTED":"");
-			printf("<option value=lastyear %s>Last Year\n",(timeperiod_type==TIMEPERIOD_LASTYEAR)?"SELECTED":"");
+			printf("<option>[ 当前时间范围 ]\n");
+			printf("<option value=today %s>今天\n",(timeperiod_type==TIMEPERIOD_TODAY)?"SELECTED":"");
+			printf("<option value=last24hours %s>过去的24小时\n",(timeperiod_type==TIMEPERIOD_LAST24HOURS)?"SELECTED":"");
+			printf("<option value=yesterday %s>昨天\n",(timeperiod_type==TIMEPERIOD_YESTERDAY)?"SELECTED":"");
+			printf("<option value=thisweek %s>本周\n",(timeperiod_type==TIMEPERIOD_THISWEEK)?"SELECTED":"");
+			printf("<option value=last7days %s>过去的7天\n",(timeperiod_type==TIMEPERIOD_LAST7DAYS)?"SELECTED":"");
+			printf("<option value=lastweek %s>上周\n",(timeperiod_type==TIMEPERIOD_LASTWEEK)?"SELECTED":"");
+			printf("<option value=thismonth %s>本月\n",(timeperiod_type==TIMEPERIOD_THISMONTH)?"SELECTED":"");
+			printf("<option value=last31days %s>过去的31天\n",(timeperiod_type==TIMEPERIOD_LAST31DAYS)?"SELECTED":"");
+			printf("<option value=lastmonth %s>上月\n",(timeperiod_type==TIMEPERIOD_LASTMONTH)?"SELECTED":"");
+			printf("<option value=thisyear %s>今年\n",(timeperiod_type==TIMEPERIOD_THISYEAR)?"SELECTED":"");
+			printf("<option value=lastyear %s>去年\n",(timeperiod_type==TIMEPERIOD_LASTYEAR)?"SELECTED":"");
 			printf("</select>\n");
 			printf("</td><td CLASS='optBoxItem' valign=top align=left>\n");
 			printf("<select name='zoom'>\n");
@@ -519,7 +519,7 @@ int main(int argc, char **argv){
 
 			printf("<tr><td CLASS='optBoxItem' valign=top align=left>\n");
 			printf("</td><td CLASS='optBoxItem' valign=top align=left>\n");
-			printf("<input type='submit' value='Update'>\n");
+			printf("<input type='submit' value='更新'>\n");
 			printf("</td></tr>\n");
 
 			printf("</form>\n");
@@ -573,7 +573,7 @@ int main(int argc, char **argv){
 	if(is_authorized==FALSE){
 
 		if(mode==CREATE_HTML)
-			printf("<P><DIV ALIGN=CENTER CLASS='errorMessage'>It appears as though you are not authorized to view information for the specified %s...</DIV></P>\n",(display_type==DISPLAY_HOST_TRENDS)?"host":"service");
+			printf("<P><DIV ALIGN=CENTER CLASS='errorMessage'>无权访问%s的信息 </DIV></P>\n",(display_type==DISPLAY_HOST_TRENDS)?"主机":"服务");
 
 		document_footer();
 		free_memory();
@@ -695,14 +695,14 @@ int main(int argc, char **argv){
 			string_height=gdFontSmall->h;
 
 			if(display_type==DISPLAY_HOST_TRENDS)
-				snprintf(temp_buffer,sizeof(temp_buffer)-1,"State History For Host '%s'",host_name);
+				snprintf(temp_buffer,sizeof(temp_buffer)-1,"主机 '%s' 的状态历史",host_name);
 			else
-				snprintf(temp_buffer,sizeof(temp_buffer)-1,"State History For Service '%s' On Host '%s'",svc_description,host_name);
+				snprintf(temp_buffer,sizeof(temp_buffer)-1,"主机 '%s' 上的 '%s' 服务的状态历史",host_name,svc_description);
 			temp_buffer[sizeof(temp_buffer)-1]='\x0';
 			string_width=gdFontSmall->w*strlen(temp_buffer);
 			gdImageString(trends_image,gdFontSmall,(drawing_width/2)-(string_width/2)+drawing_x_offset,string_height,(unsigned char *)temp_buffer,color_black);
 
-			snprintf(temp_buffer,sizeof(temp_buffer)-1,"%s to %s",start_time,end_time);
+			snprintf(temp_buffer,sizeof(temp_buffer)-1,"%s 到 %s",start_time,end_time);
 			temp_buffer[sizeof(temp_buffer)-1]='\x0';
 			string_width=gdFontSmall->w*strlen(temp_buffer);
 			gdImageString(trends_image,gdFontSmall,(drawing_width/2)-(string_width/2)+drawing_x_offset,(string_height*2)+5,(unsigned char *)temp_buffer,color_black);
@@ -793,7 +793,7 @@ int main(int argc, char **argv){
 		if(input_type==GET_INPUT_HOST_TARGET){
 
 			printf("<P><DIV ALIGN=CENTER>\n");
-			printf("<DIV CLASS='reportSelectTitle'>Step 2: Select Host</DIV>\n");
+			printf("<DIV CLASS='reportSelectTitle'>步骤２: 选择主机</DIV>\n");
 			printf("</DIV></P>\n");
 
 			printf("<P><DIV ALIGN=CENTER>\n");
@@ -802,7 +802,7 @@ int main(int argc, char **argv){
 			printf("<form method=\"GET\" action=\"%s\">\n",TRENDS_CGI);
 			printf("<input type='hidden' name='input' value='getoptions'>\n");
 
-			printf("<tr><td class='reportSelectSubTitle' valign=center>Host:</td>\n");
+			printf("<tr><td class='reportSelectSubTitle' valign=center>主机:</td>\n");
 			printf("<td class='reportSelectItem' valign=center>\n");
 			printf("<select name='host'>\n");
 
@@ -815,7 +815,7 @@ int main(int argc, char **argv){
 			printf("</td></tr>\n");
 
 			printf("<tr><td></td><td class='reportSelectItem'>\n");
-			printf("<input type='submit' value='Continue to Step 3'>\n");
+			printf("<input type='submit' value='进入第3步'>\n");
 			printf("</td></tr>\n");
 
 			printf("</form>\n");
@@ -849,7 +849,7 @@ int main(int argc, char **argv){
 
 
 			printf("<P><DIV ALIGN=CENTER>\n");
-			printf("<DIV CLASS='reportSelectTitle'>Step 2: Select Service</DIV>\n");
+			printf("<DIV CLASS='reportSelectTitle'>步骤２: 选择服务</DIV>\n");
 			printf("</DIV></P>\n");
 
 			printf("<P><DIV ALIGN=CENTER>\n");
@@ -859,7 +859,7 @@ int main(int argc, char **argv){
 			printf("<input type='hidden' name='input' value='getoptions'>\n");
 			printf("<input type='hidden' name='host' value='%s'>\n",(first_service==NULL)?"unknown":(char *)escape_string(first_service));
 
-			printf("<tr><td class='reportSelectSubTitle'>Service:</td>\n");
+			printf("<tr><td class='reportSelectSubTitle'>服务:</td>\n");
 			printf("<td class='reportSelectItem'>\n");
 			printf("<select name='service' onFocus='document.serviceform.host.value=gethostname(this.selectedIndex);' onChange='document.serviceform.host.value=gethostname(this.selectedIndex);'>\n");
 
@@ -872,7 +872,7 @@ int main(int argc, char **argv){
 			printf("</td></tr>\n");
 
 			printf("<tr><td></td><td class='reportSelectItem'>\n");
-			printf("<input type='submit' value='Continue to Step 3'>\n");
+			printf("<input type='submit' value='进入第3步'>\n");
 			printf("</td></tr>\n");
 
 			printf("</form>\n");
@@ -893,7 +893,7 @@ int main(int argc, char **argv){
 			end_year=t->tm_year+1900;
 
 			printf("<P><DIV ALIGN=CENTER>\n");
-			printf("<DIV CLASS='reportSelectTitle'>Step 3: Select Report Options</DIV>\n");
+			printf("<DIV CLASS='reportSelectTitle'>步骤３: 选择报告选项</DIV>\n");
 			printf("</DIV></P>\n");
 
 			printf("<P><DIV ALIGN=CENTER>\n");
@@ -904,13 +904,13 @@ int main(int argc, char **argv){
 			if(display_type==DISPLAY_SERVICE_TRENDS)
 				printf("<input type='hidden' name='service' value='%s'>\n",escape_string(svc_description));
 
-			printf("<tr><td class='reportSelectSubTitle' align=right>Report period:</td>\n");
+			printf("<tr><td class='reportSelectSubTitle' align=right>报告周期:</td>\n");
 			printf("<td class='reportSelectItem'>\n");
 			printf("<select name='timeperiod'>\n");
-			printf("<option value=today>Today\n");
-			printf("<option value=last24hours>Last 24 Hours\n");
-			printf("<option value=yesterday>Yesterday\n");
-			printf("<option value=thisweek>This Week\n");
+			printf("<option value=today>今天\n");
+			printf("<option value=last24hours>过去的24小时\n");
+			printf("<option value=yesterday>昨天\n");
+			printf("<option value=thisweek>本周\n");
 			printf("<option value=last7days SELECTED>Last 7 Days\n");
 			printf("<option value=lastweek>Last Week\n");
 			printf("<option value=thismonth>This Month\n");
@@ -2207,7 +2207,7 @@ void graph_trend_data(int first_state,int last_state,time_t real_start_time,time
 			sanitize_plugin_output(state_info);
 
 			printf("onMouseOver='showPopup(\"");
-			snprintf(temp_buffer,sizeof(temp_buffer)-1,"<B><U>%s</U></B><BR><B>Time Range</B>: <I>%s</I> to <I>%s</I><BR><B>Duration</B>: <I>%dd %dh %dm %ds</I><BR><B>State Info</B>: <I>%s</I>",state_string,start_timestring,end_timestring,days,hours,minutes,seconds,(state_info==NULL)?"N/A":state_info);
+			snprintf(temp_buffer,sizeof(temp_buffer)-1,"<B><U>%s</U></B><BR><B>Time Range</B>: <I>%s</I> to <I>%s</I><BR><B>Duration</B>: <I>%d天 %d时 %d分 %d秒</I><BR><B>State Info</B>: <I>%s</I>",state_string,start_timestring,end_timestring,days,hours,minutes,seconds,(state_info==NULL)?"N/A":state_info);
 			temp_buffer[sizeof(temp_buffer)-1]='\x0';
 			printf("%s",temp_buffer);
 			printf("\",event)' onMouseOut='hidePopup()'");
@@ -2803,7 +2803,7 @@ void get_time_breakdown_string(unsigned long total_time, unsigned long state_tim
 		percent_time=0.0;
 	else
 		percent_time=((double)state_time/total_time)*100.0;
-	snprintf(buffer,buffer_length-1,"%-13s: (%.3f%%) %dd %dh %dm %ds",state_string,percent_time,days,hours,minutes,seconds);
+	snprintf(buffer,buffer_length-1,"%-13s: (%.3f%%) %d天 %d时 %d分 %d秒",state_string,percent_time,days,hours,minutes,seconds);
 	buffer[buffer_length-1]='\x0';
 
 	return;
