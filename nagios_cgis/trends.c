@@ -2223,7 +2223,7 @@ void graph_trend_data(int first_state,int last_state,time_t real_start_time,time
 			sanitize_plugin_output(state_info);
 
 			printf("onMouseOver='showPopup(\"");
-			snprintf(temp_buffer,sizeof(temp_buffer)-1,"<B><U>%s</U></B><BR><B>持续时间</B>: <I>%s</I> 到 <I>%s</I><BR><B>持续时间</B>: <I>%dd %dh %dm %ds</I><BR><B>状态信息</B>: <I>%s</I>",state_string,start_timestring,end_timestring,days,hours,minutes,seconds,(state_info==NULL)?"未知":state_info);
+			snprintf(temp_buffer,sizeof(temp_buffer)-1,"<B><U>%s</U></B><BR><B>持续时间</B>: <I>%s</I> 到 <I>%s</I><BR><B>持续时间</B>: <I>%d天 %d时 %d分 %d秒</I><BR><B>状态信息</B>: <I>%s</I>",state_string,start_timestring,end_timestring,days,hours,minutes,seconds,(state_info==NULL)?"未知":state_info);
 			temp_buffer[sizeof(temp_buffer)-1]='\x0';
 			printf("%s",temp_buffer);
 			printf("\",event)' onMouseOut='hidePopup()'");
@@ -2841,7 +2841,7 @@ void get_time_breakdown_string(unsigned long total_time, unsigned long state_tim
 		percent_time=0.0;
 	else
 		percent_time=((double)state_time/total_time)*100.0;
-	snprintf(buffer,buffer_length-1,"%-13s: (%.3f%%) %dd %dh %dm %ds",state_string,percent_time,days,hours,minutes,seconds);
+	snprintf(buffer,buffer_length-1,"%-13s: (%.3f%%) %d天 %d时 %d分 %d秒",state_string,percent_time,days,hours,minutes,seconds);
 	buffer[buffer_length-1]='\x0';
 
 	return;
