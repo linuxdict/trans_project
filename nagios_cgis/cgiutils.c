@@ -144,7 +144,8 @@ extern char     *tzname[2];
 #endif
 #endif
 
-
+// add Chinese support for the map/image
+char            ttf_file[MAX_FILENAME_LENGTH];
 
 
 /**********************************************************
@@ -205,6 +206,8 @@ void reset_cgi_vars(void){
 
 	my_strtok_buffer=NULL;
 	original_my_strtok_buffer=NULL;
+
+	strcpy(ttf_file,"/usr/local/nagios/share/simhei.ttf");
 
 	return;
         }
@@ -529,6 +532,15 @@ int read_main_config_file(char *filename){
 			else
 				date_format=DATE_FORMAT_US;
 		        }
+
+		else if(strstr(input,"ttf_file=")==input){
+			temp_buffer=strtok(input,"=");
+			temp_buffer=strtok(NULL,"\x0");
+                        strncpy(ttf_file,(temp_buffer==NULL)?"":temp_buffer,sizeof(ttf_file));
+                        ttf_file[sizeof(ttf_file)-1]='\x0';
+                        strip(ttf_file);
+                        }
+
                }
 
 	/* free memory and close the file */

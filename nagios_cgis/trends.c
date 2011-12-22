@@ -40,6 +40,7 @@
 
 extern char main_config_file[MAX_FILENAME_LENGTH];
 extern char url_html_path[MAX_FILENAME_LENGTH];
+extern char ttf_file[MAX_FILENAME_LENGTH];
 extern char url_images_path[MAX_FILENAME_LENGTH];
 extern char url_stylesheets_path[MAX_FILENAME_LENGTH];
 extern char physical_images_path[MAX_FILENAME_LENGTH];
@@ -105,6 +106,9 @@ extern skiplist *object_skiplists[NUM_OBJECT_SKIPLISTS];
 #define MAX_ARCHIVE_SPREAD	65
 #define MAX_ARCHIVE		65
 #define MAX_ARCHIVE_BACKTRACKS	60
+
+// Add for Chinese char
+#define SMALL_FONT_SIZE  10
 
 authdata current_authdata;
 
@@ -255,6 +259,8 @@ int main(int argc, char **argv){
 	int string_height;
 	char start_timestring[MAX_INPUT_BUFFER];
 	char end_timestring[MAX_INPUT_BUFFER];
+        char start_timestring_long[MAX_INPUT_BUFFER];
+        char end_timestring_long[MAX_INPUT_BUFFER];
 	host *temp_host;
 	service *temp_service;
 	int is_authorized=TRUE;
@@ -264,6 +270,8 @@ int main(int argc, char **argv){
 	time_t t3;
 	time_t current_time;
 	struct tm *t;
+	// initializ the brect
+	int brect[8];
 
 
 	/* reset internal CGI variables */
@@ -685,35 +693,43 @@ int main(int argc, char **argv){
 		if(small_image==FALSE){
 
 			/* title */
-			snprintf(start_time,sizeof(start_time)-1,"%s",ctime(&t1));
-			start_time[sizeof(start_time)-1]='\x0';
-			start_time[strlen(start_time)-1]='\x0';
-			snprintf(end_time,sizeof(end_time)-1,"%s",ctime(&t2));
-			end_time[sizeof(end_time)-1]='\x0';
-			end_time[strlen(end_time)-1]='\x0';
+                        get_time_string(&t1, start_timestring_long, sizeof(start_timestring)-1, LONG_DATE_TIME);
+                        get_time_string(&t2, end_timestring_long, sizeof(end_timestring)-1, LONG_DATE_TIME);
+                        get_time_string(&t1, start_time, sizeof(start_time)-1, SHORT_DATE_TIME);
+                        get_time_string(&t2, end_time, sizeof(end_time)-1, SHORT_DATE_TIME);
+
 			
 			string_height=gdFontSmall->h;
 
-			if(display_type==DISPLAY_HOST_TRENDS)
-				snprintf(temp_buffer,sizeof(temp_buffer)-1,"主机 '%s' 的状态历史",host_name);
-			else
-				snprintf(temp_buffer,sizeof(temp_buffer)-1,"主机 '%s' 上的 '%s' 服务的状态历史",host_name,svc_description);
-			temp_buffer[sizeof(temp_buffer)-1]='\x0';
-			string_width=gdFontSmall->w*strlen(temp_buffer);
-			gdImageString(trends_image,gdFontSmall,(drawing_width/2)-(string_width/2)+drawing_x_offset,string_height,(unsigned char *)temp_buffer,color_black);
+			if( (strlen(ttf_file) > 5) && (access(ttf_file, F_OK) == 0) ){
+				if(display_type==DISPLAY_HOST_TRENDS)
+					snprintf(temp_buffer,sizeof(temp_buffer)-1,"主机 '%s' 的状态历史",host_name);
+				else
+					snprintf(temp_buffer,sizeof(temp_buffer)-1,"主机 '%s' 上的 '%s' 服务的状态历史",host_name,svc_description);
+				temp_buffer[sizeof(temp_buffer)-1]='\x0';
+				string_width=gdFontSmall->w*strlen(temp_buffer);
+				gdImageStringTTF(trends_image, &brect[0], color_black, ttf_file, SMALL_FONT_SIZE, 0.0, (drawing_width/2)-(string_width/2)+drawing_x_offset, string_height, (unsigned char *)temp_buffer);
 
-			snprintf(temp_buffer,sizeof(temp_buffer)-1,"%s 到 %s",start_time,end_time);
-			temp_buffer[sizeof(temp_buffer)-1]='\x0';
-			string_width=gdFontSmall->w*strlen(temp_buffer);
-			gdImageString(trends_image,gdFontSmall,(drawing_width/2)-(string_width/2)+drawing_x_offset,(string_height*2)+5,(unsigned char *)temp_buffer,color_black);
-
-
-			/* first time stamp */
-			snprintf(temp_buffer,sizeof(temp_buffer)-1,"%s",start_time);
-			temp_buffer[sizeof(temp_buffer)-1]='\x0';
-			string_width=gdFontSmall->w*strlen(temp_buffer);
-			gdImageStringUp(trends_image,gdFontSmall,drawing_x_offset-(string_height/2),drawing_y_offset+drawing_height+string_width+5,(unsigned char *)temp_buffer,color_black);
-		        }
+				snprintf(temp_buffer,sizeof(temp_buffer)-1,"%s 到 %s",start_time,end_time);
+				temp_buffer[sizeof(temp_buffer)-1]='\x0';
+				string_width=gdFontSmall->w*strlen(temp_buffer);
+				gdImageStringTTF(trends_image, &brect[0], color_black, ttf_file, SMALL_FONT_SIZE, 0.0, (drawing_width/2)-(string_width/2)+drawing_x_offset, (string_height*2)+5, (unsigned char *)temp_buffer);
+	
+			}
+			else {
+				if(display_type==DISPLAY_HOST_TRENDS)
+					snprintf(temp_buffer,sizeof(temp_buffer)-1,"State History For Host '%s', '%s'",host_name,ttf_file);
+				else
+					snprintf(temp_buffer,sizeof(temp_buffer)-1,"State History For Service '%s' On Host '%s'",svc_description,host_name);
+				temp_buffer[sizeof(temp_buffer)-1]='\x0';
+				string_width=gdFontSmall->w*strlen(temp_buffer);
+				gdImageString(trends_image,gdFontSmall,(drawing_width/2)-(string_width/2)+drawing_x_offset,string_height,(unsigned char *)temp_buffer,color_black);
+				snprintf(temp_buffer,sizeof(temp_buffer)-1,"%s to %s",start_time,end_time);
+				temp_buffer[sizeof(temp_buffer)-1]='\x0';
+				string_width=gdFontSmall->w*strlen(temp_buffer);
+				gdImageString(trends_image,gdFontSmall,(drawing_width/2)-(string_width/2)+drawing_x_offset,(string_height*2)+5,(unsigned char *)temp_buffer,color_black);
+			}
+			}
 	        }
 
 	if(display_type!=DISPLAY_NO_TRENDS && input_type==GET_INPUT_NONE){
@@ -911,35 +927,35 @@ int main(int argc, char **argv){
 			printf("<option value=last24hours>过去的24小时\n");
 			printf("<option value=yesterday>昨天\n");
 			printf("<option value=thisweek>本周\n");
-			printf("<option value=last7days SELECTED>Last 7 Days\n");
-			printf("<option value=lastweek>Last Week\n");
-			printf("<option value=thismonth>This Month\n");
-			printf("<option value=last31days>Last 31 Days\n");
-			printf("<option value=lastmonth>Last Month\n");
-			printf("<option value=thisyear>This Year\n");
-			printf("<option value=lastyear>Last Year\n");
-			printf("<option value=custom>* CUSTOM REPORT PERIOD *\n");
+			printf("<option value=last7days SELECTED>过去的7天\n");
+			printf("<option value=lastweek>上周\n");
+			printf("<option value=thismonth>本月\n");
+			printf("<option value=last31days>过去的31天\n");
+			printf("<option value=lastmonth>上月\n");
+			printf("<option value=thisyear>今年\n");
+			printf("<option value=lastyear>去年\n");
+			printf("<option value=custom>* 自定义的报告周期 *\n");
 			printf("</select>\n");
 			printf("</td></tr>\n");
 
-			printf("<tr><td valign=top class='reportSelectSubTitle'>If Custom Report Period...</td></tr>\n");
+			printf("<tr><td valign=top class='reportSelectSubTitle'>如果自定义报告周期...</td></tr>\n");
 
 			printf("<tr>");
-			printf("<td valign=top class='reportSelectSubTitle'>Start Date (Inclusive):</td>\n");
+			printf("<td valign=top class='reportSelectSubTitle'>开始时间(含):</td>\n");
 			printf("<td align=left valign=top class='reportSelectItem'>");
 			printf("<select name='smon'>\n");
-			printf("<option value='1' %s>January\n",(t->tm_mon==0)?"SELECTED":"");
-			printf("<option value='2' %s>February\n",(t->tm_mon==1)?"SELECTED":"");
-			printf("<option value='3' %s>March\n",(t->tm_mon==2)?"SELECTED":"");
-			printf("<option value='4' %s>April\n",(t->tm_mon==3)?"SELECTED":"");
-			printf("<option value='5' %s>May\n",(t->tm_mon==4)?"SELECTED":"");
-			printf("<option value='6' %s>June\n",(t->tm_mon==5)?"SELECTED":"");
-			printf("<option value='7' %s>July\n",(t->tm_mon==6)?"SELECTED":"");
-			printf("<option value='8' %s>August\n",(t->tm_mon==7)?"SELECTED":"");
-			printf("<option value='9' %s>September\n",(t->tm_mon==8)?"SELECTED":"");
-			printf("<option value='10' %s>October\n",(t->tm_mon==9)?"SELECTED":"");
-			printf("<option value='11' %s>November\n",(t->tm_mon==10)?"SELECTED":"");
-			printf("<option value='12' %s>December\n",(t->tm_mon==11)?"SELECTED":"");
+			printf("<option value='1' %s>1月\n",(t->tm_mon==0)?"SELECTED":"");
+			printf("<option value='2' %s>2月\n",(t->tm_mon==1)?"SELECTED":"");
+			printf("<option value='3' %s>3月\n",(t->tm_mon==2)?"SELECTED":"");
+			printf("<option value='4' %s>4月\n",(t->tm_mon==3)?"SELECTED":"");
+			printf("<option value='5' %s>5月\n",(t->tm_mon==4)?"SELECTED":"");
+			printf("<option value='6' %s>6月\n",(t->tm_mon==5)?"SELECTED":"");
+			printf("<option value='7' %s>7月\n",(t->tm_mon==6)?"SELECTED":"");
+			printf("<option value='8' %s>8月\n",(t->tm_mon==7)?"SELECTED":"");
+			printf("<option value='9' %s>9月\n",(t->tm_mon==8)?"SELECTED":"");
+			printf("<option value='10' %s>10月\n",(t->tm_mon==9)?"SELECTED":"");
+			printf("<option value='11' %s>11月\n",(t->tm_mon==10)?"SELECTED":"");
+			printf("<option value='12' %s>12月\n",(t->tm_mon==11)?"SELECTED":"");
 			printf("</select>\n ");
 			printf("<input type='text' size='2' maxlength='2' name='sday' value='%d'> ",start_day);
 			printf("<input type='text' size='4' maxlength='4' name='syear' value='%d'>",start_year);
@@ -950,21 +966,21 @@ int main(int argc, char **argv){
 			printf("</tr>\n");
 
 			printf("<tr>");
-			printf("<td valign=top class='reportSelectSubTitle'>End Date (Inclusive):</td>\n");
+			printf("<td valign=top class='reportSelectSubTitle'>结束时间(含):</td>\n");
 			printf("<td align=left valign=top class='reportSelectItem'>");
 			printf("<select name='emon'>\n");
-			printf("<option value='1' %s>January\n",(t->tm_mon==0)?"SELECTED":"");
-			printf("<option value='2' %s>February\n",(t->tm_mon==1)?"SELECTED":"");
-			printf("<option value='3' %s>March\n",(t->tm_mon==2)?"SELECTED":"");
-			printf("<option value='4' %s>April\n",(t->tm_mon==3)?"SELECTED":"");
-			printf("<option value='5' %s>May\n",(t->tm_mon==4)?"SELECTED":"");
-			printf("<option value='6' %s>June\n",(t->tm_mon==5)?"SELECTED":"");
-			printf("<option value='7' %s>July\n",(t->tm_mon==6)?"SELECTED":"");
-			printf("<option value='8' %s>August\n",(t->tm_mon==7)?"SELECTED":"");
-			printf("<option value='9' %s>September\n",(t->tm_mon==8)?"SELECTED":"");
-			printf("<option value='10' %s>October\n",(t->tm_mon==9)?"SELECTED":"");
-			printf("<option value='11' %s>November\n",(t->tm_mon==10)?"SELECTED":"");
-			printf("<option value='12' %s>December\n",(t->tm_mon==11)?"SELECTED":"");
+			printf("<option value='1' %s>1月\n",(t->tm_mon==0)?"SELECTED":"");
+			printf("<option value='2' %s>2月\n",(t->tm_mon==1)?"SELECTED":"");
+			printf("<option value='3' %s>3月\n",(t->tm_mon==2)?"SELECTED":"");
+			printf("<option value='4' %s>4月\n",(t->tm_mon==3)?"SELECTED":"");
+			printf("<option value='5' %s>5月\n",(t->tm_mon==4)?"SELECTED":"");
+			printf("<option value='6' %s>6月\n",(t->tm_mon==5)?"SELECTED":"");
+			printf("<option value='7' %s>7月\n",(t->tm_mon==6)?"SELECTED":"");
+			printf("<option value='8' %s>8月\n",(t->tm_mon==7)?"SELECTED":"");
+			printf("<option value='9' %s>9月\n",(t->tm_mon==8)?"SELECTED":"");
+			printf("<option value='10' %s>10月\n",(t->tm_mon==9)?"SELECTED":"");
+			printf("<option value='11' %s>11月\n",(t->tm_mon==10)?"SELECTED":"");
+			printf("<option value='12' %s>12月\n",(t->tm_mon==11)?"SELECTED":"");
 			printf("</select>\n ");
 			printf("<input type='text' size='2' maxlength='2' name='eday' value='%d'> ",end_day);
 			printf("<input type='text' size='4' maxlength='4' name='eyear' value='%d'>",end_year);
@@ -976,69 +992,69 @@ int main(int argc, char **argv){
 
 			printf("<tr><td colspan=2><br></td></tr>\n");
 
-			printf("<tr><td class='reportSelectSubTitle' align=right>Assume Initial States:</td>\n");
+			printf("<tr><td class='reportSelectSubTitle' align=right>>初始状态记录:</td>\n");
 			printf("<td class='reportSelectItem'>\n");
 			printf("<select name='assumeinitialstates'>\n");
-			printf("<option value=yes>Yes\n");
-			printf("<option value=no>No\n");
+			printf("<option value=yes>是\n");
+			printf("<option value=no>否\n");
 			printf("</select>\n");
 			printf("</td></tr>\n");
 
-			printf("<tr><td class='reportSelectSubTitle' align=right>Assume State Retention:</td>\n");
+			printf("<tr><td class='reportSelectSubTitle' align=right>假定状态保持:</td>\n");
 			printf("<td class='reportSelectItem'>\n");
 			printf("<select name='assumestateretention'>\n");
-			printf("<option value=yes>Yes\n");
-			printf("<option value=no>No\n");
+			printf("<option value=yes>是\n");
+			printf("<option value=no>否\n");
 			printf("</select>\n");
 			printf("</td></tr>\n");
 
-			printf("<tr><td class='reportSelectSubTitle' align=right>Assume States During Program Downtime:</td>\n");
+			printf("<tr><td class='reportSelectSubTitle' align=right>程序宕机时间期间的假设状态:</td>\n");
 			printf("<td class='reportSelectItem'>\n");
 			printf("<select name='assumestatesduringnotrunning'>\n");
-			printf("<option value=yes>Yes\n");
-			printf("<option value=no>No\n");
+			printf("<option value=yes>是\n");
+			printf("<option value=no>否\n");
 			printf("</select>\n");
 			printf("</td></tr>\n");
 
-			printf("<tr><td class='reportSelectSubTitle' align=right>Include Soft States:</td>\n");
+			printf("<tr><td class='reportSelectSubTitle' align=right>包含软(Soft)状态:</td>\n");
 			printf("<td class='reportSelectItem'>\n");
 			printf("<select name='includesoftstates'>\n");
-			printf("<option value=yes>Yes\n");
-			printf("<option value=no SELECTED>No\n");
+			printf("<option value=yes>是\n");
+			printf("<option value=no SELECTED>不含\n");
 			printf("</select>\n");
 			printf("</td></tr>\n");
 
-			printf("<tr><td class='reportSelectSubTitle' align=right>First Assumed %s State:</td>\n",(display_type==DISPLAY_HOST_TRENDS)?"Host":"Service");
+			printf("<tr><td class='reportSelectSubTitle' align=right>首先假定 %s 状态:</td>\n",(display_type==DISPLAY_HOST_TRENDS)?"主机":"服务");
 			printf("<td class='reportSelectItem'>\n");
 			if(display_type==DISPLAY_HOST_TRENDS){
 				printf("<select name='initialassumedhoststate'>\n");
-				printf("<option value=%d>Unspecified\n",AS_NO_DATA);
-				printf("<option value=%d>Current State\n",AS_CURRENT_STATE);
-				printf("<option value=%d>Host Up\n",AS_HOST_UP);
-				printf("<option value=%d>Host Down\n",AS_HOST_DOWN);
-				printf("<option value=%d>Host Unreachable\n",AS_HOST_UNREACHABLE);
+				printf("<option value=%d>未定义的\n",AS_NO_DATA);
+				printf("<option value=%d>当前的状态\n",AS_CURRENT_STATE);
+				printf("<option value=%d>主机运行\n",AS_HOST_UP);
+				printf("<option value=%d>主机宕机\n",AS_HOST_DOWN);
+				printf("<option value=%d>主机不可达\n",AS_HOST_UNREACHABLE);
 			        }
 			else{
 				printf("<select name='initialassumedservicestate'>\n");
-				printf("<option value=%d>Unspecified\n",AS_NO_DATA);
-				printf("<option value=%d>Current State\n",AS_CURRENT_STATE);
-				printf("<option value=%d>Service Ok\n",AS_SVC_OK);
-				printf("<option value=%d>Service Warning\n",AS_SVC_WARNING);
-				printf("<option value=%d>Service Unknown\n",AS_SVC_UNKNOWN);
-				printf("<option value=%d>Service Critical\n",AS_SVC_CRITICAL);
+				printf("<option value=%d>未定义的\n",AS_NO_DATA);
+				printf("<option value=%d>当前的状态\n",AS_CURRENT_STATE);
+				printf("<option value=%d>服务正常\n",AS_SVC_OK);
+				printf("<option value=%d>服务告警\n",AS_SVC_WARNING);
+				printf("<option value=%d>服务未知\n",AS_SVC_UNKNOWN);
+				printf("<option value=%d>服务紧急\n",AS_SVC_CRITICAL);
 			        }
 			printf("</select>\n");
 			printf("</td></tr>\n");
 
-			printf("<tr><td class='reportSelectSubTitle' align=right>Backtracked Archives (To Scan For Initial States):</td>\n");
+			printf("<tr><td class='reportSelectSubTitle' align=right>返回的档案(用于扫描初始状态):</td>\n");
 			printf("<td class='reportSelectItem'>\n");
 			printf("<input type='text' name='backtrack' size='2' maxlength='2' value='%d'>\n",backtrack_archives);
 			printf("</td></tr>\n");
 
-			printf("<tr><td class='reportSelectSubTitle' align=right>Suppress image map:</td><td class='reportSelectItem'><input type='checkbox' name='nomap'></td></tr>");
-			printf("<tr><td class='reportSelectSubTitle' align=right>Suppress popups:</td><td class='reportSelectItem'><input type='checkbox' name='nopopups'></td></tr>\n");
+			printf("<tr><td class='reportSelectSubTitle' align=right>不显示地图:</td><td class='reportSelectItem'><input type='checkbox' name='nomap'></td></tr>");
+			printf("<tr><td class='reportSelectSubTitle' align=right>不显示弹出菜单:</td><td class='reportSelectItem'><input type='checkbox' name='nopopups'></td></tr>\n");
 
-			printf("<tr><td></td><td class='reportSelectItem'><input type='submit' value='Create Report'></td></tr>\n");
+			printf("<tr><td></td><td class='reportSelectItem'><input type='submit' value='生成报告'></td></tr>\n");
 
 			printf("</form>\n");
 			printf("</TABLE>\n");
@@ -1047,7 +1063,7 @@ int main(int argc, char **argv){
 
 			/*
 			printf("<P><DIV ALIGN=CENTER CLASS='helpfulHint'>\n");
-			printf("Note: Choosing the 'suppress image map' option will make the report run approximately twice as fast as it would otherwise, but it will prevent you from being able to zoom in on specific time periods.\n");
+			printf("备注：选择不显示地图，报告生成速度大约能提高一倍，但是将不能对时间轴进行缩放。\n");
 			printf("</DIV></P>\n");
 			*/
 		        }
@@ -1055,7 +1071,7 @@ int main(int argc, char **argv){
 		/* as the user whether they want a graph for a host or service */
 		else{
 			printf("<P><DIV ALIGN=CENTER>\n");
-			printf("<DIV CLASS='reportSelectTitle'>Step 1: Select Report Type</DIV>\n");
+			printf("<DIV CLASS='reportSelectTitle'> 步骤１: 选择报告类型</DIV>\n");
 			printf("</DIV></P>\n");
 
 			printf("<P><DIV ALIGN=CENTER>\n");
@@ -1063,16 +1079,16 @@ int main(int argc, char **argv){
 			printf("<TABLE BORDER=0 cellpadding=5>\n");
 			printf("<form method=\"GET\" action=\"%s\">\n",TRENDS_CGI);
 
-			printf("<tr><td class='reportSelectSubTitle' align=right>Type:</td>\n");
+			printf("<tr><td class='reportSelectSubTitle' align=right>类型:</td>\n");
 			printf("<td class='reportSelectItem'>\n");
 			printf("<select name='input'>\n");
-			printf("<option value=gethost>Host\n");
-			printf("<option value=getservice>Service\n");
+			printf("<option value=gethost>主机\n");
+			printf("<option value=getservice>服务\n");
 			printf("</select>\n");
 			printf("</td></tr>\n");
 
 			printf("<tr><td></td><td class='reportSelectItem'>\n");
-			printf("<input type='submit' value='Continue to Step 2'>\n");
+			printf("<input type='submit' value='下一步'>\n");
 			printf("</td></tr>\n");
 
 			printf("</form>\n");
@@ -1122,7 +1138,7 @@ void document_header(int use_stylesheet){
 		printf("<head>\n");
 		printf("<link rel=\"shortcut icon\" href=\"%sfavicon.ico\" type=\"image/ico\">\n",url_images_path);
 		printf("<title>\n");
-		printf("Nagios Trends\n");
+		printf("趋势报告\n");
 		printf("</title>\n");
 
 		if(use_stylesheet==TRUE){
@@ -2124,31 +2140,31 @@ void graph_trend_data(int first_state,int last_state,time_t real_start_time,time
 		/* figure out the the state string to use */
 		switch(start_state){
 		case AS_HOST_UP:
-			strcpy(state_string,"UP");
+			strcpy(state_string,"运行");
 			height=60;
 			break;
 		case AS_HOST_DOWN:
-			strcpy(state_string,"DOWN");
+			strcpy(state_string,"宕机");
 			height=40;
 			break;
 		case AS_HOST_UNREACHABLE:
-			strcpy(state_string,"UNREACHABLE");
+			strcpy(state_string,"不可达");
 			height=20;
 			break;
 		case AS_SVC_OK:
-			strcpy(state_string,"OK");
+			strcpy(state_string,"正常");
 			height=80;
 			break;
 		case AS_SVC_WARNING:
-			strcpy(state_string,"WARNING");
+			strcpy(state_string,"告警");
 			height=60;
 			break;
 		case AS_SVC_UNKNOWN:
-			strcpy(state_string,"UNKNOWN");
+			strcpy(state_string,"未知");
 			height=40;
 			break;
 		case AS_SVC_CRITICAL:
-			strcpy(state_string,"CRITICAL");
+			strcpy(state_string,"紧急");
 			height=20;
 			break;
 		default:
@@ -2207,7 +2223,7 @@ void graph_trend_data(int first_state,int last_state,time_t real_start_time,time
 			sanitize_plugin_output(state_info);
 
 			printf("onMouseOver='showPopup(\"");
-			snprintf(temp_buffer,sizeof(temp_buffer)-1,"<B><U>%s</U></B><BR><B>Time Range</B>: <I>%s</I> to <I>%s</I><BR><B>Duration</B>: <I>%dd %dh %dm %ds</I><BR><B>State Info</B>: <I>%s</I>",state_string,start_timestring,end_timestring,days,hours,minutes,seconds,(state_info==NULL)?"N/A":state_info);
+			snprintf(temp_buffer,sizeof(temp_buffer)-1,"<B><U>%s</U></B><BR><B>持续时间</B>: <I>%s</I> 到 <I>%s</I><BR><B>持续时间</B>: <I>%dd %dh %dm %ds</I><BR><B>状态信息</B>: <I>%s</I>",state_string,start_timestring,end_timestring,days,hours,minutes,seconds,(state_info==NULL)?"未知":state_info);
 			temp_buffer[sizeof(temp_buffer)-1]='\x0';
 			printf("%s",temp_buffer);
 			printf("\",event)' onMouseOut='hidePopup()'");
@@ -2726,6 +2742,8 @@ void draw_time_breakdowns(void){
 	unsigned long total_state_time;
 	unsigned long time_indeterminate=0L;
 	int string_height;
+	// initializ the brect
+	int brect[8];
 
 	if(mode==CREATE_HTML)
 		return;
@@ -2749,22 +2767,42 @@ void draw_time_breakdowns(void){
 
 	if(display_type==DISPLAY_HOST_TRENDS){
 
-		get_time_breakdown_string(total_time,time_up,"Up",&temp_buffer[0],sizeof(temp_buffer));
-		gdImageString(trends_image,gdFontSmall,drawing_x_offset+drawing_width+20,drawing_y_offset+5,(unsigned char *)temp_buffer,color_darkgreen);
-		gdImageString(trends_image,gdFontSmall,drawing_x_offset-10-(gdFontSmall->w*2),drawing_y_offset+5,(unsigned char *)"Up",color_darkgreen);
+                /*** TrueTypeFont ***/
+                if( (strlen(ttf_file) > 5) && (access(ttf_file, F_OK) == 0) ){
+                        get_time_breakdown_string(total_time,time_up,"正常  ",&temp_buffer[0],sizeof(temp_buffer));
+                        gdImageStringTTF(trends_image, &brect[0], color_darkgreen, ttf_file, SMALL_FONT_SIZE, 0.0, drawing_x_offset+drawing_width+20,drawing_y_offset+15,(unsigned char *)temp_buffer); 
+                        gdImageStringTTF(trends_image, &brect[0], color_darkgreen, ttf_file, SMALL_FONT_SIZE, 0.0, drawing_x_offset-10-(gdFontSmall->w*5),drawing_y_offset+15,(unsigned char *)"正常"); 
 
-		get_time_breakdown_string(total_time,time_down,"Down",&temp_buffer[0],sizeof(temp_buffer));
-		gdImageString(trends_image,gdFontSmall,drawing_x_offset+drawing_width+20,drawing_y_offset+25,(unsigned char *)temp_buffer,color_red);
-		gdImageString(trends_image,gdFontSmall,drawing_x_offset-10-(gdFontSmall->w*4),drawing_y_offset+25,(unsigned char *)"Down",color_red);
+                        get_time_breakdown_string(total_time,time_down,"宕机  ",&temp_buffer[0],sizeof(temp_buffer));
+                        gdImageStringTTF(trends_image, &brect[0], color_red, ttf_file, SMALL_FONT_SIZE, 0.0, drawing_x_offset+drawing_width+20,drawing_y_offset+35,(unsigned char *)temp_buffer); 
+                        gdImageStringTTF(trends_image, &brect[0], color_red, ttf_file, SMALL_FONT_SIZE, 0.0, drawing_x_offset-10-(gdFontSmall->w*5),drawing_y_offset+35,(unsigned char *)"宕机"); 
 
-		get_time_breakdown_string(total_time,time_unreachable,"Unreachable",&temp_buffer[0],sizeof(temp_buffer));
-		gdImageString(trends_image,gdFontSmall,drawing_x_offset+drawing_width+20,drawing_y_offset+45,(unsigned char *)temp_buffer,color_darkred);
-		gdImageString(trends_image,gdFontSmall,drawing_x_offset-10-(gdFontSmall->w*11),drawing_y_offset+45,(unsigned char *)"Unreachable",color_darkred);
+                        get_time_breakdown_string(total_time,time_unreachable,"不可达",&temp_buffer[0],sizeof(temp_buffer));
+                        gdImageStringTTF(trends_image, &brect[0], color_darkred, ttf_file, SMALL_FONT_SIZE, 0.0, drawing_x_offset+drawing_width+20,drawing_y_offset+55,(unsigned char *)temp_buffer); 
+                        gdImageStringTTF(trends_image, &brect[0], color_darkred, ttf_file, SMALL_FONT_SIZE, 0.0, drawing_x_offset-10-(gdFontSmall->w*7),drawing_y_offset+55,(unsigned char *)"不可达");
 
-		get_time_breakdown_string(total_time,time_indeterminate,"Indeterminate",&temp_buffer[0],sizeof(temp_buffer));
-		gdImageString(trends_image,gdFontSmall,drawing_x_offset+drawing_width+20,drawing_y_offset+65,(unsigned char *)temp_buffer,color_black);
-		gdImageString(trends_image,gdFontSmall,drawing_x_offset-10-(gdFontSmall->w*13),drawing_y_offset+65,(unsigned char *)"Indeterminate",color_black);
-	        }
+                        get_time_breakdown_string(total_time,time_indeterminate,"不确定",&temp_buffer[0],sizeof(temp_buffer));
+                        gdImageStringTTF(trends_image, &brect[0], color_black, ttf_file, SMALL_FONT_SIZE, 0.0, drawing_x_offset+drawing_width+20,drawing_y_offset+75,(unsigned char *)temp_buffer); 
+                        gdImageStringTTF(trends_image, &brect[0], color_black, ttf_file, SMALL_FONT_SIZE, 0.0, drawing_x_offset-10-(gdFontSmall->w*7),drawing_y_offset+75,(unsigned char *)"不确定");
+
+	        }else{
+                        get_time_breakdown_string(total_time,time_up,"Up",&temp_buffer[0],sizeof(temp_buffer));
+                        gdImageString(trends_image,gdFontSmall,drawing_x_offset+drawing_width+20,drawing_y_offset+5,(unsigned char *)temp_buffer,color_darkgreen);
+                        gdImageString(trends_image,gdFontSmall,drawing_x_offset-10-(gdFontSmall->w*2),drawing_y_offset+5,(unsigned char *)"Up",color_darkgreen);
+
+                        get_time_breakdown_string(total_time,time_down,"Down",&temp_buffer[0],sizeof(temp_buffer));
+                        gdImageString(trends_image,gdFontSmall,drawing_x_offset+drawing_width+20,drawing_y_offset+25,(unsigned char *)temp_buffer,color_red);
+                        gdImageString(trends_image,gdFontSmall,drawing_x_offset-10-(gdFontSmall->w*4),drawing_y_offset+25,(unsigned char *)"Down",color_red);
+
+                        get_time_breakdown_string(total_time,time_unreachable,"Unreachable",&temp_buffer[0],sizeof(temp_buffer));
+                        gdImageString(trends_image,gdFontSmall,drawing_x_offset+drawing_width+20,drawing_y_offset+45,(unsigned char *)temp_buffer,color_darkred);
+                        gdImageString(trends_image,gdFontSmall,drawing_x_offset-10-(gdFontSmall->w*11),drawing_y_offset+45,(unsigned char *)"Unreachable",color_darkred);
+
+                        get_time_breakdown_string(total_time,time_indeterminate,"Indeterminate",&temp_buffer[0],sizeof(temp_buffer));
+                        gdImageString(trends_image,gdFontSmall,drawing_x_offset+drawing_width+20,drawing_y_offset+65,(unsigned char *)temp_buffer,color_black);
+                        gdImageString(trends_image,gdFontSmall,drawing_x_offset-10-(gdFontSmall->w*13),drawing_y_offset+65,(unsigned char *)"Indeterminate",color_black);
+                }
+	}
 	else{
 		get_time_breakdown_string(total_time,time_ok,"Ok",&temp_buffer[0],sizeof(temp_buffer));
 		gdImageString(trends_image,gdFontSmall,drawing_x_offset+drawing_width+20,drawing_y_offset+5,(unsigned char *)temp_buffer,color_darkgreen);
@@ -2803,7 +2841,7 @@ void get_time_breakdown_string(unsigned long total_time, unsigned long state_tim
 		percent_time=0.0;
 	else
 		percent_time=((double)state_time/total_time)*100.0;
-	snprintf(buffer,buffer_length-1,"%-13s: (%.3f%%) %d天 %d时 %d分 %d秒",state_string,percent_time,days,hours,minutes,seconds);
+	snprintf(buffer,buffer_length-1,"%-13s: (%.3f%%) %dd %dh %dm %ds",state_string,percent_time,days,hours,minutes,seconds);
 	buffer[buffer_length-1]='\x0';
 
 	return;

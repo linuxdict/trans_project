@@ -1854,13 +1854,15 @@ void draw_hosts(void){
 void draw_text(char *buffer,int x,int y,int text_color){
 	int string_width=0;
 	int string_height=0;
+	int brect[8];
 
 	/* write the string to the generated image... */
 	string_height=gdFontSmall->h;
 	string_width=gdFontSmall->w*strlen(buffer);
-	if(layout_method!=LAYOUT_CIRCULAR_MARKUP)
+	/*if(layout_method!=LAYOUT_CIRCULAR_MARKUP)
 		gdImageFilledRectangle(map_image,x-(string_width/2)-2,y-(2*string_height),x+(string_width/2)+2,y-string_height,color_white);
-	gdImageString(map_image,gdFontSmall,x-(string_width/2),y-(2*string_height),(unsigned char *)buffer,text_color);
+	gdImageString(map_image,gdFontSmall,x-(string_width/2),y-(2*string_height),(unsigned char *)buffer,text_color); */
+	gdImageStringTTF(map_image,&brect[0],text_color,"/usr/share/fonts/chinese/TrueType/uming.ttf",10,0.0,x-(string_width/2),y-(2*string_height),buffer);
 
 	return;
         }
@@ -1897,7 +1899,7 @@ void draw_host_text(char *name,int x,int y){
 			status_color=color_red;
                         }
 		else if(temp_hoststatus->status==HOST_UP){
-			strncpy(temp_buffer,"Up",sizeof(temp_buffer));
+			strncpy(temp_buffer,"运行中",sizeof(temp_buffer));
 			status_color=color_green;
                         }
 		else if(temp_hoststatus->status==HOST_PENDING){
