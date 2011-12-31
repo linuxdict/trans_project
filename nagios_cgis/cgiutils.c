@@ -907,7 +907,7 @@ void get_time_string(time_t *raw_time,char *buffer,int buffer_length,int type){
 	int day=0;
 	int year=0;
 	char *weekdays[7]={"周日","周一","周二","周三","周四","周五","周六"};
-	char *months[12]={"1","2","3","4","5","6","7","8","9","10","11","12"};
+	char *months[12]={"1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"};
 	char *tzone="";
 
 	if(raw_time==NULL)
