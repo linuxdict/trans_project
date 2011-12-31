@@ -160,7 +160,7 @@ int main(void){
 
 		/* left column of the first row */
 		printf("<td align=left valign=top width=33%%>\n");
-		display_info_table("Network Outages",TRUE,&current_authdata);
+		display_info_table("网络故障",TRUE,&current_authdata);
 		printf("</td>\n");
 
 		/* middle column of top row */
@@ -224,7 +224,7 @@ void document_header(int use_stylesheet){
 	printf("<head>\n");
 	printf("<link rel=\"shortcut icon\" href=\"%sfavicon.ico\" type=\"image/ico\">\n",url_images_path);
 	printf("<title>\n");
-	printf("Network Outages\n");
+	printf("网络故障\n");
 	printf("</title>\n");
 
 	if(use_stylesheet==TRUE){
@@ -328,9 +328,8 @@ void display_network_outages(void){
 	/* user must be authorized for all hosts.. */
 	if(is_authorized_for_all_hosts(&current_authdata)==FALSE){
 
-		printf("<P><DIV CLASS='errorMessage'>It appears as though you do not have permission to view information you requested...</DIV></P>\n");
-		printf("<P><DIV CLASS='errorDescription'>If you believe this is an error, check the HTTP server authentication requirements for accessing this CGI<br>");
-		printf("and check the authorization options in your CGI configuration file.</DIV></P>\n");
+		printf("<P><DIV CLASS='errorMessage'>无权查看所请求的信息!</DIV></P>\n");
+		printf("<P><DIV CLASS='errorDescription'>请检查HTTP服务器关于该CGI的访问权限设置。</DIV></P>\n");
 
 		return;
 	        }
@@ -353,11 +352,11 @@ void display_network_outages(void){
 
 	/* display the problem hosts... */
 	printf("<P><DIV ALIGN=CENTER>\n");
-	printf("<DIV CLASS='dataTitle'>Blocking Outages</DIV>\n");
+	printf("<DIV CLASS='dataTitle'>网络故障</DIV>\n");
 
 	printf("<TABLE BORDER=0 CLASS='data'>\n");
 	printf("<TR>\n");
-	printf("<TH CLASS='data'>Severity</TH><TH CLASS='data'>Host</TH><TH CLASS='data'>State</TH><TH CLASS='data'>Notes</TH><TH CLASS='data'>State Duration</TH><TH CLASS='data'># Hosts Affected</TH><TH CLASS='data'># Services Affected</TH><TH CLASS='data'>Actions</TH>\n");
+	printf("<TH CLASS='data'>严重性</TH><TH CLASS='data'>主机</TH><TH CLASS='data'>状态</TH><TH CLASS='data'>备注</TH><TH CLASS='data'>持续时间</TH><TH CLASS='data'># 受影响的主机数</TH><TH CLASS='data'># 受影响的服务数</TH><TH CLASS='data'>操作</TH>\n");
 	printf("</TR>\n");
 
 	for(temp_hostoutagesort=hostoutagesort_list;temp_hostoutagesort!=NULL;temp_hostoutagesort=temp_hostoutagesort->next){
@@ -390,9 +389,9 @@ void display_network_outages(void){
 		        }
 
 		if(temp_hoststatus->status==HOST_UNREACHABLE)
-			status="UNREACHABLE";
+			status="不可达";
 		else if(temp_hoststatus->status==HOST_DOWN)
-			status="DOWN";
+			status="宕机";
 
 		printf("<TR CLASS='%s'>\n",bg_class);
 
@@ -402,7 +401,7 @@ void display_network_outages(void){
 
 		total_comments=number_of_host_comments(temp_hostoutage->hst->name);
 		if(total_comments>0){
-			snprintf(temp_buffer,sizeof(temp_buffer)-1,"This host has %d comment%s associated with it",total_comments,(total_comments==1)?"":"s");
+			snprintf(temp_buffer,sizeof(temp_buffer)-1,"该主机共有 %d 相关的注释 %s ",total_comments,(total_comments==1)?"":"s");
 			temp_buffer[sizeof(temp_buffer)-1]='\x0';
 			printf("<TD CLASS='%s'><A HREF='%s?type=%d&host=%s#comments'><IMG SRC='%s%s' BORDER=0 ALT='%s' TITLE='%s'></A></TD>\n",bg_class,EXTINFO_CGI,DISPLAY_HOST_INFO,url_encode(temp_hostoutage->hst->name),url_images_path,COMMENT_ICON,temp_buffer,temp_buffer);
 		        }
@@ -417,7 +416,7 @@ void display_network_outages(void){
 		else
 			t=current_time-temp_hoststatus->last_state_change;
 		get_time_breakdown((unsigned long)t,&days,&hours,&minutes,&seconds);
-		snprintf(state_duration,sizeof(state_duration)-1,"%2dd %2dh %2dm %2ds%s",days,hours,minutes,seconds,(temp_hoststatus->last_state_change==(time_t)0)?"+":"");
+		snprintf(state_duration,sizeof(state_duration)-1,"%2d天 %2d时 %2d分 %2d秒 %s",days,hours,minutes,seconds,(temp_hoststatus->last_state_change==(time_t)0)?"+":"");
 		state_duration[sizeof(state_duration)-1]='\x0';
 		printf("<TD CLASS='%s'>%s</TD>\n",bg_class,state_duration);
 
@@ -425,18 +424,18 @@ void display_network_outages(void){
 		printf("<TD CLASS='%s'>%d</TD>\n",bg_class,temp_hostoutage->affected_child_services);
 
 		printf("<TD CLASS='%s'>",bg_class);
-		printf("<A HREF='%s?host=%s'><IMG SRC='%s%s' BORDER=0 ALT='View status detail for this host' TITLE='View status detail for this host'></A>\n",STATUS_CGI,url_encode(temp_hostoutage->hst->name),url_images_path,STATUS_DETAIL_ICON);
+		printf("<A HREF='%s?host=%s'><IMG SRC='%s%s' BORDER=0 ALT='查看该主机的详细状态' TITLE='查看该主机的详细状态'></A>\n",STATUS_CGI,url_encode(temp_hostoutage->hst->name),url_images_path,STATUS_DETAIL_ICON);
 #ifdef USE_STATUSMAP
-		printf("<A HREF='%s?host=%s'><IMG SRC='%s%s' BORDER=0 ALT='View status map for this host and its children' TITLE='View status map for this host and its children'></A>\n",STATUSMAP_CGI,url_encode(temp_hostoutage->hst->name),url_images_path,STATUSMAP_ICON);
+		printf("<A HREF='%s?host=%s'><IMG SRC='%s%s' BORDER=0 ALT='该主机以及子主机的状态图' TITLE='该主机以及子主机的状态图'></A>\n",STATUSMAP_CGI,url_encode(temp_hostoutage->hst->name),url_images_path,STATUSMAP_ICON);
 #endif
 #ifdef USE_STATUSWRL
-		printf("<A HREF='%s?host=%s'><IMG SRC='%s%s' BORDER=0 ALT='View 3-D status map for this host and its children' TITLE='View 3-D status map for this host and its children'></A>\n",STATUSWORLD_CGI,url_encode(temp_hostoutage->hst->name),url_images_path,STATUSWORLD_ICON);
+		printf("<A HREF='%s?host=%s'><IMG SRC='%s%s' BORDER=0 ALT='该主机以及子主机的3D状态图' TITLE='该主机以及子主机的3D状态图'></A>\n",STATUSWORLD_CGI,url_encode(temp_hostoutage->hst->name),url_images_path,STATUSWORLD_ICON);
 #endif
 #ifdef USE_TRENDS
-		printf("<A HREF='%s?host=%s'><IMG SRC='%s%s' BORDER=0 ALT='View trends for this host' TITLE='View trends for this host'></A>\n",TRENDS_CGI,url_encode(temp_hostoutage->hst->name),url_images_path,TRENDS_ICON);
+		printf("<A HREF='%s?host=%s'><IMG SRC='%s%s' BORDER=0 ALT='查看该主机趋势' TITLE='查看该主机趋势'></A>\n",TRENDS_CGI,url_encode(temp_hostoutage->hst->name),url_images_path,TRENDS_ICON);
 #endif
-		printf("<A HREF='%s?host=%s'><IMG SRC='%s%s' BORDER=0 ALT='View alert history for this host' TITLE='View alert history for this host'></A>\n",HISTORY_CGI,url_encode(temp_hostoutage->hst->name),url_images_path,HISTORY_ICON);
-		printf("<A HREF='%s?host=%s'><IMG SRC='%s%s' BORDER=0 ALT='View notifications for this host' TITLE='View notifications for this host'></A>\n",NOTIFICATIONS_CGI,url_encode(temp_hostoutage->hst->name),url_images_path,NOTIFICATION_ICON);
+		printf("<A HREF='%s?host=%s'><IMG SRC='%s%s' BORDER=0 ALT='该主机的告警历史信息' TITLE='该主机的告警历史信息'></A>\n",HISTORY_CGI,url_encode(temp_hostoutage->hst->name),url_images_path,HISTORY_ICON);
+		printf("<A HREF='%s?host=%s'><IMG SRC='%s%s' BORDER=0 ALT='查看该主机的通知' TITLE='查看该主机的通知'></A>\n",NOTIFICATIONS_CGI,url_encode(temp_hostoutage->hst->name),url_images_path,NOTIFICATION_ICON);
 		printf("</TD>\n");
 
 		printf("</TR>\n");
@@ -447,7 +446,7 @@ void display_network_outages(void){
 	printf("</DIV></P>\n");
 
 	if(total_entries==0)
-		printf("<DIV CLASS='itemTotalsTitle'>%d Blocking Outages Displayed</DIV>\n",total_entries);
+		printf("<DIV CLASS='itemTotalsTitle'>%d 个网络故障</DIV>\n",total_entries);
 
 	/* free memory allocated to the host outage list */
 	free_hostoutage_list();
