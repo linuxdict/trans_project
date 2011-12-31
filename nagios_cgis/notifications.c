@@ -154,15 +154,15 @@ int main(void){
 				printf("<A HREF='%s?host=%s'>%s的历史信息</A><BR>\n",HISTORY_CGI,(find_all==TRUE)?"all":url_encode(query_host_name),(find_all==TRUE)?"所有主机":"本机");
 #ifdef USE_TRENDS
 				if(find_all==FALSE)
-					printf("<A HREF='%s?host=%s'>View Trends For This Host</A><BR>\n",TRENDS_CGI,url_encode(query_host_name));
+					printf("<A HREF='%s?host=%s'>查看本机趋势</A><BR>\n",TRENDS_CGI,url_encode(query_host_name));
 #endif
 	                        }
 			else if(query_type==FIND_SERVICE){
 				printf("<A HREF='%s?host=%s&",HISTORY_CGI,(find_all==TRUE)?"all":url_encode(query_host_name));
-				printf("service=%s'>View History For This Service</A><BR>\n",url_encode(query_svc_description));
+				printf("service=%s'>查看该服务的历史</A><BR>\n",url_encode(query_svc_description));
 #ifdef USE_TRENDS
 				printf("<A HREF='%s?host=%s&",TRENDS_CGI,(find_all==TRUE)?"all":url_encode(query_host_name));
-				printf("service=%s'>View Trends For This Service</A><BR>\n",url_encode(query_svc_description));
+				printf("service=%s'>查看该服务趋势</A><BR>\n",url_encode(query_svc_description));
 #endif
 	                        }
 			printf("</TD></TR>\n");
@@ -177,18 +177,18 @@ int main(void){
 
 		printf("<DIV ALIGN=CENTER CLASS='dataTitle'>\n");
 		if(query_type==FIND_SERVICE)
-			printf("Service '%s' On Host '%s'",query_svc_description,query_host_name);
+			printf("主机 '%s' 上的 '%s' 服务",query_host_name,query_svc_description);
 		else if(query_type==FIND_HOST){
 			if(find_all==TRUE)
-				printf("All Hosts and Services");
+				printf("所有的主机和服务");
 			else
-				printf("Host '%s'",query_host_name);
+				printf("主机 '%s'",query_host_name);
 		        }
 		else{
 			if(find_all==TRUE)
-				printf("All Contacts");
+				printf("所有的联系人");
 			else
-				printf("Contact '%s'",query_contact_name);
+				printf("联系人 '%s'",query_contact_name);
 		        }
 		printf("</DIV>\n");
 		printf("<BR>\n");
@@ -220,16 +220,16 @@ int main(void){
 		printf("<input type='hidden' name='archive' value='%d'>\n",log_archive);
 		printf("<tr>\n");
 		if(query_type==FIND_SERVICE)
-			printf("<td align=left colspan=2 CLASS='optBoxItem'>Notification detail level for this service:</td>");
+			printf("<td align=left colspan=2 CLASS='optBoxItem'>该服务的通知详细级别:</td>");
 		else
-			printf("<td align=left colspan=2 CLASS='optBoxItem'>Notification detail level for %s %s%s:</td>",(find_all==TRUE)?"all":"this",(query_type==FIND_HOST)?"host":"contact",(find_all==TRUE)?"s":"");
+			printf("<td align=left colspan=2 CLASS='optBoxItem'>%s %s%s 的通知详细级别:</td>",(find_all==TRUE)?"所有":"本",(query_type==FIND_HOST)?"主机":"联系人",(find_all==TRUE)?"s":"");
 		printf("</tr>\n");
 		printf("<tr>\n");
 		printf("<td align=left colspan=2 CLASS='optBoxItem'><select name='type'>\n");
-		printf("<option value=%d %s>All notifications\n",NOTIFICATION_ALL,(notification_options==NOTIFICATION_ALL)?"selected":"");
+		printf("<option value=%d %s>所有的通知\n",NOTIFICATION_ALL,(notification_options==NOTIFICATION_ALL)?"selected":"");
 		if(query_type!=FIND_SERVICE){
-			printf("<option value=%d %s>All service notifications\n",NOTIFICATION_SERVICE_ALL,(notification_options==NOTIFICATION_SERVICE_ALL)?"selected":"");
-			printf("<option value=%d %s>All host notifications\n",NOTIFICATION_HOST_ALL,(notification_options==NOTIFICATION_HOST_ALL)?"selected":"");
+			printf("<option value=%d %s>所有的服务通知\n",NOTIFICATION_SERVICE_ALL,(notification_options==NOTIFICATION_SERVICE_ALL)?"selected":"");
+			printf("<option value=%d %s>所有的主机通知\n",NOTIFICATION_HOST_ALL,(notification_options==NOTIFICATION_HOST_ALL)?"selected":"");
 	                }
 		printf("<option value=%d %s>Service custom\n",NOTIFICATION_SERVICE_CUSTOM,(notification_options==NOTIFICATION_SERVICE_CUSTOM)?"selected":"");
 		printf("<option value=%d %s>Service acknowledgements\n",NOTIFICATION_SERVICE_ACK,(notification_options==NOTIFICATION_SERVICE_ACK)?"selected":"");
