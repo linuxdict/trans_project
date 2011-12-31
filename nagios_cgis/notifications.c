@@ -135,23 +135,23 @@ int main(void){
 		printf("<td align=left valign=top width=33%%>\n");
 	
 		if(query_type==FIND_SERVICE)
-			snprintf(temp_buffer,sizeof(temp_buffer)-1,"Service Notifications");
+			snprintf(temp_buffer,sizeof(temp_buffer)-1,"服务的通知");
 		else if(query_type==FIND_HOST){
 			if(find_all==TRUE)
-				snprintf(temp_buffer,sizeof(temp_buffer)-1,"Notifications");
+				snprintf(temp_buffer,sizeof(temp_buffer)-1,"通知");
 			else
-				snprintf(temp_buffer,sizeof(temp_buffer)-1,"Host Notifications");
+				snprintf(temp_buffer,sizeof(temp_buffer)-1,"主机的通知");
 		        }
 		else
-			snprintf(temp_buffer,sizeof(temp_buffer)-1,"Contact Notifications");
+			snprintf(temp_buffer,sizeof(temp_buffer)-1,"联系人的通知");
 		display_info_table(temp_buffer,FALSE,&current_authdata);
 
 		if(query_type==FIND_HOST || query_type==FIND_SERVICE){
 			printf("<TABLE BORDER=1 CELLPADDING=0 CELLSPACING=0 CLASS='linkBox'>\n");
 			printf("<TR><TD CLASS='linkBox'>\n");
 			if(query_type==FIND_HOST){
-				printf("<A HREF='%s?host=%s'>View Status Detail For %s</A><BR>\n",STATUS_CGI,(find_all==TRUE)?"all":url_encode(query_host_name),(find_all==TRUE)?"All Hosts":"This Host");
-				printf("<A HREF='%s?host=%s'>View History For %s</A><BR>\n",HISTORY_CGI,(find_all==TRUE)?"all":url_encode(query_host_name),(find_all==TRUE)?"All Hosts":"This Host");
+				printf("<A HREF='%s?host=%s'>%s的详细状态</A><BR>\n",STATUS_CGI,(find_all==TRUE)?"all":url_encode(query_host_name),(find_all==TRUE)?"所有主机":"本机");
+				printf("<A HREF='%s?host=%s'>%s的历史信息</A><BR>\n",HISTORY_CGI,(find_all==TRUE)?"all":url_encode(query_host_name),(find_all==TRUE)?"所有主机":"本机");
 #ifdef USE_TRENDS
 				if(find_all==FALSE)
 					printf("<A HREF='%s?host=%s'>View Trends For This Host</A><BR>\n",TRENDS_CGI,url_encode(query_host_name));

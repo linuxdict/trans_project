@@ -446,7 +446,7 @@ int main(void){
 				process_macros(temp_host->action_url,&processed_string,0);
 				printf("%s",processed_string);
 				free(processed_string);
-				printf("' TARGET='%s'><img src='%s%s' border=0 alt='对该主机的采取更多的检测动作' title='对该主机的采取更多的检测动作 '></A>\n",(action_url_target==NULL)?"_blank":action_url_target,url_images_path,ACTION_ICON);
+				printf("' TARGET='%s'><img src='%s%s' border=0 alt='对本机的采取更多的检测动作' title='对本机的采取更多的检测动作 '></A>\n",(action_url_target==NULL)?"_blank":action_url_target,url_images_path,ACTION_ICON);
 				printf("<BR CLEAR=ALL><FONT SIZE=-1><I>额外的操作</I></FONT><BR CLEAR=ALL><BR CLEAR=ALL>\n");
 				printf("</TD></TR>\n");
 			        }
@@ -457,7 +457,7 @@ int main(void){
 				printf("%s",processed_string);
 				free(processed_string);
 				/*print_extra_host_url(temp_host->name,temp_host->notes_url);*/
-				printf("' TARGET='%s'><img src='%s%s' border=0 alt='查看该主机更多的注释' title='查看该主机更多的注释'></A>\n",(notes_url_target==NULL)?"_blank":notes_url_target,url_images_path,NOTES_ICON);
+				printf("' TARGET='%s'><img src='%s%s' border=0 alt='查看本机更多的注释' title='查看本机更多的注释'></A>\n",(notes_url_target==NULL)?"_blank":notes_url_target,url_images_path,NOTES_ICON);
 				printf("<BR CLEAR=ALL><FONT SIZE=-1><I>额外的注释</I></FONT><BR CLEAR=ALL><BR CLEAR=ALL>\n");
 				printf("</TD></TR>\n");
 			        }
@@ -1045,7 +1045,7 @@ void show_host_info(void){
 	/* make sure the user has rights to view host information */
 	if(is_authorized_for_host(temp_host,&current_authdata)==FALSE){
 
-		printf("<P><DIV CLASS='errorMessage'>无权查看该主机信息...</DIV></P>\n");
+		printf("<P><DIV CLASS='errorMessage'>无权查看本机信息...</DIV></P>\n");
 		printf("<P><DIV CLASS='errorDescription'>请检查HTTP服务器对该CGI的认证设置<br>");
 		printf(".</DIV></P>\n");
 
@@ -1075,7 +1075,7 @@ void show_host_info(void){
 	printf("<DIV CLASS='dataTitle'>主机状态信息</DIV>\n");
 
 	if(temp_hoststatus->has_been_checked==FALSE)
-		printf("<P><DIV ALIGN=CENTER>该主机尚未检查，状态信息不存在.</DIV></P>\n");
+		printf("<P><DIV ALIGN=CENTER>本机尚未检查，状态信息不存在.</DIV></P>\n");
 
 	else{
 
@@ -1238,18 +1238,18 @@ void show_host_info(void){
 		printf("<tr CLASS='command'><td><img src='%s%s' border=0 ALT='在地图上定位主机' TITLE='在地图上定位主机'></td><td CLASS='command'><a href='%s?host=%s'>在地图上定位主机</a></td></tr>\n",url_images_path,STATUSMAP_ICON,STATUSMAP_CGI,url_encode(host_name));
 #endif
 		if(temp_hoststatus->checks_enabled==TRUE){
-			printf("<tr CLASS='command'><td><img src='%s%s' border=0 ALT='禁用该主机的主动检查' TITLE='禁用该主机的主动检查'></td><td CLASS='command'><a href='%s?cmd_typ=%d&host=%s'>禁用该主机的主动检查</a></td></tr>\n",url_images_path,DISABLED_ICON,COMMAND_CGI,CMD_DISABLE_HOST_CHECK,url_encode(host_name));
+			printf("<tr CLASS='command'><td><img src='%s%s' border=0 ALT='禁用本机的主动检查' TITLE='禁用本机的主动检查'></td><td CLASS='command'><a href='%s?cmd_typ=%d&host=%s'>禁用本机的主动检查</a></td></tr>\n",url_images_path,DISABLED_ICON,COMMAND_CGI,CMD_DISABLE_HOST_CHECK,url_encode(host_name));
 		        }
 		else
-			printf("<tr CLASS='command'><td><img src='%s%s' border=0 ALT='启用该主机的主动检查' TITLE='启用该主机的主动检查'></td><td CLASS='command'><a href='%s?cmd_typ=%d&host=%s'>启用该主机的主动检查</a></td></tr>\n",url_images_path,ENABLED_ICON,COMMAND_CGI,CMD_ENABLE_HOST_CHECK,url_encode(host_name));
+			printf("<tr CLASS='command'><td><img src='%s%s' border=0 ALT='启用本机的主动检查' TITLE='启用本机的主动检查'></td><td CLASS='command'><a href='%s?cmd_typ=%d&host=%s'>启用本机的主动检查</a></td></tr>\n",url_images_path,ENABLED_ICON,COMMAND_CGI,CMD_ENABLE_HOST_CHECK,url_encode(host_name));
 		printf("<tr CLASS='data'><td><img src='%s%s' border=0 ALT='重新计划下次主机检测时间' TITLE='重新计划下次主机检测时间'></td><td CLASS='command'><a href='%s?cmd_typ=%d&host=%s'>重新计划下次主机检测时间</a></td></tr>\n",url_images_path,DELAY_ICON,COMMAND_CGI,CMD_SCHEDULE_HOST_CHECK,url_encode(host_name));
 
 		if(temp_hoststatus->accept_passive_host_checks==TRUE){
-			printf("<tr CLASS='command'><td><img src='%s%s' border=0 ALT='提交该主机被动检查结果' TITLE='提交该主机被动检查结果'></td><td CLASS='command'><a href='%s?cmd_typ=%d&host=%s'>提交该主机被动检查结果</a></td></tr>\n",url_images_path,PASSIVE_ICON,COMMAND_CGI,CMD_PROCESS_HOST_CHECK_RESULT,url_encode(host_name));
-			printf("<tr CLASS='command'><td><img src='%s%s' border=0 ALT='禁用该主机接受被动检查' TITLE='禁用该主机接受被动检查'></td><td CLASS='command'><a href='%s?cmd_typ=%d&host=%s'>禁用该主机接受被动检查</a></td></tr>\n",url_images_path,DISABLED_ICON,COMMAND_CGI,CMD_DISABLE_PASSIVE_HOST_CHECKS,url_encode(host_name));
+			printf("<tr CLASS='command'><td><img src='%s%s' border=0 ALT='提交本机被动检查结果' TITLE='提交本机被动检查结果'></td><td CLASS='command'><a href='%s?cmd_typ=%d&host=%s'>提交本机被动检查结果</a></td></tr>\n",url_images_path,PASSIVE_ICON,COMMAND_CGI,CMD_PROCESS_HOST_CHECK_RESULT,url_encode(host_name));
+			printf("<tr CLASS='command'><td><img src='%s%s' border=0 ALT='禁用本机接受被动检查' TITLE='禁用本机接受被动检查'></td><td CLASS='command'><a href='%s?cmd_typ=%d&host=%s'>禁用本机接受被动检查</a></td></tr>\n",url_images_path,DISABLED_ICON,COMMAND_CGI,CMD_DISABLE_PASSIVE_HOST_CHECKS,url_encode(host_name));
 		        }
 		else
-			printf("<tr CLASS='command'><td><img src='%s%s' border=0 ALT='启用该主机接受被动检查' TITLE='启用该主机接受被动检查'></td><td CLASS='command'><a href='%s?cmd_typ=%d&host=%s'>启用该主机接受被动检查</a></td></tr>\n",url_images_path,ENABLED_ICON,COMMAND_CGI,CMD_ENABLE_PASSIVE_HOST_CHECKS,url_encode(host_name));
+			printf("<tr CLASS='command'><td><img src='%s%s' border=0 ALT='启用本机接受被动检查' TITLE='启用本机接受被动检查'></td><td CLASS='command'><a href='%s?cmd_typ=%d&host=%s'>启用本机接受被动检查</a></td></tr>\n",url_images_path,ENABLED_ICON,COMMAND_CGI,CMD_ENABLE_PASSIVE_HOST_CHECKS,url_encode(host_name));
 
 		if(temp_hoststatus->obsess_over_host==TRUE)
 			printf("<tr CLASS='command'><td><img src='%s%s' border=0 ALT='Stop Obsessing Over This Host' TITLE='Stop Obsessing Over This Host'></td><td CLASS='command'><a href='%s?cmd_typ=%d&host=%s'>Stop obsessing over this host</a></td></tr>\n",url_images_path,DISABLED_ICON,COMMAND_CGI,CMD_STOP_OBSESSING_OVER_HOST,url_encode(host_name));
@@ -1264,9 +1264,9 @@ void show_host_info(void){
 		        }
 
 		if(temp_hoststatus->notifications_enabled==TRUE)
-			printf("<tr CLASS='command'><td><img src='%s%s' border=0 ALT='禁用该主机的通知' TITLE='禁用该主机的通知'></td><td CLASS='command'><a href='%s?cmd_typ=%d&host=%s'>禁用该主机的通知</a></td></tr>\n",url_images_path,DISABLED_ICON,COMMAND_CGI,CMD_DISABLE_HOST_NOTIFICATIONS,url_encode(host_name));
+			printf("<tr CLASS='command'><td><img src='%s%s' border=0 ALT='禁用本机的通知' TITLE='禁用本机的通知'></td><td CLASS='command'><a href='%s?cmd_typ=%d&host=%s'>禁用本机的通知</a></td></tr>\n",url_images_path,DISABLED_ICON,COMMAND_CGI,CMD_DISABLE_HOST_NOTIFICATIONS,url_encode(host_name));
 		else
-			printf("<tr CLASS='command'><td><img src='%s%s' border=0 ALT='启用该主机的通知' TITLE='启用该主机的通知'></td><td CLASS='command'><a href='%s?cmd_typ=%d&host=%s'>启用该主机的通知</a></td></tr>\n",url_images_path,ENABLED_ICON,COMMAND_CGI,CMD_ENABLE_HOST_NOTIFICATIONS,url_encode(host_name));
+			printf("<tr CLASS='command'><td><img src='%s%s' border=0 ALT='启用本机的通知' TITLE='启用本机的通知'></td><td CLASS='command'><a href='%s?cmd_typ=%d&host=%s'>启用本机的通知</a></td></tr>\n",url_images_path,ENABLED_ICON,COMMAND_CGI,CMD_ENABLE_HOST_NOTIFICATIONS,url_encode(host_name));
 
 		printf("<tr CLASS='command'><td><img src='%s%s' border=0 ALT='发送定制通知' TITLE='发送定制通知'></td><td CLASS='command'><a href='%s?cmd_typ=%d&host=%s'>发送定制通知</a></td></tr>\n",url_images_path,NOTIFICATION_ICON,COMMAND_CGI,CMD_SEND_CUSTOM_HOST_NOTIFICATION,url_encode(host_name));
 
@@ -1275,30 +1275,30 @@ void show_host_info(void){
 
 		printf("<tr CLASS='command'><td><img src='%s%s' border=0 ALT='设置例行维护时间' TITLE='设置例行维护时间'></td><td CLASS='command'><a href='%s?cmd_typ=%d&host=%s'>设置例行维护时间</a></td></tr>\n",url_images_path,DOWNTIME_ICON,COMMAND_CGI,CMD_SCHEDULE_HOST_DOWNTIME,url_encode(host_name));
 		
-		printf("<tr CLASS='command'><td><img src='%s%s' border=0 ALT='设置该主机所有服务例行维护时间' TITLE='设置该主机所有服务例行维护时间'></td><td CLASS='command'><a href='%s?cmd_typ=%d&host=%s'>设置该主机所有服务例行维护时间</a></td></tr>\n",url_images_path,DOWNTIME_ICON,COMMAND_CGI,CMD_SCHEDULE_HOST_SVC_DOWNTIME,url_encode(host_name));
+		printf("<tr CLASS='command'><td><img src='%s%s' border=0 ALT='设置本机所有服务例行维护时间' TITLE='设置本机所有服务例行维护时间'></td><td CLASS='command'><a href='%s?cmd_typ=%d&host=%s'>设置本机所有服务例行维护时间</a></td></tr>\n",url_images_path,DOWNTIME_ICON,COMMAND_CGI,CMD_SCHEDULE_HOST_SVC_DOWNTIME,url_encode(host_name));
 
 		/*
 		printf("<tr CLASS='command'><td><img src='%s%s' border=0 ALT='Cancel Scheduled Downtime For This Host' TITLE='Cancel Scheduled Downtime For This Host'></td><td CLASS='command'><a href='%s?cmd_typ=%d&host=%s'>Cancel scheduled downtime for this host</a></td></tr>\n",url_images_path,SCHEDULED_DOWNTIME_ICON,COMMAND_CGI,CMD_CANCEL_HOST_DOWNTIME,url_encode(host_name));
 		*/
 
-		printf("<tr CLASS='command'><td><img src='%s%s' border=0 ALT='禁用该主机上的所有服务通知' TITLE='禁用该主机上的所有服务通知'></td><td CLASS='command' NOWRAP><a href='%s?cmd_typ=%d&host=%s'>禁用该主机上的所有服务通知</a></td></tr>\n",url_images_path,DISABLED_ICON,COMMAND_CGI,CMD_DISABLE_HOST_SVC_NOTIFICATIONS,url_encode(host_name));
+		printf("<tr CLASS='command'><td><img src='%s%s' border=0 ALT='禁用本机上的所有服务通知' TITLE='禁用本机上的所有服务通知'></td><td CLASS='command' NOWRAP><a href='%s?cmd_typ=%d&host=%s'>禁用本机上的所有服务通知</a></td></tr>\n",url_images_path,DISABLED_ICON,COMMAND_CGI,CMD_DISABLE_HOST_SVC_NOTIFICATIONS,url_encode(host_name));
 
-		printf("<tr CLASS='command'><td><img src='%s%s' border=0 ALT='启用该主机上的所有服务通知' TITLE='启用该主机上的所有服务通知'></td><td CLASS='command'><a href='%s?cmd_typ=%d&host=%s'>启用该主机上的所有服务通知</a></td></tr>\n",url_images_path,ENABLED_ICON,COMMAND_CGI,CMD_ENABLE_HOST_SVC_NOTIFICATIONS,url_encode(host_name));
+		printf("<tr CLASS='command'><td><img src='%s%s' border=0 ALT='启用本机上的所有服务通知' TITLE='启用本机上的所有服务通知'></td><td CLASS='command'><a href='%s?cmd_typ=%d&host=%s'>启用本机上的所有服务通知</a></td></tr>\n",url_images_path,ENABLED_ICON,COMMAND_CGI,CMD_ENABLE_HOST_SVC_NOTIFICATIONS,url_encode(host_name));
 
-		printf("<tr CLASS='command'><td><img src='%s%s' border=0 ALT='计划对该主机上的所有服务进行检查' TITLE='计划对该主机上的所有服务进行检查'></td><td CLASS='command'><a href='%s?cmd_typ=%d&host=%s'>计划对该主机上的所有服务进行检查</a></td></tr>\n",url_images_path,DELAY_ICON,COMMAND_CGI,CMD_SCHEDULE_HOST_SVC_CHECKS,url_encode(host_name));
+		printf("<tr CLASS='command'><td><img src='%s%s' border=0 ALT='计划对本机上的所有服务进行检查' TITLE='计划对本机上的所有服务进行检查'></td><td CLASS='command'><a href='%s?cmd_typ=%d&host=%s'>计划对本机上的所有服务进行检查</a></td></tr>\n",url_images_path,DELAY_ICON,COMMAND_CGI,CMD_SCHEDULE_HOST_SVC_CHECKS,url_encode(host_name));
 
-		printf("<tr CLASS='command'><td><img src='%s%s' border=0 ALT='禁用该主机上的所有服务检查' TITLE='禁用该主机上的所有服务检查'></td><td CLASS='command'><a href='%s?cmd_typ=%d&host=%s'>禁用该主机上的所有服务检查</a></td></tr>\n",url_images_path,DISABLED_ICON,COMMAND_CGI,CMD_DISABLE_HOST_SVC_CHECKS,url_encode(host_name));
+		printf("<tr CLASS='command'><td><img src='%s%s' border=0 ALT='禁用本机上的所有服务检查' TITLE='禁用本机上的所有服务检查'></td><td CLASS='command'><a href='%s?cmd_typ=%d&host=%s'>禁用本机上的所有服务检查</a></td></tr>\n",url_images_path,DISABLED_ICON,COMMAND_CGI,CMD_DISABLE_HOST_SVC_CHECKS,url_encode(host_name));
 
-		printf("<tr CLASS='command'><td><img src='%s%s' border=0 ALT='启用该主机上的所有服务检查' TITLE='启用该主机上的所有服务检查'></td><td CLASS='command'><a href='%s?cmd_typ=%d&host=%s'>启用该主机上的所有服务检查</a></td></tr>\n",url_images_path,ENABLED_ICON,COMMAND_CGI,CMD_ENABLE_HOST_SVC_CHECKS,url_encode(host_name));
+		printf("<tr CLASS='command'><td><img src='%s%s' border=0 ALT='启用本机上的所有服务检查' TITLE='启用本机上的所有服务检查'></td><td CLASS='command'><a href='%s?cmd_typ=%d&host=%s'>启用本机上的所有服务检查</a></td></tr>\n",url_images_path,ENABLED_ICON,COMMAND_CGI,CMD_ENABLE_HOST_SVC_CHECKS,url_encode(host_name));
 
 		if(temp_hoststatus->event_handler_enabled==TRUE)
-			printf("<tr CLASS='command'><td><img src='%s%s' border=0 ALT='禁用该主机的事件处理' TITLE='禁用该主机的事件处理'></td><td CLASS='command'><a href='%s?cmd_typ=%d&host=%s'>禁用该主机的事件处理</a></td></tr>\n",url_images_path,DISABLED_ICON,COMMAND_CGI,CMD_DISABLE_HOST_EVENT_HANDLER,url_encode(host_name));
+			printf("<tr CLASS='command'><td><img src='%s%s' border=0 ALT='禁用本机的事件处理' TITLE='禁用本机的事件处理'></td><td CLASS='command'><a href='%s?cmd_typ=%d&host=%s'>禁用本机的事件处理</a></td></tr>\n",url_images_path,DISABLED_ICON,COMMAND_CGI,CMD_DISABLE_HOST_EVENT_HANDLER,url_encode(host_name));
 		else
-			printf("<tr CLASS='command'><td><img src='%s%s' border=0 ALT='启用该主机的事件处理' TITLE='启用该主机的事件处理'></td><td CLASS='command'><a href='%s?cmd_typ=%d&host=%s'>启用该主机的事件处理</a></td></tr>\n",url_images_path,ENABLED_ICON,COMMAND_CGI,CMD_ENABLE_HOST_EVENT_HANDLER,url_encode(host_name));
+			printf("<tr CLASS='command'><td><img src='%s%s' border=0 ALT='启用本机的事件处理' TITLE='启用本机的事件处理'></td><td CLASS='command'><a href='%s?cmd_typ=%d&host=%s'>启用本机的事件处理</a></td></tr>\n",url_images_path,ENABLED_ICON,COMMAND_CGI,CMD_ENABLE_HOST_EVENT_HANDLER,url_encode(host_name));
 		if(temp_hoststatus->flap_detection_enabled==TRUE)
-			printf("<tr CLASS='command'><td><img src='%s%s' border=0 ALT='禁用该主机的不稳定监测' TITLE='禁用该主机的不稳定监测'></td><td CLASS='command'><a href='%s?cmd_typ=%d&host=%s'>禁用该主机的不稳定监测</a></td></tr>\n",url_images_path,DISABLED_ICON,COMMAND_CGI,CMD_DISABLE_HOST_FLAP_DETECTION,url_encode(host_name));
+			printf("<tr CLASS='command'><td><img src='%s%s' border=0 ALT='禁用本机的不稳定监测' TITLE='禁用本机的不稳定监测'></td><td CLASS='command'><a href='%s?cmd_typ=%d&host=%s'>禁用本机的不稳定监测</a></td></tr>\n",url_images_path,DISABLED_ICON,COMMAND_CGI,CMD_DISABLE_HOST_FLAP_DETECTION,url_encode(host_name));
 		else
-			printf("<tr CLASS='command'><td><img src='%s%s' border=0 ALT='启用该主机的不稳定监测' TITLE='启用该主机的不稳定监测'></td><td CLASS='command'><a href='%s?cmd_typ=%d&host=%s'>启用该主机的不稳定监测</a></td></tr>\n",url_images_path,ENABLED_ICON,COMMAND_CGI,CMD_ENABLE_HOST_FLAP_DETECTION,url_encode(host_name));
+			printf("<tr CLASS='command'><td><img src='%s%s' border=0 ALT='启用本机的不稳定监测' TITLE='启用本机的不稳定监测'></td><td CLASS='command'><a href='%s?cmd_typ=%d&host=%s'>启用本机的不稳定监测</a></td></tr>\n",url_images_path,ENABLED_ICON,COMMAND_CGI,CMD_ENABLE_HOST_FLAP_DETECTION,url_encode(host_name));
 
 		printf("</TABLE>\n");
 		}

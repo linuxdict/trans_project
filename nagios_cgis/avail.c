@@ -412,19 +412,19 @@ int main(int argc, char **argv){
 				host_report_url("all","查看所有主机的可用性报告");
 				printf("<BR>\n");
 #ifdef USE_TRENDS
-				printf("<a href='%s?host=%s&t1=%lu&t2=%lu&assumestateretention=%s&assumeinitialstates=%s&includesoftstates=%s&assumestatesduringnotrunning=%s&initialassumedhoststate=%d&backtrack=%d'>查看该主机的趋势</a><BR>\n",TRENDS_CGI,url_encode(host_name),t1,t2,(include_soft_states==TRUE)?"yes":"no",(assume_state_retention==TRUE)?"yes":"no",(assume_initial_states==TRUE)?"yes":"no",(assume_states_during_notrunning==TRUE)?"yes":"no",initial_assumed_host_state,backtrack_archives);
+				printf("<a href='%s?host=%s&t1=%lu&t2=%lu&assumestateretention=%s&assumeinitialstates=%s&includesoftstates=%s&assumestatesduringnotrunning=%s&initialassumedhoststate=%d&backtrack=%d'>查看本机的趋势</a><BR>\n",TRENDS_CGI,url_encode(host_name),t1,t2,(include_soft_states==TRUE)?"yes":"no",(assume_state_retention==TRUE)?"yes":"no",(assume_initial_states==TRUE)?"yes":"no",(assume_states_during_notrunning==TRUE)?"yes":"no",initial_assumed_host_state,backtrack_archives);
 #endif
 #ifdef USE_HISTOGRAM
-				printf("<a href='%s?host=%s&t1=%lu&t2=%lu&assumestateretention=%s'>查看该主机报警柱状图</a><BR>\n",HISTOGRAM_CGI,url_encode(host_name),t1,t2,(assume_state_retention==TRUE)?"yes":"no");
+				printf("<a href='%s?host=%s&t1=%lu&t2=%lu&assumestateretention=%s'>查看本机报警柱状图</a><BR>\n",HISTOGRAM_CGI,url_encode(host_name),t1,t2,(assume_state_retention==TRUE)?"yes":"no");
 #endif
-				printf("<a href='%s?host=%s'>查看该主机的详细状态</a><BR>\n",STATUS_CGI,url_encode(host_name));
-				printf("<a href='%s?host=%s'>查看该主机的报警历史</a><BR>\n",HISTORY_CGI,url_encode(host_name));
-				printf("<a href='%s?host=%s'>查看该主机的通知信息</a><BR>\n",NOTIFICATIONS_CGI,url_encode(host_name));
+				printf("<a href='%s?host=%s'>查看本机的详细状态</a><BR>\n",STATUS_CGI,url_encode(host_name));
+				printf("<a href='%s?host=%s'>查看本机的报警历史</a><BR>\n",HISTORY_CGI,url_encode(host_name));
+				printf("<a href='%s?host=%s'>查看本机的通知信息</a><BR>\n",NOTIFICATIONS_CGI,url_encode(host_name));
 	                        }
 			else if(display_type==DISPLAY_SERVICE_AVAIL && show_all_services==FALSE){
-				host_report_url(host_name,"查看该主机的可用性报告");
+				host_report_url(host_name,"查看本机的可用性报告");
 				printf("<BR>\n");
-				service_report_url("null","all","查看该主机所有服务的可用性报告");
+				service_report_url("null","all","查看本机所有服务的可用性报告");
 				printf("<BR>\n");
 #ifdef USE_TRENDS
 				printf("<a href='%s?host=%s",TRENDS_CGI,url_encode(host_name));

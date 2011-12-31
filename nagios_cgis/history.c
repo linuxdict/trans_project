@@ -151,11 +151,11 @@ int main(void){
 		printf("<TABLE BORDER=1 CELLPADDING=0 CELLSPACING=0 CLASS='linkBox'>\n");
 		printf("<TR><TD CLASS='linkBox'>\n");
 		if(display_type==DISPLAY_HOSTS){
-			printf("<A HREF='%s?host=%s'>查看 %s 的详细状态</A><BR />\n",STATUS_CGI,(show_all_hosts==TRUE)?"all":url_encode(host_name),(show_all_hosts==TRUE)?"所有主机":"该主机");
-			printf("<A HREF='%s?host=%s'>查看 %s 的通知信息</A><BR />\n",NOTIFICATIONS_CGI,(show_all_hosts==TRUE)?"all":url_encode(host_name),(show_all_hosts==TRUE)?"所有主机":"该主机");
+			printf("<A HREF='%s?host=%s'>查看 %s 的详细状态</A><BR />\n",STATUS_CGI,(show_all_hosts==TRUE)?"all":url_encode(host_name),(show_all_hosts==TRUE)?"所有主机":"本机");
+			printf("<A HREF='%s?host=%s'>查看 %s 的通知信息</A><BR />\n",NOTIFICATIONS_CGI,(show_all_hosts==TRUE)?"all":url_encode(host_name),(show_all_hosts==TRUE)?"所有主机":"本机");
 #ifdef USE_TRENDS
 			if(show_all_hosts==FALSE)
-				printf("<A HREF='%s?host=%s'>查看该主机趋势</A>\n",TRENDS_CGI,url_encode(host_name));
+				printf("<A HREF='%s?host=%s'>查看本机趋势</A>\n",TRENDS_CGI,url_encode(host_name));
 #endif
 	                }
 		else{
@@ -165,7 +165,7 @@ int main(void){
 			printf("<A HREF='%s?host=%s&",TRENDS_CGI,url_encode(host_name));
 			printf("service=%s'>查看该服务趋势</A><BR />\n",url_encode(svc_description));
 #endif
-			printf("<A HREF='%s?host=%s'>查看该主机的历史</A>\n",HISTORY_CGI,url_encode(host_name));
+			printf("<A HREF='%s?host=%s'>查看本机的历史</A>\n",HISTORY_CGI,url_encode(host_name));
 	                }
 		printf("</TD></TR>\n");
 		printf("</TABLE>\n");
@@ -945,7 +945,7 @@ void get_history(void){
 		printf("<HR>\n");
 		printf("<P><DIV CLASS='warningMessage'>无历史信息! ");
 		if(display_type==DISPLAY_HOSTS)
-			printf("%s",(show_all_hosts==TRUE)?"":"该主机的");
+			printf("%s",(show_all_hosts==TRUE)?"":"本机的");
 		else
 			printf("该服务的");
 		printf("在日志文件 %s </DIV></P>",(log_archive==0)?"当前":"该档案");

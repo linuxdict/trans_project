@@ -401,7 +401,7 @@ void display_network_outages(void){
 
 		total_comments=number_of_host_comments(temp_hostoutage->hst->name);
 		if(total_comments>0){
-			snprintf(temp_buffer,sizeof(temp_buffer)-1,"该主机共有 %d 相关的注释 %s ",total_comments,(total_comments==1)?"":"s");
+			snprintf(temp_buffer,sizeof(temp_buffer)-1,"本机共有 %d 相关的注释 %s ",total_comments,(total_comments==1)?"":"s");
 			temp_buffer[sizeof(temp_buffer)-1]='\x0';
 			printf("<TD CLASS='%s'><A HREF='%s?type=%d&host=%s#comments'><IMG SRC='%s%s' BORDER=0 ALT='%s' TITLE='%s'></A></TD>\n",bg_class,EXTINFO_CGI,DISPLAY_HOST_INFO,url_encode(temp_hostoutage->hst->name),url_images_path,COMMENT_ICON,temp_buffer,temp_buffer);
 		        }
@@ -424,18 +424,18 @@ void display_network_outages(void){
 		printf("<TD CLASS='%s'>%d</TD>\n",bg_class,temp_hostoutage->affected_child_services);
 
 		printf("<TD CLASS='%s'>",bg_class);
-		printf("<A HREF='%s?host=%s'><IMG SRC='%s%s' BORDER=0 ALT='查看该主机的详细状态' TITLE='查看该主机的详细状态'></A>\n",STATUS_CGI,url_encode(temp_hostoutage->hst->name),url_images_path,STATUS_DETAIL_ICON);
+		printf("<A HREF='%s?host=%s'><IMG SRC='%s%s' BORDER=0 ALT='查看本机的详细状态' TITLE='查看本机的详细状态'></A>\n",STATUS_CGI,url_encode(temp_hostoutage->hst->name),url_images_path,STATUS_DETAIL_ICON);
 #ifdef USE_STATUSMAP
-		printf("<A HREF='%s?host=%s'><IMG SRC='%s%s' BORDER=0 ALT='该主机以及子主机的状态图' TITLE='该主机以及子主机的状态图'></A>\n",STATUSMAP_CGI,url_encode(temp_hostoutage->hst->name),url_images_path,STATUSMAP_ICON);
+		printf("<A HREF='%s?host=%s'><IMG SRC='%s%s' BORDER=0 ALT='本机以及子主机的状态图' TITLE='本机以及子主机的状态图'></A>\n",STATUSMAP_CGI,url_encode(temp_hostoutage->hst->name),url_images_path,STATUSMAP_ICON);
 #endif
 #ifdef USE_STATUSWRL
-		printf("<A HREF='%s?host=%s'><IMG SRC='%s%s' BORDER=0 ALT='该主机以及子主机的3D状态图' TITLE='该主机以及子主机的3D状态图'></A>\n",STATUSWORLD_CGI,url_encode(temp_hostoutage->hst->name),url_images_path,STATUSWORLD_ICON);
+		printf("<A HREF='%s?host=%s'><IMG SRC='%s%s' BORDER=0 ALT='本机以及子主机的3D状态图' TITLE='本机以及子主机的3D状态图'></A>\n",STATUSWORLD_CGI,url_encode(temp_hostoutage->hst->name),url_images_path,STATUSWORLD_ICON);
 #endif
 #ifdef USE_TRENDS
-		printf("<A HREF='%s?host=%s'><IMG SRC='%s%s' BORDER=0 ALT='查看该主机趋势' TITLE='查看该主机趋势'></A>\n",TRENDS_CGI,url_encode(temp_hostoutage->hst->name),url_images_path,TRENDS_ICON);
+		printf("<A HREF='%s?host=%s'><IMG SRC='%s%s' BORDER=0 ALT='查看本机趋势' TITLE='查看本机趋势'></A>\n",TRENDS_CGI,url_encode(temp_hostoutage->hst->name),url_images_path,TRENDS_ICON);
 #endif
-		printf("<A HREF='%s?host=%s'><IMG SRC='%s%s' BORDER=0 ALT='该主机的告警历史信息' TITLE='该主机的告警历史信息'></A>\n",HISTORY_CGI,url_encode(temp_hostoutage->hst->name),url_images_path,HISTORY_ICON);
-		printf("<A HREF='%s?host=%s'><IMG SRC='%s%s' BORDER=0 ALT='查看该主机的通知' TITLE='查看该主机的通知'></A>\n",NOTIFICATIONS_CGI,url_encode(temp_hostoutage->hst->name),url_images_path,NOTIFICATION_ICON);
+		printf("<A HREF='%s?host=%s'><IMG SRC='%s%s' BORDER=0 ALT='本机的告警历史信息' TITLE='本机的告警历史信息'></A>\n",HISTORY_CGI,url_encode(temp_hostoutage->hst->name),url_images_path,HISTORY_ICON);
+		printf("<A HREF='%s?host=%s'><IMG SRC='%s%s' BORDER=0 ALT='查看本机的通知' TITLE='查看本机的通知'></A>\n",NOTIFICATIONS_CGI,url_encode(temp_hostoutage->hst->name),url_images_path,NOTIFICATION_ICON);
 		printf("</TD>\n");
 
 		printf("</TR>\n");
