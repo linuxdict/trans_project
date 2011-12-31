@@ -318,8 +318,8 @@ int main(void){
 		printf("<TR><TD CLASS='linkBox'>\n");
 
 		if(display_type==DISPLAY_HOSTS){
-			printf("<a href='%s?host=%s'>%s的历史信息</a><br>\n",HISTORY_CGI,(show_all_hosts==TRUE)?"all":url_encode(host_name),(show_all_hosts==TRUE)?"all hosts":"This Host");
-			printf("<a href='%s?host=%s'>%s的通知历史信息</a>\n",NOTIFICATIONS_CGI,(show_all_hosts==TRUE)?"all":url_encode(host_name),(show_all_hosts==TRUE)?"All Hosts":"This Host");
+			printf("<a href='%s?host=%s'>%s的历史信息</a><br>\n",HISTORY_CGI,(show_all_hosts==TRUE)?"all":url_encode(host_name),(show_all_hosts==TRUE)?"all hosts":"当前主机");
+			printf("<a href='%s?host=%s'>%s的通知历史信息</a>\n",NOTIFICATIONS_CGI,(show_all_hosts==TRUE)?"all":url_encode(host_name),(show_all_hosts==TRUE)?"All Hosts":"当前主机");
 			if(show_all_hosts==FALSE)
 				printf("<br><a href='%s?host=all'>所有主机的服务详细状态</a>\n",STATUS_CGI);
 			else
