@@ -115,7 +115,7 @@ int main(void){
 
 		/* left column of top table - info box */
 		printf("<td align=left valign=top width=33%%>\n");
-		display_info_table((log_rotation_method==LOG_ROTATION_NONE || log_archive==0)?"Current Event Log":"Archived Event Log",FALSE,&current_authdata);
+		display_info_table((log_rotation_method==LOG_ROTATION_NONE || log_archive==0)?"当前事件日志":"归档事件日志",FALSE,&current_authdata);
 		printf("</td>\n");
 
 		/* middle column of top table - log file navigation options */
@@ -132,10 +132,10 @@ int main(void){
 		printf("<form method='GET' action='%s'>\n",SHOWLOG_CGI);
 		printf("<input type='hidden' name='archive' value='%d'>\n",log_archive);
 		printf("<tr>");
-		printf("<td align=left valign=bottom CLASS='optBoxItem'><input type='checkbox' name='oldestfirst' %s> Older Entries First:</td>",(use_lifo==FALSE)?"checked":"");
+		printf("<td align=left valign=bottom CLASS='optBoxItem'><input type='checkbox' name='oldestfirst' %s> 旧的数据项优先:</td>",(use_lifo==FALSE)?"checked":"");
 		printf("</tr>\n");
 		printf("<tr>");
-		printf("<td align=left valign=bottom CLASS='optBoxItem'><input type='submit' value='Update'></td>\n");
+		printf("<td align=left valign=bottom CLASS='optBoxItem'><input type='submit' value='更新'></td>\n");
 		printf("</tr>\n");
 
 		/* display context-sensitive help */
@@ -197,7 +197,7 @@ void document_header(int use_stylesheet){
 	printf("<HEAD>\n");
 	printf("<link rel=\"shortcut icon\" href=\"%sfavicon.ico\" type=\"image/ico\">\n",url_images_path);
 	printf("<TITLE>\n");
-	printf("Nagios Log File\n");
+	printf("日志文件\n");
 	printf("</TITLE>\n");
 
 	if(use_stylesheet==TRUE){
@@ -310,8 +310,8 @@ int display_log(void){
 	/* check to see if the user is authorized to view the log file */
 	if(is_authorized_for_system_information(&current_authdata)==FALSE){
 		printf("<HR>\n");
-		printf("<DIV CLASS='errorMessage'>It appears as though you do not have permission to view the log file...</DIV><br><br>\n");
-		printf("<DIV CLASS='errorDescription'>If you believe this is an error, check the HTTP server authentication requirements for accessing this CGI<br>and check the authorization options in your CGI configuration file.</DIV>\n");
+		printf("<DIV CLASS='errorMessage'>无权查看日志文件.</DIV><br><br>\n");
+		printf("<DIV CLASS='errorDescription'>请检查HTTP服务器关于该CGI的访问权限设置。</DIV>\n");
 		printf("<HR>\n");
 		return ERROR;
 	        }
@@ -322,7 +322,7 @@ int display_log(void){
 		error=read_file_into_lifo(log_file_to_use);
 		if(error!=LIFO_OK){
 			if(error==LIFO_ERROR_MEMORY){
-				printf("<P><DIV CLASS='warningMessage'>Not enough memory to reverse log file - displaying log in natural order...</DIV></P>");
+				printf("<P><DIV CLASS='warningMessage'>没有足够内存保留内存文件，历史记录用原有顺序显示.</DIV></P>");
 				error=FALSE;
 			        }
 			else
@@ -337,7 +337,7 @@ int display_log(void){
   
 		if((thefile=mmap_fopen(log_file_to_use))==NULL){
 			printf("<HR>\n");
-			printf("<P><DIV CLASS='errorMessage'>Error: Could not open log file '%s' for reading!</DIV></P>",log_file_to_use);
+			printf("<P><DIV CLASS='errorMessage'>>错误: 无法读日志文件 '%s'!</DIV></P>",log_file_to_use);
 			printf("<HR>\n");
 			error=TRUE;
 	                }
@@ -426,11 +426,11 @@ int display_log(void){
 			        }
 			else if(strstr(input,"PASSIVE SERVICE CHECK:")){
 				strcpy(image,PASSIVE_ICON);
-				strcpy(image_alt,"Passive Service Check");
+				strcpy(image_alt,"被动服务检测");
 			        }
 			else if(strstr(input,"PASSIVE HOST CHECK:")){
 				strcpy(image,PASSIVE_ICON);
-				strcpy(image_alt,"Passive Host Check");
+				strcpy(image_alt,"被动主机检测");
 			        }
 			else if(strstr(input,"LOG ROTATION:")){
 				strcpy(image,LOG_ROTATION_ICON);
