@@ -131,7 +131,7 @@ int main(void){
 	if(result==ERROR){
 		document_header(FALSE);
 		if(content_type==WML_CONTENT)
-			printf("<p>Error: Could not open CGI config file!</p>\n");
+			printf("<p>错误: 无法打开CGI配置文件!</p>\n");
 		else
 			cgi_config_file_error(get_cgi_config_location());
 		document_footer();
@@ -143,7 +143,7 @@ int main(void){
 	if(result==ERROR){
 		document_header(FALSE);
 		if(content_type==WML_CONTENT)
-			printf("<p>Error: Could not open main config file!</p>\n");
+			printf("<p>错误: 无法打开主配置文件!</p>\n");
 		else
 			main_config_file_error(main_config_file);
 		document_footer();
@@ -163,7 +163,7 @@ int main(void){
 	if(result==ERROR){
 		document_header(FALSE);
 		if(content_type==WML_CONTENT)
-			printf("<p>Error: Could not read object config data!</p>\n");
+			printf("<p>错误: 无法读取对象配置!</p>\n");
 		else
 			object_data_error();
 		document_footer();
@@ -183,7 +183,7 @@ int main(void){
 
 		/* left column of the first row */
 		printf("<td align=left valign=top width=33%%>\n");
-		display_info_table("External Command Interface",FALSE,&current_authdata);
+		display_info_table("外部命令接口",FALSE,&current_authdata);
 		printf("</td>\n");
 
 		/* center column of the first row */
@@ -211,7 +211,7 @@ int main(void){
 		if(content_type==WML_CONTENT)
 			printf("<p>Error: No command specified!</p>\n");
 		else
-			printf("<P><DIV CLASS='errorMessage'>Error: No command was specified</DIV></P>\n");
+			printf("<P><DIV CLASS='errorMessage'>错误: 命令未定义</DIV></P>\n");
                 }
 
 	/* if this is the first request for a command, present option */
@@ -244,7 +244,7 @@ void document_header(int use_stylesheet){
 
 		printf("<wml>\n");
 
-		printf("<card id='card1' title='Command Results'>\n");
+		printf("<card id='card1' title='命令结果'>\n");
 	        }
 
 	else{
@@ -255,7 +255,7 @@ void document_header(int use_stylesheet){
 		printf("<head>\n");
 		printf("<link rel=\"shortcut icon\" href=\"%sfavicon.ico\" type=\"image/ico\">\n",url_images_path);
 		printf("<title>\n");
-		printf("External Command Interface\n");
+		printf("外部命令接口\n");
 		printf("</title>\n");
 
 		if(use_stylesheet==TRUE){
@@ -665,37 +665,37 @@ void request_command_data(int cmd){
 		comment_author=current_authdata.username;
 
 
-	printf("<P><DIV ALIGN=CENTER CLASS='cmdType'>You are requesting to ");
+	printf("<P><DIV ALIGN=CENTER CLASS='cmdType'>你正在请求: ");
 
 	switch(cmd){
 
 	case CMD_ADD_HOST_COMMENT:
 	case CMD_ADD_SVC_COMMENT:
-		printf("add a %s comment",(cmd==CMD_ADD_HOST_COMMENT)?"host":"service");
+		printf("增加注释: %s ",(cmd==CMD_ADD_HOST_COMMENT)?"主机":"服务");
 		break;
 
 	case CMD_DEL_HOST_COMMENT:
 	case CMD_DEL_SVC_COMMENT:
-		printf("delete a %s comment",(cmd==CMD_DEL_HOST_COMMENT)?"host":"service");
+		printf("删除注释: %s ",(cmd==CMD_DEL_HOST_COMMENT)?"主机":"服务");
 		break;
 		
 	case CMD_DELAY_HOST_NOTIFICATION:
 	case CMD_DELAY_SVC_NOTIFICATION:
-		printf("delay a %s notification",(cmd==CMD_DELAY_HOST_NOTIFICATION)?"host":"service");
+		printf("通知延时 %s ",(cmd==CMD_DELAY_HOST_NOTIFICATION)?"主机":"服务");
 		break;
 
 	case CMD_SCHEDULE_SVC_CHECK:
-		printf("schedule a service check");
+		printf("计划一次服务检查");
 		break;
 
 	case CMD_ENABLE_SVC_CHECK:
 	case CMD_DISABLE_SVC_CHECK:
-		printf("%s active checks of a particular service",(cmd==CMD_ENABLE_SVC_CHECK)?"enable":"disable");
+		printf("检查特定服务: %s ",(cmd==CMD_ENABLE_SVC_CHECK)?"启用":"禁用");
 		break;
 		
 	case CMD_ENABLE_NOTIFICATIONS:
 	case CMD_DISABLE_NOTIFICATIONS:
-		printf("%s notifications",(cmd==CMD_ENABLE_NOTIFICATIONS)?"enable":"disable");
+		printf("%s notifications",(cmd==CMD_ENABLE_NOTIFICATIONS)?"启用":"禁用");
 		break;
 		
 	case CMD_SHUTDOWN_PROCESS:
@@ -705,7 +705,7 @@ void request_command_data(int cmd){
 
 	case CMD_ENABLE_HOST_SVC_CHECKS:
 	case CMD_DISABLE_HOST_SVC_CHECKS:
-		printf("%s active checks of all services on a host",(cmd==CMD_ENABLE_HOST_SVC_CHECKS)?"enable":"disable");
+		printf("%s active checks of all services on a host",(cmd==CMD_ENABLE_HOST_SVC_CHECKS)?"启用":"禁用");
 		break;
 
 	case CMD_SCHEDULE_HOST_SVC_CHECKS:
@@ -719,7 +719,7 @@ void request_command_data(int cmd){
 
 	case CMD_ENABLE_SVC_NOTIFICATIONS:
 	case CMD_DISABLE_SVC_NOTIFICATIONS:
-		printf("%s notifications for a service",(cmd==CMD_ENABLE_SVC_NOTIFICATIONS)?"enable":"disable");
+		printf("%s notifications for a service",(cmd==CMD_ENABLE_SVC_NOTIFICATIONS)?"启用":"禁用");
 		break;
 
 	case CMD_ENABLE_HOST_NOTIFICATIONS:
